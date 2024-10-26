@@ -1,83 +1,379 @@
-//Search Input Form
-.search_input_form {
-  position: relative;
-  border-radius: 8px;
+//Radio Item
+.radio_item {
+  display: flex;
+  align-items: center;
   width: 100%;
-  height: 40px;
-  overflow: hidden;
-  background: $white-color-ff;
-  box-shadow: 0px 1px 2px 0px rgba(11, 18, 52, 0.15),
-    0px 0px 0px 1px rgba(11, 18, 52, 0.1);
-  ::placeholder {
-    color: $gray-color-69;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px;
-  }
-  .input_field,.input_search {
-    position: absolute;
-    top: 0;
-    left: 0;
+  height: 69px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  padding: 10px 24px;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  background: #fff;
+  margin-bottom: 12px;
+  .form-check {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)) minmax(0, 24px);
+    align-items: center;
+    gap: 12px;
     width: 100%;
-    height: 100%;
-    border: none;
-    color: $gray-color-69;
-    font-size: 16px;
+    padding: 0;
+  }
+
+  .form-check-label {
+    color: #000;
+    font-feature-settings: "liga" off, "clig" off;
+    font-family: SFSemiBoldFont;
+    font-size: 18px;
     font-style: normal;
-    font-weight: 400;
-    line-height: 20px;
-    padding-left: 38px;
-    padding-right: 12px;
+    font-weight: 500;
+    letter-spacing: -0.45px;
+  }
+}
+
+.color_radio_btn {
+  .form-check-input {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    float: none;
+    margin: 0;
+    border: 2px solid #b3b3b3;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+      background-color: transparent;
+    }
     &:focus {
       border: none !important;
-      outline: none !important;
     }
-    @include max-media-width(767) {
-      font-size: 14px;
-    }
-  }
-  .search_icon {
-    position: absolute;
-    top: 7px;
-    left: 12px;
-    img {
-      max-width: 17px;
-    }
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-  &.search_input_form_sm {
-    height: 36px;
-    .input_field {
-      font-size: 14px;
-    }
-    .search_icon {
-      top: 6px;
+    &:checked {
+      border: 2px solid #7741fb !important;
+      background: transparent;
+      &::after {
+        background-color: #7741fb;
+      }
     }
   }
 }
 
-//Chat Search form
-.chat_search_form {
-  position: relative;
-  width: 100%;
-  .input_field {
-    font-size: 14px;
-    border-radius: 8px;
-    width: 100%;
-    padding-left: 8px;
-    padding-right: 30px;
-    height: 36px;
-    overflow: hidden;
-    border: 1px solid $white-color;
-    background: $white-color-ff;
-    box-shadow: 0px 1px 2px 0px rgba(11, 18, 52, 0.15),
-      0px 0px 0px 1px rgba(11, 18, 52, 0.1);
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
+//Form Area
+.form_area {
+  .input_row {
+    margin-bottom: 20px;
+    .form_label {
+      display: block;
+      color: #171717;
+      font-family: SFMediumFont;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
+      margin-bottom: 8px;
+    }
+    .input_field {
+      color: #313131;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      padding: 18px 20px;
+      height: 55px;
+      width: 100%;
+      border-radius: 12px;
+      -webkit-border-radius: 12px;
+      -moz-border-radius: 12px;
+      -ms-border-radius: 12px;
+      -o-border-radius: 12px;
+      border: 1px solid #ededed;
+      background: #fbfbfb;
+}
   }
+
+  .password_area {
+    position: relative;
+    .input_field {
+      padding-right: 48px;
+    }
+    &.password_active {
+      .eye_open {
+        display: none;
+      }
+      .eye_close {
+        display: block;
+      }
+    }
+  }
+  .password_btn_area {
+    position: absolute;
+    top: 14px;
+    right: 15px;
+    img {
+      width: 20px;
+      color: #6e7281;
+    }
+    .eye_close {
+      display: none;
+    }
+  }
+  .form_status {
+    color: #847e7ed7;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 6px;
+    &.error {
+      color: rgb(230, 48, 48);
+    }
+    &.success {
+      color: #5ae375;
+    }
+  }
+  .remember_area {
+    .form-check-input {
+      float: none;
+      margin: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      -ms-border-radius: 4px;
+      -o-border-radius: 4px;
+      border: 3px solid #666666;
+      &:focus {
+        border: 3px solid #666666 !important;
+      }
+    }
+    .form-check-label,
+    .forget_password {
+      cursor: pointer;
+      color: rgba(0, 0, 0, 0.87);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0.15px;
+    }
+    .forget_password {
+      position: relative;
+      @include underLineBorder();
+    }
+  }
+  .terms_checkbox_area {
+    margin-top: 39px;
+    .form-check {
+      display: grid;
+      grid-template-columns: minmax(0, 20px) repeat(1, minmax(0, 1fr));
+      align-items: start;
+      gap: 10px;
+    }
+    .form-check-input {
+      border: 1px solid #9b9b9b;
+      &:focus {
+        border: 1px solid #9b9b9b !important;
+      }
+    }
+    .form-check-label {
+      margin-top: -1px;
+      a,
+      span {
+        display: inline;
+      }
+      span {
+        color: #888;
+      }
+    }
+  }
+  .login_btn {
+    margin-top: 24px;
+  }
+  .otp_input_area {
+    background-color: white;
+  }
+
+  .fake-inputs {
+    gap: 6px;
+    .otp-fake-input {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 55px;
+      height: 55px;
+      margin: 0 !important;
+      border: 1px solid #ededed;
+      border-radius: 12px !important;
+      -webkit-border-radius: 12px !important;
+      -moz-border-radius: 12px !important;
+      -ms-border-radius: 12px !important;
+      -o-border-radius: 12px !important;
+      background: #fbfbfb;
+    }
+    .otpdesigner__focus__ {
+      border-color: #7741fb;
+    }
+    .otp-content {
+      color: #313131;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+  .sing_up_top_area {
+    .fake-inputs {
+      .otp-fake-input {
+        width: 55px;
+        height: 77px;
+        border-radius: 8px !important;
+        -webkit-border-radius: 8px !important;
+        -moz-border-radius: 8px !important;
+        -ms-border-radius: 8px !important;
+        -o-border-radius: 8px !important;
+      }
+    }
+  }
+}
+
+//Int Number Styles
+.telephone_int_area {
+  .iti {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    @include max-media-width(767) {
+      gap: 12px;
+    }
+  }
+
+  .iti__selected-country-primary {
+    padding-left: 0;
+  }
+  .iti__selected-country {
+    justify-content: center;
+    height: 55px;
+    width: 106px;
+    border-radius: 12px;
+    border: 1px solid #ededed !important;
+    background: #fbfbfb;
+
+    .iti__selected-dial-code {
+      color: #313131;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+    }
+  }
+
+  .iti__country-container {
+    position: static;
+  }
+  .iti__tel-input {
+    padding: 20px 18px !important;
+  }
+  .iti__dropdown-content {
+    width: 100% !important;
+    .iti__search-input {
+      font-size: 14px;
+      height: 36px;
+      border: 1px solid #d7d7d7;
+    }
+  }
+  .iti__arrow {
+    border: none;
+    border-bottom: 2px solid #a8a4a4;
+    border-right: 2px solid #a8a4a4;
+    content: "";
+    display: block;
+    height: 8px;
+    top: 50%;
+    transform-origin: 66% 66%;
+    transform: rotate(45deg);
+    transition: all 0.15s ease-in-out;
+    width: 8px;
+  }
+  .iti__country-list {
+    @include customScrollbarInner();
+  }
+}
+
+//Custom switch
+.custom_switch_area{
+  /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
 }

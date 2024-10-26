@@ -1,0 +1,22 @@
+//Swiper
+.swiper {
+  width: 100%;
+}
+
+.login-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    margin: 0 !important;
+    @include hover-transition();
+    background-color: #9d9d9d;
+    &.swiper-pagination-bullet-active {
+      background-color: #000;
+    }
+  }
+}
