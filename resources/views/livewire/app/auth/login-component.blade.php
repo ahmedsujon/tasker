@@ -36,7 +36,7 @@
                         Remember Password
                     </label>
                 </div>
-                <a href="#" class="forget_password">Forgot Password</a>
+                <a href="{{ route('user.reset.password') }}" class="forget_password">Forgot Password</a>
                 <button type="submit" class="login_btn" {!! disabledOn('userLogin') !!}>
                     {!! loadingStateWithText('userLogin', 'Log In') !!} <img src="{{ asset('assets/app/icons/arrow-right.svg') }}"
                         alt="arrow icon" />
