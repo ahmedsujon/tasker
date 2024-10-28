@@ -69,7 +69,7 @@
 }
 /* Custom scroll Bar Inner */
 @mixin customScrollbarInner {
-  overflow-y: scroll;
+  overflow-y: auto;
   /* width */
   &::-webkit-scrollbar {
     width: 5px;
@@ -128,7 +128,7 @@
 }
 
 @mixin underLineBorder($color: rgba(0, 0, 0, 0.87)) {
-position: relative;
+  position: relative;
   &::after {
     content: "";
     position: absolute;
@@ -137,6 +137,27 @@ position: relative;
     width: 100%;
     height: 1px;
     background-color: $color;
+  }
+}
+
+@mixin backgroundBg(
+  $top: -$bodyTopSpace,
+  $left: -$bodyLeftSpace,
+  $width: $bodyLeftRightSpace,
+  $height: $bodyTopSpace,
+  $backgroundColor: white
+) {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: $top;
+    left: $left;
+    z-index: -1;
+    width: calc(100% + $width);
+    height: calc(100% + $height);
+    background-color: $backgroundColor;
   }
 }
 

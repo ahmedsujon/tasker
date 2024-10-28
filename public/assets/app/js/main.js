@@ -1,4 +1,18 @@
-$(document).ready(function () {});
+$(document).ready(function () {
+  //Dropdown Button Functionality
+  $(".postMoreBtn").click(function (e) {
+    e.preventDefault();
+    $("#moreDropdownArea").addClass("dropdown_active");
+    $("#dropdownOverlay").show();
+    scrollOutsideHidden();
+  });
+  $(".removeDropdownBtn").click(function (e) {
+    e.preventDefault();
+    $("#moreDropdownArea").removeClass("dropdown_active");
+    $("#dropdownOverlay").hide();
+    scrollOutsideScroll();
+  });
+});
 
 //Add Class
 function displayItem(addID, addClass, ovlerlayID) {
@@ -49,12 +63,3 @@ function scrollOutsideScroll() {
     );
   });
 })();
-
-// Int Number
-var inputTelephone = document.querySelector("#telephone");
-if (inputTelephone) {
-  window.intlTelInput(inputTelephone, {
-    separateDialCode: true,
-    preferredCountries: ["us", "gb", "ca"],
-  });
-}

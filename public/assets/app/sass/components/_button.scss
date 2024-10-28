@@ -43,3 +43,25 @@
   border-radius: 14px;
   background: #eeeeec;
 }
+.job_post_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 16px;
+  border-radius: 30px;
+  background: #7741fb;
+  img {
+    max-width: 18px;
+    width: 100%;
+  }
+  span {
+    color: #fff;
+    text-align: center;
+    font-family: SFMediumFont;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
