@@ -8,7 +8,7 @@
                 <h4>Rahat Ali Khan</h4>
             </div>
             <div class="d-flex justify-content-end">
-                <a href="#" class="job_post_btn">
+                <a href="{{ route('jobPostOne') }}" class="job_post_btn">
                     <img src="{{ asset('assets/app/icons/plus.svg') }}" alt="plus icon" />
                     <span>Post a job</span>
                 </a>

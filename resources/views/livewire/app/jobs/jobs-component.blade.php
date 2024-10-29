@@ -4,7 +4,7 @@
             <div class="w-100">
                 <div class="back_btn_grid back_btn_white pt-12">
                     <button type="button" class="page_back_btn">
-                        <img src="{{ asset('assets/app/icons/arrow-left.svg') }}') }}" alt="arrow left" />
+                        <img src="{{ asset('assets/app/icons/arrow-left.svg') }}" alt="arrow left" />
                     </button>
                     <h3>Post a job</h3>
                 </div>
@@ -21,7 +21,7 @@
                             <button type="button" class="search_btn">
                                 <img src="{{ asset('assets/app/icons/search-md.svg') }}" alt="search icon" />
                             </button>
-                            <ul class="suggestion_list">
+                            {{-- <ul class="suggestion_list">
                                 <li>
                                     <h4>General Furniture Assembly</h4>
                                     <div class="text-end">
@@ -34,7 +34,7 @@
                                         <button type="button">Add</button>
                                     </div>
                                 </li>
-                            </ul>
+                            </ul> --}}
                         </div>
                     </div>
                     <div class="most_using_category">
@@ -193,3 +193,39 @@
         </form>
     </section>
 </div>
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            // Handle click on category buttons
+            $("#usingCategoryList button").on("click", function() {
+                const $button = $(this);
+
+                if ($button.hasClass("active_category")) {
+                    // Toggle the active class
+                    $button.removeClass("active_category");
+                } else {
+                    // Remove active class
+                    $("#usingCategoryList button").removeClass("active_category");
+                    // Toggle the active class
+                    $button.toggleClass("active_category");
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Handle click on category buttons
+            $("#innerCategoryList button").on("click", function() {
+                const $button = $(this);
+
+                if ($button.hasClass("selected_category")) {
+                    // Toggle the active class
+                    $button.removeClass("selected_category");
+                } else {
+                    // Toggle the active class
+                    $button.toggleClass("selected_category");
+                }
+            });
+        });
+    </script>
+@endpush

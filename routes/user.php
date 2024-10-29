@@ -33,13 +33,14 @@ Route::prefix('user/')->name('user.')->middleware('auth')->group(function () {
     Route::post('logout', [LogoutController::class, 'userLogout'])->name('logout');
 
     Route::get('dashboard', DashboardComponent::class)->name('dashboard');
-
-    Route::get('job-post-step-one', JobsComponent::class)->name('jobPostOne');
-    Route::get('job-post-step-two', JobStepOneComponent::class)->name('jobPostTwo');
-    Route::get('job-post-step-three', JobStepTwoComponent::class)->name('jobPostThree');
-    Route::get('job-post-step-four', JobStepThreeComponent::class)->name('jobPostFour');
-    Route::get('job-post-step-five', JobStepFourComponent::class)->name('jobPostFive');
 });
+
+Route::get('job-post-step-one', JobsComponent::class)->name('jobPostOne');
+Route::get('job-post-step-two', JobStepOneComponent::class)->name('jobPostTwo');
+Route::get('job-post-step-three', JobStepTwoComponent::class)->name('jobPostThree');
+Route::get('job-post-step-four', JobStepThreeComponent::class)->name('jobPostFour');
+Route::get('job-post-step-five', JobStepFourComponent::class)->name('jobPostFive');
+
 
 // Forget Password
 Route::get('user/password/reset', ForgetPasswordComponent::class)->name('user.reset.password');
