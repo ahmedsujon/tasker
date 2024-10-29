@@ -4,6 +4,15 @@
   grid-template-columns: minmax(0, 40px) repeat(1, minmax(0, 1fr));
   align-items: center;
   gap: 10px;
+  &.back_more_btn_grid {
+    grid-template-columns: minmax(0, 40px) repeat(1, minmax(0, 1fr)) minmax(
+        0,
+        40px
+      );
+    h3 {
+      margin-right: 10px;
+    }
+  }
   h3 {
     color: #000;
     text-align: center;
@@ -101,11 +110,35 @@
       line-height: 22px;
       letter-spacing: -0.43px;
       padding: 17px 10px;
-      border-bottom: 1px solid rgb(229, 227, 227);
+      border-bottom: 1px solid rgb(229, 227, 227) !important;
       width: 100%;
       &.red {
         color: #ff3b30;
       }
+    }
+    .short_title {
+      display: block;
+      color: rgba(127, 127, 127, 0.5);
+      text-align: center;
+      font-feature-settings: "liga" off, "clig" off;
+      font-family: SFSemiBoldFont;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 18px;
+      letter-spacing: -0.08px;
+    }
+    .message {
+      display: block;
+      color: rgba(127, 127, 127, 0.5);
+      text-align: center;
+      font-feature-settings: "liga" off, "clig" off;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 18px;
+      letter-spacing: -0.08px;
+      margin-top: 4px;
     }
   }
   .dropdown_cancel_btn {
@@ -208,6 +241,49 @@
       button {
         background-color: #cfcfcf;
       }
+    }
+  }
+}
+
+//Project Size Area
+.project_size_area {
+  margin-top: 14px;
+  padding: 0 14px 25px 22px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border: 1.5px solid #eaeaea;
+  background: #fff;
+  .color_radio_btn {
+    margin-top: 25px;
+  }
+  .form-check {
+    display: grid;
+    grid-template-columns: minmax(0, 18px) repeat(1, minmax(0, 1fr));
+    align-items: start;
+    gap: 10px;
+    padding-left: 0;
+    .form-check-label {
+      margin-top: -3px;
+    }
+    .label {
+      display: block;
+      color: #000;
+      font-family: SFMediumFont;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    .time {
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-top: 6px;
     }
   }
 }

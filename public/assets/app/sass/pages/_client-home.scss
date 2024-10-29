@@ -6,29 +6,27 @@
     li {
       text-align: center;
       &:first-child {
-        a,
-        button {
+        .nav-link {
           &::after {
             width: 98px;
           }
         }
       }
       &:last-child {
-        a,
-        button {
+        .nav-link {
           &::after {
             width: 100px;
           }
         }
       }
-      a,
-      button {
+      .nav-link {
         position: relative;
         color: rgba(0, 0, 0, 0.7);
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+        padding: 0;
         padding-bottom: 16px;
         &::after {
           content: "";
@@ -43,7 +41,7 @@
           width: 85px;
           height: 2px;
         }
-        &.active_tab {
+        &.active {
           font-family: SFSemiBoldFont;
           color: #000;
           font-weight: 600;
@@ -58,7 +56,7 @@
 
 /* Active Post Tab Section */
 .active_tab_wrapper {
-  max-height: calc(100vh - 237px);
+  max-height: calc(100vh - 280px);
   margin-top: 22px;
   @include customScrollbarInner();
   .active_post_card {
@@ -159,7 +157,53 @@
     }
   }
 }
-/* Section */
+
+/* Job Post Section */
+.job_post_wrapper {
+  .post_overview_item {
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    @include underLineBorder(
+      $bodyLeftSpace,
+      $bodyLeftRightSpace,
+      1.5px,
+      #dfdfdf
+    );
+    h2 {
+      color: #747474;
+      font-family: SFMediumFont;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-bottom: 8px;
+    }
+    h4 {
+      color: #000;
+      font-family: SFSemiBoldFont;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+    h6 {
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-top: 6px;
+    }
+    p {
+      color: #000;
+      font-family: SFMediumFont;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 22px;
+    }
+  }
+}
 /* Section */
 /* Section */
 /* Section */
