@@ -18,7 +18,6 @@ $(document).ready(function () {
   $("#otpInput").otpdesigner({
     length: 6,
     onlyNumbers: true,
-    inputsParentClasses: "hello",
     // onchange:null,
     // executed when the user click on Enter key
     // enterClicked:null,
@@ -31,4 +30,21 @@ $(document).ready(function () {
 
   // clear values
   // $('#otpInput').otpdesigner('clear');
+
+   //Pin input
+   $("#pinInput").otpdesigner({
+    length: 4,
+    onlyNumbers: true,
+    // onchange:null,
+    // executed when the user click on Enter key
+    // enterClicked:null,
+
+    //Callback function when otp input will be completed
+    typingDone: function (code) {
+      console.log("Entered OTP code: " + code);
+    },
+  });
+
+  // clear values
+  // $('#pinInput').otpdesigner('clear');
 });

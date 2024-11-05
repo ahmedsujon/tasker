@@ -98,11 +98,18 @@
       -moz-border-radius: 12px;
       -ms-border-radius: 12px;
       -o-border-radius: 12px;
-      border: 1px solid #ededed;
+      border: 1px solid #d9d9d9;
       background: #fbfbfb;
-}
+      &:disabled {
+        background: #d2cfcf !important;
+      }
+    }
+    textarea {
+      &.input_field {
+        height: auto;
+      }
+    }
   }
-
   .password_area {
     position: relative;
     .input_field {
@@ -129,7 +136,60 @@
       display: none;
     }
   }
+  .seachable_input_row {
+    .input_field {
+      padding-right: 34px !important;
+    }
+    .search_btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+    }
+    .suggestion_list {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      padding: 18px 19px;
+      border-radius: 8px;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      -ms-border-radius: 8px;
+      -o-border-radius: 8px;
+      border: 1.5px solid #dfdfdf;
+      background: #fff;
+      box-shadow: 0px 15px 21.4px 0px rgba(0, 0, 0, 0.12);
+      min-height: 150px;
+      max-height: 250px;
+      @include customScrollbarInner();
+      li {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr)) minmax(0, 50px);
+        align-items: start;
+        gap: 10px;
+        &:not(:first-child) {
+          margin-top: 18px;
+        }
+      }
+      h4,
+      button {
+        font-family: SFMediumFont;
+        color: #111;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+      .added {
+        color: #7741fb;
+      }
+    }
+  }
   .form_status {
+    display: flex;
+    align-items: start;
+    flex-wrap: nowrap;
+    gap: 5px;
     color: #847e7ed7;
     font-size: 13px;
     font-style: normal;
@@ -199,11 +259,29 @@
       }
     }
   }
+  .send_otp_text {
+    display: block;
+    text-align: center;
+    color: #7741fb;
+    font-family: SFBoldFont;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+    margin-top: 12px;
+  }
   .login_btn {
     margin-top: 24px;
   }
   .otp_input_area {
     background-color: white;
+  }
+  .two_grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 0px 16px;
   }
 
   .fake-inputs {
@@ -247,133 +325,382 @@
       }
     }
   }
-}
-
-//Int Number Styles
-.telephone_int_area {
-  .iti {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    width: 100%;
-    @include max-media-width(767) {
-      gap: 12px;
-    }
-  }
-
-  .iti__selected-country-primary {
-    padding-left: 0;
-  }
-  .iti__selected-country {
-    justify-content: center;
-    height: 55px;
-    width: 106px;
-    border-radius: 12px;
-    border: 1px solid #ededed !important;
-    background: #fbfbfb;
-
-    .iti__selected-dial-code {
-      color: #313131;
-      font-size: 18px;
+  .input_field_div {
+    position: relative;
+    text-align: center;
+    padding-right: 50px !important;
+    background: #e1e1e1 !important;
+    h4 {
+      color: #02021d;
+      font-family: SFMediumFont;
+      font-size: 16px;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 500;
+      line-height: normal;
     }
+    .camera_icon {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      img {
+        max-width: 20px;
+      }
+    }
+  }
+  .input_left_icon_area {
+    position: relative;
+    .input_field {
+      padding-left: 56px !important;
+    }
+  }
+  .input_icons_left {
+    position: absolute;
+    top: 16px;
+    left: 20px;
   }
 
-  .iti__country-container {
-    position: static;
-  }
-  .iti__tel-input {
-    padding: 20px 18px !important;
-  }
-  .iti__dropdown-content {
-    width: 100% !important;
-    .iti__search-input {
-      font-size: 14px;
-      height: 36px;
-      border: 1px solid #d7d7d7;
+  &.job_post_form_area {
+    .input_row {
+      .input_field {
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        border-radius: 8px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+        border: 1.5px solid #eaeaea;
+        background: white;
+      }
     }
-  }
-  .iti__arrow {
-    border: none;
-    border-bottom: 2px solid #a8a4a4;
-    border-right: 2px solid #a8a4a4;
-    content: "";
-    display: block;
-    height: 8px;
-    top: 50%;
-    transform-origin: 66% 66%;
-    transform: rotate(45deg);
-    transition: all 0.15s ease-in-out;
-    width: 8px;
-  }
-  .iti__country-list {
-    @include customScrollbarInner();
+    ::placeholder {
+      font-size: 16px !important;
+      font-weight: 400 !important;
+      color: #b5b5b5 !important;
+    }
   }
 }
 
 //Custom switch
-.custom_switch_area{
-  /* The switch - the box around the slider */
-.switch {
+.custom_switch_area {
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 51px;
+    height: 31px;
+    padding: 2px 2px 2px 22px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 27px;
+    width: 27px;
+    left: 3px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.04),
+      0px 3px 8px 0px rgba(0, 0, 0, 0.15), 0px 3px 1px 0px rgba(0, 0, 0, 0.06);
+  }
+
+  input:checked + .slider {
+    background-color: #7741fb;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(19px);
+    -webkit-transform: translateX(19px);
+    -moz-transform: translateX(19px);
+    -ms-transform: translateX(19px);
+    -o-transform: translateX(19px);
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  &.custom_switch_red {
+    input:checked + .slider {
+      background-color: #ef5da8;
+    }
+  }
+}
+
+//Attache area
+.attach_file_area {
+  display: grid;
+  grid-template-columns: minmax(0, 30px) repeat(1, minmax(0, 1fr));
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  height: 73px;
+  width: 100%;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border: 1.5px dashed #827373;
+  @include hover-transition();
+  background: #fff;
+  &.drag_active {
+    border: 1.5px dashed #50a92f !important;
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    -o-transform: scale(1.02);
+  }
+  img {
+    max-width: 30px;
+  }
+  h4 {
+    font-family: SFMediumFont;
+    color: #111;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  h6 {
+    font-family: SFMediumFont;
+    color: rgba(128, 128, 128, 0.55);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 2px;
+  }
+}
+.attach_file_area,
+.file_uploaded_area .upload_grid {
+  h4 {
+    font-family: SFMediumFont;
+    color: #111;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  h6 {
+    font-family: SFMediumFont;
+    color: rgba(128, 128, 128, 0.55);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 2px;
+  }
+  h4,
+  h6 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+.file_uploaded_area {
+  margin-top: 21px;
+  h3 {
+    color: rgba(128, 128, 128, 0.55);
+    font-family: SFMediumFont;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 11px;
+  }
+  .upload_grid {
+    display: grid;
+    grid-template-columns: minmax(0, 41px) repeat(1, minmax(0, 1fr)) minmax(
+        0,
+        70px
+      );
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    &.remove_delete_btn_grid {
+      grid-template-columns: minmax(0, 41px) repeat(1, minmax(0, 1fr));
+    }
+  }
+}
+
+//Date range
+.date_range_area {
+  h4 {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 8px;
+  }
+  .range_area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid #ededed;
+    background: #fff;
+    span {
+      color: #000;
+      font-family: SFMediumFont;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    .calender_icon {
+      max-width: 20px;
+    }
+  }
+}
+.daterangepicker {
+  width: calc(100% - $bodyLeftRightSpace);
+}
+
+//Message chat
+.message_chat_area {
+  padding-right: $bodyRightSpace;
+  height: calc(100vh - 270px);
+  width: calc(100% + $bodyRightSpace);
+  @include customScrollbarInner();
+  .client_msg_grid {
+    display: grid;
+    grid-template-columns: minmax(0, 36px) repeat(1, minmax(0, 1fr));
+    align-items: start;
+    gap: 20px 16px;
+    margin-bottom: 29px;
+    &.support_msg_grid {
+      .time {
+        margin-left: 2px;
+        margin-right: 0;
+      }
+      p {
+        color: #141416;
+        border-radius: 16px;
+        background: #f4f5f6;
+      }
+    }
+    .text_area {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      gap: 4px;
+    }
+    p {
+      color: #fff;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: #7741fb;
+    }
+    .time {
+      color: #dee0e2;
+      font-family: SFSemiBoldFont;
+      text-align: right;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 20px;
+      margin-right: 2px;
+    }
+  }
+  .support_user {
+    width: 100%;
+    height: 36px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+  }
+}
+
+//Message send section
+.msg_send_area {
   position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr)) minmax(0, 56px);
+  align-items: center;
+  gap: 20px 16px;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -$bodyLeftSpace;
+    width: calc(100% + $bodyLeftRightSpace);
+    height: 1px;
+    background-color: #ededed;
+  }
+  ::placeholder {
+    color: #a8a8a8 !important;
+    font-size: 16px !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .type_area {
+    position: relative;
+    .input_field {
+      font-size: 16px !important;
+      padding: 12px 16px;
+      padding-right: 36px;
+      border-radius: 16px;
+      height: 56px;
+      width: 100%;
+      border: none !important;
+      background: #f6f6f6;
+      @include customScrollbarInner();
+    }
+    .file_select_btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 24px;
+    }
+  }
+  .send_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 56px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background-color: #7741fb;
+  }
 }

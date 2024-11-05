@@ -1,0 +1,267 @@
+/* Active Post  Section */
+.active_post_wrapper {
+  @include backgroundBg();
+  .tab_list {
+    margin-top: 32px;
+    li {
+      text-align: center;
+      &:first-child {
+        .nav-link {
+          &::after {
+            width: 98px;
+          }
+        }
+      }
+      &:last-child {
+        .nav-link {
+          &::after {
+            width: 100px;
+          }
+        }
+      }
+      .nav-link {
+        position: relative;
+        color: rgba(0, 0, 0, 0.7);
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        padding: 0;
+        padding-bottom: 16px;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -moz-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          -o-transform: translateX(-50%);
+          width: 85px;
+          height: 2px;
+        }
+        &.active {
+          font-family: SFSemiBoldFont;
+          color: #000;
+          font-weight: 600;
+          &::after {
+            background-color: #7741fb;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Active Post Tab Section */
+.active_tab_wrapper {
+  max-height: calc(100vh - 280px);
+  margin-top: 22px;
+  @include customScrollbarInner();
+  .active_post_card {
+    padding: 16px 14px 19px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border: 1px solid #f2f2f2;
+    background: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+    .post_title_grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr)) minmax(0, 24px);
+      align-items: start;
+      gap: 11px;
+      h3 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        color: #000;
+        font-family: SFSemiBoldFont;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+    }
+  }
+  .post_time_grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px 24px;
+    margin-top: 14px;
+    @include max-media-width(420) {
+      gap: 20px 14px;
+    }
+  }
+  .time_item {
+    min-height: 48px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    background: #f4f4f4;
+    h4 {
+      color: rgba(0, 0, 0, 0.42);
+      font-family: SFMediumFont;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    h5 {
+      color: #000;
+      font-family: SFSemiBoldFont;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      margin-top: 2px;
+    }
+  }
+  .client_area {
+    margin-top: 2px;
+    .user_img {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+    }
+    h5 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-top: 0;
+    }
+  }
+  .category_area {
+    margin-top: 25px;
+    h6 {
+      color: rgba(145, 145, 145, 0.7);
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      text-transform: uppercase;
+    }
+    .category_list {
+      margin-top: 9px;
+      li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        padding: 6px 10px;
+        border-radius: 16px;
+        border: 1px solid #ddd;
+        background: #fff;
+        a {
+          color: #5d5d5d;
+          font-size: 10px;
+          font-style: normal;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  //In order Tab
+  .order_description_area {
+    margin-top: 14px;
+    padding-top: 10px;
+    @include topLineBorder(16px, 48px);
+    p {
+      color: #000;
+      font-family: SFMediumFont;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 22px;
+      .more_less_btn {
+        color: #6d6d6d;
+        font-family: SFMediumFont;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 22px;
+        text-decoration-line: underline;
+      }
+      &.expanded {
+        .more_less_btn {
+          color: #7741fb !important;
+        }
+      }
+    }
+  }
+  .order_action_btn_area {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 20px 13px;
+    margin-top: 17px;
+    padding-top: 13px;
+    @include topLineBorder(16px, 48px);
+  }
+}
+
+/* Job Post Section */
+.job_post_wrapper {
+  .post_overview_item {
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    @include underLineBorder(
+      $bodyLeftSpace,
+      $bodyLeftRightSpace,
+      1.5px,
+      #dfdfdf
+    );
+    h2 {
+      color: #747474;
+      font-family: SFMediumFont;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-bottom: 8px;
+    }
+    h4 {
+      color: #000;
+      font-family: SFSemiBoldFont;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+    h6 {
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-top: 6px;
+    }
+    p {
+      color: #000;
+      font-family: SFMediumFont;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 22px;
+    }
+  }
+}
+/* Section */
+/* Section */
+/* Section */
+/* Section */
+/* Section */

@@ -5,10 +5,10 @@
   flex-wrap: wrap;
   gap: 7px;
   color: white;
-  font-family: SFSemiBoldFont;
+  font-family: SFMediumFont;
   font-size: 16px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 1px;
   padding: 10px;
   width: 100%;
@@ -42,4 +42,136 @@
   height: 40px;
   border-radius: 14px;
   background: #eeeeec;
+}
+.job_post_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 16px;
+  border-radius: 30px;
+  background: #7741fb;
+  img {
+    max-width: 18px;
+    width: 100%;
+  }
+  span {
+    color: #fff;
+    text-align: center;
+    font-family: SFMediumFont;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+.file_delete_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 17px;
+  color: #000;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border: 1px solid rgba(128, 128, 128, 0.55) !important;
+}
+.pay_now_btn {
+  padding: 10px 16px;
+  color: #7741fb;
+  font-family: SFMediumFont;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  background: #fff;
+}
+.order_status_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #ff9500;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 8px 16px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  background: #fff8ef;
+  &.refound {
+    color: #808080;
+    background: #e3e3e3;
+  }
+  &.complete {
+    color: #0029c7;
+    background: #e5efff;
+  }
+  &.cancel {
+    color: #d91f4d;
+    background: #e7eaef;
+  }
+}
+.cancel_job_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e66767;
+  font-feature-settings: "liga" off, "clig" off;
+  font-family: SFMediumFont;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  height: 37px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #e97a7a !important;
+  background: #fff;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+.complete_job_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  height: 37px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #8859fc !important;
+  background: #fff;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  span {
+    color: #7741fb;
+    font-feature-settings: "liga" off, "clig" off;
+    font-family: SFSemiBoldFont;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
 }

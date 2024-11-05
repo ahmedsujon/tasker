@@ -1,0 +1,47 @@
+.Header_wrapper {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 500;
+  width: 100%;
+  padding: 24px;
+  border-top: 2px solid #ebeaea;
+  background: #fff;
+  .menu_list {
+    gap: 10px 16px;
+  }
+  .menu_list_item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+    img {
+      max-width: 24px;
+    }
+    .active_icon {
+      display: none;
+    }
+    span {
+      color: rgba(0, 0, 0, 0.64);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    &.active_menu {
+      .inactive_icon {
+        display: none;
+      }
+      .active_icon {
+        display: block;
+      }
+      span {
+        font-family: SFBoldFont;
+        color: rgba(0, 0, 0, 0.8);
+        font-weight: 700;
+      }
+    }
+  }
+}

@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 body {
-  padding: 16px 24px 24px 24px;
+  padding: $bodyTopSpace $bodyLeftSpace $bodyRightSpace $bodyBottomSpace;
   background-color: $body-bg;
   font-family: $body-font-family;
   font-size: $font-size-base;
@@ -103,8 +103,13 @@ button:focus {
 
 button {
   cursor: pointer;
+  padding: 0;
   border: none !important;
   background-color: transparent;
+  &:disabled {
+    color: #000 !important;
+    background-color: #8a8e95 !important;
+  }
 }
 
 button:hover {
@@ -153,6 +158,12 @@ input[type="number"] {
   flex-wrap: wrap;
   gap: 7px 12px;
 }
+.text-black {
+  color: #000;
+}
+.g-smm {
+  gap: 10px 8px;
+}
 .g-sm {
   gap: 8px 12px;
 }
@@ -162,11 +173,26 @@ input[type="number"] {
 .mt-24 {
   margin-top: 24px;
 }
+.mrn-24 {
+  margin-right: -$bodyRightSpace;
+}
+.mr-24 {
+  margin-right: $bodyRightSpace;
+}
 .mt-12 {
   margin-top: 12px;
 }
+.mt-16 {
+  margin-top: 16px;
+}
+.pt-10 {
+  padding-top: 10px;
+}
 .pt-12 {
   padding-top: 12px;
+}
+.pt-16 {
+  padding-top: 16px;
 }
 .h-full-screen {
   min-height: calc(100vh - $fullHeightRemove);
@@ -189,6 +215,13 @@ input[type="number"] {
     margin-top: 30px;
   }
 }
+.bg_color {
+  background-color: #f4f4f4;
+}
+.header_bottom_space {
+  padding-bottom: 100px;
+}
+
 .default_section_gap {
   margin-top: 80px;
   @include media-break-width(768, 991) {
@@ -205,8 +238,8 @@ input[type="number"] {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 10000;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 501;
   display: none;
 }
 
