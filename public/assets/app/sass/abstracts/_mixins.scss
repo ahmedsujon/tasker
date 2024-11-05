@@ -144,6 +144,23 @@
     background-color: $color;
   }
 }
+@mixin topLineBorder(
+  $left: 0px,
+  $width: 0px,
+  $height: 1px,
+  $color: #F5F5F5
+) {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -$left;
+    width: calc(100% + $width);
+    height: $height;
+    background-color: $color;
+  }
+}
 
 @mixin backgroundBg(
   $top: -$bodyTopSpace,

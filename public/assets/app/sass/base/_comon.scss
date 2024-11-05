@@ -106,6 +106,10 @@ button {
   padding: 0;
   border: none !important;
   background-color: transparent;
+  &:disabled {
+    color: #000 !important;
+    background-color: #8a8e95 !important;
+  }
 }
 
 button:hover {
@@ -154,6 +158,9 @@ input[type="number"] {
   flex-wrap: wrap;
   gap: 7px 12px;
 }
+.text-black {
+  color: #000;
+}
 .g-smm {
   gap: 10px 8px;
 }
@@ -175,13 +182,16 @@ input[type="number"] {
 .mt-12 {
   margin-top: 12px;
 }
+.mt-16 {
+  margin-top: 16px;
+}
 .pt-10 {
   padding-top: 10px;
 }
 .pt-12 {
   padding-top: 12px;
 }
-.pt-16{
+.pt-16 {
   padding-top: 16px;
 }
 .h-full-screen {

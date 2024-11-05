@@ -1,0 +1,498 @@
+/* Client Profile Section */
+.client_profile_wrapper {
+  .client_user_info_grid {
+    margin-top: 16px;
+  }
+  .account_area {
+    margin-top: 38px;
+  }
+  .item_short_title {
+    margin-bottom: 16px;
+  }
+
+  .account_item_grid {
+    display: grid;
+    grid-template-columns: minmax(0, 24px) repeat(1, minmax(0, 1fr)) minmax(
+        0,
+        24px
+      );
+    align-items: center;
+    gap: 20px 14px;
+    padding: 15px 13px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    width: 100%;
+    background: #fff;
+    &::after {
+      display: none;
+    }
+    &.show {
+      .right_icon {
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+      }
+    }
+    .title {
+      color: #002807;
+      font-family: SFMediumFont;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px;
+      text-align: start;
+    }
+    img {
+      max-width: 24px;
+    }
+    .right_icon {
+      @include hover-transition();
+    }
+  }
+  .terms_area {
+    margin-top: 28px;
+    margin-bottom: 20px;
+    a,
+    span {
+      color: #002807;
+      text-align: center;
+      font-family: SFMediumFont;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 24px;
+    }
+    a {
+      @include underLineBorder();
+    }
+  }
+  &.client_settings_wrapper {
+    .account_item_grid {
+      background: #f4f4f3;
+    }
+  }
+}
+
+/* Client Billing Payment Section */
+.billing_payment_wrapper {
+  .billing_area {
+    margin-top: 24px;
+    h3 {
+      color: #002807;
+      font-family: SFMediumFont;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-bottom: 10px;
+    }
+    p {
+      color: rgba(32, 32, 32, 0.7);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+}
+
+/* Order History Section */
+.client_order_history_wrapper {
+  margin-top: 24px;
+  .nav-pills {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 20px 16px;
+    @include underLineBorder($bodyLeftSpace, $bodyLeftRightSpace, 1px, #f2f2f2);
+    .nav-item {
+      &:last-child {
+        .nav-link {
+          &::after {
+            left: 0;
+            width: calc(100% + $bodyLeftSpace);
+          }
+        }
+      }
+    }
+    .nav-link {
+      position: relative;
+      color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      padding: 0;
+      width: 100%;
+      padding-bottom: 16px;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: -$bodyLeftSpace;
+        width: calc(100% + $bodyLeftSpace);
+        height: 2px;
+      }
+      &.active {
+        font-family: SFMediumFont;
+        color: #000;
+        font-weight: 500;
+        background-color: transparent;
+        &::after {
+          background-color: #7741fb;
+        }
+      }
+    }
+  }
+  .tab-content {
+    margin-top: 24px;
+  }
+  .order_history_item {
+    padding: 4px;
+    margin-bottom: 28px;
+    border-radius: 12px;
+    border: 1px solid #f2f2f2;
+    background: #fff;
+    .order_history_grid {
+      display: grid;
+      grid-template-columns: minmax(0, 80px) repeat(1, minmax(0, 1fr));
+      align-items: start;
+      gap: 20px 16px;
+      padding: 12px;
+      padding-top: 20px;
+      .content {
+        h3 {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          color: #000;
+          text-overflow: ellipsis;
+          font-family: SFBoldFont;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+        h4 {
+          color: rgba(0, 0, 0, 0.7);
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          margin-top: 20px;
+        }
+      }
+    }
+    .order_img {
+      width: 100%;
+      height: 80px;
+      border-radius: 8px;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      -ms-border-radius: 8px;
+      -o-border-radius: 8px;
+    }
+  }
+
+  .client_grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 10px 12px;
+    margin: 12px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f2f2f2;
+    // @include max-media-width(429) {
+    //   grid-template-columns: repeat(1, minmax(0, 1fr));
+    // }
+    .info_area {
+      display: grid;
+      grid-template-columns: minmax(0, 40px) repeat(1, minmax(0, 1fr));
+      align-items: start;
+      gap: 20px 12px;
+      .user_image {
+        width: 100%;
+        height: 40px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+      }
+      .client_name {
+        color: #000;
+        font-family: SFMediumFont;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+      }
+      .client_status {
+        color: rgba(0, 0, 0, 0.7);
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 2px;
+        &.active {
+          color: rgb(24, 207, 24);
+        }
+        &.not_active {
+          color: rgb(207, 18, 62);
+        }
+      }
+    }
+  }
+  .delivery_date_area {
+    padding: 12px;
+    img {
+      max-width: 16px;
+    }
+    h4 {
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    h6 {
+      color: #000;
+      font-family: SFMediumFont;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-top: 4px;
+    }
+  }
+  .overall_ratting_area {
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 12px;
+    background: #f7f7f7;
+    p {
+      color: #000;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px;
+      margin-top: 18px;
+    }
+  }
+  .overall_title {
+    margin-top: 5px;
+    h3 {
+      color: #000;
+      font-family: SFMediumFont;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 21px;
+    }
+    img {
+      max-width: 24px;
+    }
+    h5 {
+      color: #000;
+      font-family: SFMediumFont;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+  .others_ratting_list {
+    margin-top: 18px;
+    li {
+      margin-bottom: 10px;
+    }
+    h4 {
+      color: rgba(0, 0, 0, 0.8);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    img {
+      max-width: 20px;
+    }
+    h5 {
+      color: rgba(0, 0, 0, 0.8);
+      font-family: SFMediumFont;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+  .transaction_area {
+    .balance {
+      font-family: SFMediumFont;
+      color: #000;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      span {
+        font-family: SFBoldFont;
+        color: #7741fb;
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+    .date_range_area {
+      position: relative;
+      margin-top: 20px;
+      padding-bottom: 20px;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: -$bodyLeftSpace;
+        z-index: -1;
+        width: calc(100% + $bodyLeftRightSpace);
+        height: 100%;
+        background: #fff;
+        box-shadow: 0 4px 12.4px -2px rgba(0, 0, 0, 0.08);
+      }
+    }
+  }
+  .transaction_table_area {
+    margin-top: 24px;
+  }
+  .transaction_grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.6fr);
+    align-items: center;
+    gap: 20px 10px;
+    padding: 20px;
+    h3,
+    h4 {
+      color: #000;
+      font-family: SFBoldFont;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+  .inner_transaction_area {
+    .transaction_grid {
+      margin-bottom: 24px;
+      border-radius: 12px;
+      background: #f4f5f6;
+    }
+    h5,
+    h6 {
+      color: #000;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+  .inner_transaction_area {
+    padding-right: 2px;
+    max-height: calc(100vh - 250px);
+    min-height: 200px;
+    @include customScrollbarInner();
+  }
+}
+
+/*  Notification Settings Section */
+.notification_settings_section {
+  .notification_settings_area {
+    padding-top: 42px;
+  }
+  .notification_setting_item {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)) minmax(0, 52px);
+    align-items: start;
+    gap: 20px 10px;
+    margin-bottom: 27px;
+    h3 {
+      color: #000;
+      font-family: SFMediumFont;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    p {
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-top: 11px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+}
+
+/* Support Chat Section */
+.support_chat_wrapper {
+  height: calc(100vh - $fullHeightRemove);
+  .message_chat_area {
+    margin-top: 18px;
+  }
+}
+
+/* Term Condition Section */
+.term_condition_wrapper {
+  .term_title {
+    margin-top: 34px;
+    margin-bottom: 24px;
+  }
+  .terms_item {
+    margin-bottom: 32px;
+    h3 {
+      color: #000;
+      font-family: SFSemiBoldFont;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 30px;
+      margin-bottom: 12px;
+    }
+    p,
+    li {
+      color: #111;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22px;
+    }
+    ul {
+      padding-left: 20px;
+      li {
+        list-style-type: disc;
+        margin-bottom: 6px;
+      }
+    }
+    ol {
+      padding-left: 20px;
+      li {
+        list-style-type: number;
+        margin-bottom: 6px;
+      }
+    }
+  }
+}
+/* Section */

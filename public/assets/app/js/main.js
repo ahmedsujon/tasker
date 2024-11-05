@@ -12,6 +12,51 @@ $(document).ready(function () {
     $("#dropdownOverlay").hide();
     scrollOutsideScroll();
   });
+
+  //Alert Modal Functionality
+  $("#alertModalOpen").click(function (e) {
+    e.preventDefault();
+    $("#alertModalArea").addClass("alert_modal_active");
+    $("#alertOverlay").show();
+    scrollOutsideHidden();
+  });
+  $(".alertModalCloseBtn").click(function (e) {
+    e.preventDefault();
+    $("#alertModalArea").removeClass("alert_modal_active");
+    $("#alertOverlay").hide();
+    scrollOutsideScroll();
+  });
+
+  //More less functionality
+  const maxLength = 400; // Set the max characters to show initially
+
+  $(" .descriptionPara").each(function () {
+    const fullText = $(this).text().trim();
+    const truncatedText = fullText.slice(0, maxLength);
+
+    // If full text is longer, show truncated and save full text in data attribute
+    if (fullText.length > maxLength) {
+      $(this).data("full-text", fullText);
+      $(this).html(truncatedText + ' <span class="more_less_btn">more...</span>');
+    }
+  });
+
+  // Toggle text on clicking the paragraph
+  $(".descriptionPara").on("click", function () {
+    const $description = $(this);
+    const fullText = $description.data("full-text");
+    const truncatedText = fullText.slice(0, maxLength);
+
+    if ($description.hasClass("expanded")) {
+      $description.html(
+        truncatedText + ' <span class="more_less_btn">more...</span>'
+      );
+      $description.removeClass("expanded");
+    } else {
+      $description.html(fullText + ' <span class="more_less_btn">less</span>');
+      $description.addClass("expanded");
+    }
+  });
 });
 
 //Add Class
