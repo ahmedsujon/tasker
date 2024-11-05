@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', HomeComponent::class)->name('app.home');
+// Route::prefix('user/')->name('user.')->middleware('auth')->group(function () {
+//     Route::get('/', HomeComponent::class)->name('app.home');
+// });
 
 //Call Route Files
 require __DIR__ . '/admin.php';
