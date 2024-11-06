@@ -4,6 +4,7 @@ namespace App\Livewire\App\Profile;
 
 use App\Models\User;
 use Livewire\Component;
+use Livewire\Attributes\Title;
 
 class AccountInfoComponent extends Component
 {
@@ -44,6 +45,7 @@ class AccountInfoComponent extends Component
         $this->dispatch('success', ['message' => 'Status updated successfully.']);
     }
 
+    #[Title('Account Information')]
     public function render()
     {
         return view('livewire.app.profile.account-info-component')->layout('livewire.app.layouts.base');
