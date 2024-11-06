@@ -2,9 +2,14 @@
     <section class="client_profile_wrapper mt-12">
         <div class="d-flex-between">
             <h2 class="page_title text-black">Profile</h2>
-            <button type="button" id="alertModalOpen">
+            <a href="{{ route('user.logout') }}" type="button" id="alertModalOpen"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <img src="{{ asset('assets/app/icons/log-out-02.svg') }}" alt="log out icon" />
-            </button>
+            </a>
+            <form id="logout-form" style="display: none;" method="POST" action="{{ route('user.logout') }}">
+                @csrf
+            </form>
+
         </div>
         <div class="horizontal-m-w">
             <div class="client_user_info_grid">
