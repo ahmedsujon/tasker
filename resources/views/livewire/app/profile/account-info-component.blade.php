@@ -23,7 +23,8 @@
                             <h4>Online Status</h4>
                             <div class="custom_switch_area custom_switch_red d-flex justify-content-end">
                                 <label class="switch">
-                                    <input type="checkbox" />
+                                    <input type="checkbox" @if (user()->online_status == 1) checked @endif
+                                        wire:model.live="online_status" />
                                     <span class="slider round"></span>
                                 </label>
                             </div>
