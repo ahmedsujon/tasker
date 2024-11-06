@@ -38,6 +38,12 @@ class AccountInfoComponent extends Component
         $this->dispatch('success', ['message' => 'Informatio updated successfully']);
     }
 
+    public function changeStatus($id, $status)
+    {
+        User::where('id', $id)->update(['status' => ($status == 1 ? 0 : 1)]);
+        $this->dispatch('success', ['message' => 'Status updated successfully.']);
+    }
+
     public function render()
     {
         return view('livewire.app.profile.account-info-component')->layout('livewire.app.layouts.base');
