@@ -1,7 +1,7 @@
 <div>
     <section class="google_sign_up_wrapper">
         <div class="horizontal-m-w">
-            <form action="" class="form_area h-full-screen space-between mt-0 pt-12">
+            <form wire:submit.prevent='updateData' class="form_area h-full-screen space-between mt-0 pt-12">
                 <div class="w-100">
                     <div class="back_btn_grid">
                         <button type="button" class="page_back_btn">
@@ -32,24 +32,46 @@
                     </div>
                     <div class="mt-24">
                         <div class="input_row">
-                            <label for="" class="form_label">First name</label>
-                            <input type="text" placeholder="Enter your first name" class="input_field" />
-                            <div class="form_status error">Email is required</div>
+                            <label for="first_name" class="form_label">First name</label>
+                            <input type="text" wire:model.blur='first_name' placeholder="Enter your first name"
+                                class="input_field" />
+                            @error('first_name')
+                                <div class="form_status error">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="input_row">
-                            <label for="" class="form_label">Last name</label>
-                            <input type="text" placeholder="Enter your last name" class="input_field" />
+                            <label for="last_name" class="form_label">Last name</label>
+                            <input type="text" wire:model.blur='last_name' placeholder="Enter your last name"
+                                class="input_field" />
+                            @error('last_name')
+                                <div class="form_status error">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="input_row">
-                            <label for="" class="form_label">Email*</label>
-                            <input type="text" placeholder="Enter email" class="input_field" />
+                            <label for="email" class="form_label">Email*</label>
+                            <input type="email" wire:model.blur='email' placeholder="Enter email"
+                                class="input_field" />
+                            @error('email')
+                                <div class="form_status error">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="input_row">
+                            <label for="phone" class="form_label">Phone*</label>
+                            <input type="text" wire:model.blur='phone' placeholder="Enter email"
+                                class="input_field" />
+                            @error('phone')
+                                <div class="form_status error">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                 </div>
-                <div class="w-100">
-                    <button type="submit" class="login_btn">Save</button>
+                <div class="w-100" style="margin-bottom: 90px;">
+                    <button type="submit" class="login_btn">
+                        {!! loadingStateWithText('updateData', 'Update') !!}
+                    </button>
                 </div>
             </form>
         </div>
     </section>
+    @livewire('app.layouts.inc.header')
 </div>

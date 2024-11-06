@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('avatar', 2048)->nullable();
             $table->rememberToken();
             $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('online_status')->default(0);
             $table->timestamps();
         });
     }

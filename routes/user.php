@@ -8,6 +8,7 @@ use App\Http\Controllers\LogoutController;
 use App\Livewire\App\User\DashboardComponent;
 use App\Livewire\App\Jobs\JobStepOneComponent;
 use App\Livewire\App\Jobs\JobStepTwoComponent;
+use App\Livewire\App\Profile\AccountInfoComponent;
 use App\Livewire\App\Profile\ProfileComponent;
 use App\Livewire\App\Jobs\JobStepFourComponent;
 use App\Livewire\App\Auth\RegistrationComponent;
@@ -36,7 +37,10 @@ Route::prefix('user/')->name('user.')->middleware('auth')->group(function () {
     Route::get('/home', HomeComponent::class)->name('home');
 
     Route::get('dashboard', DashboardComponent::class)->name('dashboard');
+
+    // Profile Routes
     Route::get('profile', ProfileComponent::class)->name('profile');
+    Route::get('account/information/{id}', AccountInfoComponent::class)->name('accountInformation');
 
     // Job Posting Routes
     Route::get('job-post-step-one', JobsComponent::class)->name('jobPostOne');
