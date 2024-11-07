@@ -704,3 +704,25 @@
     background-color: #7741fb;
   }
 }
+
+//Report form checkbox
+.check_input_area {
+  .form-check {
+    display: grid;
+    grid-template-columns: minmax(0, 18px) repeat(1, minmax(0, 1fr));
+    align-items: start;
+    gap: 12px;
+    padding: 0;
+    margin-bottom: 16px;
+  }
+  .form-check-input {
+    margin-top: 4px;
+  }
+  .label {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}

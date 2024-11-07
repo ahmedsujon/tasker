@@ -13,9 +13,10 @@
                         <div class="user_img">
                             <img src="{{ asset('assets/app/images/user/user_image.png') }}" alt="user image" />
                         </div>
-                        <a href="#" class="change_icon">
+                        <label for="userFileUpload" class="change_icon">
                             <img src="{{ asset('assets/app/icons/image_change.svg') }}" alt="image change icon" />
-                        </a>
+                        </label>
+                        <input type="file" id="userFileUpload" hidden />
                     </div>
                     <div class="status_area">
                         <div class="status_grid">

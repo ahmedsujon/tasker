@@ -28,7 +28,7 @@
                     <span class="title"> Account Information </span>
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />
                 </a>
-                <a href="#" class="account_item_grid">
+                <a href="{{ route('user.billingPayment') }}" class="account_item_grid">
                     <img src="{{ asset('assets/app/icons/credit-card-01.svg') }}" alt="user icon" class="user_icon" />
                     <span class="title">Billing Payment </span>
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />
