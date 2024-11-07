@@ -27,9 +27,9 @@
                     </p>
                 </div>
             </div>
-            <button type="submit" class="login_btn mt-24" style="margin-bottom: 90px;">
+            <a href="{{ route('user.billingMethod') }}" class="login_btn mt-24" style="margin-bottom: 90px;">
                 + Add a billing method
-            </button>
+            </a>
         </div>
     </section>
     @livewire('app.layouts.inc.header')
