@@ -8,6 +8,6 @@ class NotificationsComponent extends Component
 {
     public function render()
     {
-        return view('livewire.app.profile.settings.notifications-component');
+        return view('livewire.app.profile.settings.notifications-component')->layout('livewire.app.layouts.base');
     }
 }

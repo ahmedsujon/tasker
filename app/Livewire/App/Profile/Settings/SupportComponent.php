@@ -8,6 +8,6 @@ class SupportComponent extends Component
 {
     public function render()
     {
-        return view('livewire.app.profile.settings.support-component');
+        return view('livewire.app.profile.settings.support-component')->layout('livewire.app.layouts.base');
     }
 }

@@ -8,6 +8,6 @@ class ChangePasswordComponent extends Component
 {
     public function render()
     {
-        return view('livewire.app.profile.settings.change-password-component');
+        return view('livewire.app.profile.settings.change-password-component')->layout('livewire.app.layouts.base');
     }
 }
