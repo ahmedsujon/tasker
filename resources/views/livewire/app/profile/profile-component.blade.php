@@ -78,7 +78,7 @@
             </div>
             <div class="account_area">
                 <h4 class="item_short_title">Settings</h4>
-                <a href="#" class="account_item_grid">
+                <a href="{{ route('user.profileSettings') }}" class="account_item_grid">
                     <img src="{{ asset('assets/app/icons/settings-02.svg') }}" alt="user icon" class="user_icon" />
                     <span class="title">Settings</span>
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />
