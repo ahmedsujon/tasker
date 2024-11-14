@@ -149,6 +149,13 @@
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
+  &.rounded_btn {
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+  }
 }
 .complete_job_btn {
   display: flex;
@@ -165,6 +172,13 @@
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
+  &.rounded_btn {
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+  }
   span {
     color: #7741fb;
     font-feature-settings: "liga" off, "clig" off;
@@ -172,6 +186,35 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
+    line-height: normal;
+  }
+}
+.review_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  padding: 10px;
+  border: 1.5px solid #1f1f1f !important;
+  width: 100%;
+  min-height: 48px;
+  background: #fff;
+  img {
+    max-width: 16px;
+  }
+  span {
+    color: #000;
+    font-feature-settings: "liga" off, "clig" off;
+    font-family: SFMediumFont;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
     line-height: normal;
   }
 }

@@ -726,3 +726,29 @@
     line-height: normal;
   }
 }
+
+//Search form
+.search_form_area {
+  position: relative;
+  ::placeholder {
+    color: rgba(60, 60, 67, 0.6) !important;
+    font-size: 17px !important;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.43px !important;
+  }
+  .input_filed {
+    width: 100%;
+    height: 51px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 11px;
+    padding-left: 38px;
+    background: rgba(120, 120, 128, 0.12);
+  }
+  .search_btn{
+    position: absolute;
+    top: 11px;
+    left: 11px;
+  }
+}

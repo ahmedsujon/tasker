@@ -33,7 +33,7 @@
                     <span class="title">Billing Payment </span>
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />
                 </a>
-                <a href="#" class="account_item_grid">
+                <a href="{{ route('user.orderHistory') }}" class="account_item_grid">
                     <img src="{{ asset('assets/app/icons/shopping-bag-03.svg') }}" alt="user icon" class="user_icon" />
                     <span class="title">Order Management </span>
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />

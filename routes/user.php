@@ -17,6 +17,7 @@ use App\Livewire\App\Auth\ResetPasswordComponent;
 use App\Livewire\App\Auth\ForgetPasswordComponent;
 use App\Livewire\App\Auth\PasswordResetSuccessComponent;
 use App\Livewire\App\Profile\BillingPaymentComponent;
+use App\Livewire\App\Profile\OrderHistoryComponent;
 use App\Livewire\App\Profile\PaymentMethodComponent;
 
 /*
@@ -45,6 +46,7 @@ Route::prefix('user/')->name('user.')->middleware('auth')->group(function () {
     Route::get('account/information/{id}', AccountInfoComponent::class)->name('accountInformation');
     Route::get('billing/payment', BillingPaymentComponent::class)->name('billingPayment');
     Route::get('add/billing/method', PaymentMethodComponent::class)->name('billingMethod');
+    Route::get('order/history', OrderHistoryComponent::class)->name('orderHistory');
 
     // Job Posting Routes
     Route::get('job-post-step-one', JobsComponent::class)->name('jobPostOne');

@@ -80,7 +80,8 @@ textarea {
   color: #101010;
 }
 input:focus,
-select:focus {
+select:focus,
+textarea:focus {
   outline: none !important;
   box-shadow: none !important;
   border: 1px solid #7741fb !important;
@@ -92,19 +93,19 @@ textarea:focus {
 }
 
 .btn:focus {
-  outline: none !important;
-  box-shadow: none !important;
+  outline: none;
+  box-shadow: none;
 }
 
 button:focus {
-  outline: none !important;
-  box-shadow: none !important;
+  outline: none;
+  box-shadow: none;
 }
 
 button {
   cursor: pointer;
   padding: 0;
-  border: none !important;
+  border: none;
   background-color: transparent;
   &:disabled {
     color: #000 !important;
@@ -113,7 +114,7 @@ button {
 }
 
 button:hover {
-  border: none !important;
+  border: none;
 }
 
 *::placeholder,

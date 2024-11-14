@@ -496,6 +496,44 @@
   }
 }
 
- 
-/* Section */
+/* Message Section */
+.message_wrapper {
+  .search_grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)) minmax(0, 24px);
+    align-items: center;
+    gap: 16px;
+    margin-top: 17px;
+    margin-right: -24px;
+    padding-right: 24px;
+  }
+  .message_list_area {
+    height: calc(100vh - 280px);
+    margin-top: 10px;
+    @include customScrollbarInner();
+  }
+  .no_message_list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    .no_message {
+      max-width: 149px;
+      max-height: 126px;
+    }
+    .page_inner_title {
+      margin-top: 23px;
+    }
+    p {
+      color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-top: 16px;
+    }
+  }
+}
 /* Section */

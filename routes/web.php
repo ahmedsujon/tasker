@@ -1,6 +1,6 @@
 <?php
 
-use App\Livewire\App\HomeComponent;
+use App\Livewire\Customer\HomeComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::prefix('user/')->name('user.')->middleware('auth')->group(function () {
-//     Route::get('/', HomeComponent::class)->name('app.home');
-// });
+Route::prefix('customer/')->name('customer.')->middleware('auth')->group(function () {
+    Route::get('/home', HomeComponent::class)->name('home');
+});
 
 //Call Route Files
 require __DIR__ . '/admin.php';

@@ -160,7 +160,7 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 20px;  
+    line-height: 20px;
   }
 }
 
@@ -187,6 +187,15 @@
   .page_inner_title {
     margin-top: 77px;
   }
+  p {
+    color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 16px;
+  }
 
   &.account_success_sign_wrapper {
     .success_img {
@@ -205,6 +214,30 @@
       margin-right: auto;
       max-width: 250px;
       width: 100%;
+    }
+  }
+  &.add_card_wrapper {
+    .success_img {
+      position: relative;
+      left: 12px;
+      height: 415px;
+      img {
+        max-width: fit-content;
+      }
+    }
+    .page_inner_title {
+      margin-top: 49px;
+    }
+  }
+  &.payment_success_wrapper {
+    .success_img {
+      height: 180px;
+      img {
+        max-width: fit-content;
+      }
+    }
+    .page_inner_title {
+      margin-top: 16px;
     }
   }
 }
