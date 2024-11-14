@@ -39,9 +39,8 @@
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />
                 </a>
             </div>
-            <div class="account_area">
+            {{-- <div class="account_area">
                 <h4 class="item_short_title">Change Language</h4>
-
                 <div class="dropdown">
                     <a id="dropdownMenuButton" class="account_item_grid dropdown-toggle" href="#" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -75,7 +74,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> --}}
             <div class="account_area">
                 <h4 class="item_short_title">Settings</h4>
                 <a href="{{ route('user.profileSettings') }}" class="account_item_grid">
