@@ -3,7 +3,7 @@
         <form action="" class="form_area job_post_form_area h-full-screen space-between">
             <div class="w-100">
                 <div class="back_btn_grid back_more_btn_grid back_btn_white pt-12">
-                    <button type="button" class="page_back_btn">
+                    <button type="button" class="page_back_btn" onclick="history.back()">
                         <img src="{{ asset('assets/app/icons/arrow-left.svg') }}" alt="arrow left" />
                     </button>
                     <h3>Post a job</h3>

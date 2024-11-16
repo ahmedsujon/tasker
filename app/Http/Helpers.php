@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Admin;
+use App\Models\Category;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +17,11 @@ function admin()
 function getAdminByID($id)
 {
     return Admin::find($id);
+}
+
+function getCategoryByID($id)
+{
+    return Category::find($id);
 }
 
 function user()

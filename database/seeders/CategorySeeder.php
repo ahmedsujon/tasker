@@ -14,16 +14,16 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         DB::table('categories')->insert([
-            ['name' => 'Web Development', 'status' => 0],
-            ['name' => 'Graphic Design', 'status' => 0],
-            ['name' => 'Content Writing', 'status' => 0],
-            ['name' => 'Digital Marketing', 'status' => 0],
-            ['name' => 'SEO', 'status' => 0],
-            ['name' => 'Social Media Management', 'status' => 0],
-            ['name' => 'Video Editing', 'status' => 0],
-            ['name' => 'Virtual Assistance', 'status' => 0],
-            ['name' => 'Data Entry', 'status' => 0],
-            ['name' => 'Translation Services', 'status' => 0],
+            ['name' => 'Assembly', 'status' => 0],
+            ['name' => 'Mounting', 'status' => 0],
+            ['name' => 'Moving', 'status' => 0],
+            ['name' => 'Cleaning', 'status' => 0],
+            ['name' => 'Outdoor Help', 'status' => 0],
+            ['name' => 'Home Repairs', 'status' => 0],
+            ['name' => 'Painting', 'status' => 0],
+            ['name' => 'IKEA Assembly', 'status' => 0],
+            ['name' => 'Crib Assembly', 'status' => 0],
+            ['name' => 'Bookshelf Assembly', 'status' => 0],
         ]);
     }
 }
