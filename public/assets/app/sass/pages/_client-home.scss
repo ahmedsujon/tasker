@@ -98,6 +98,18 @@
     @include max-media-width(420) {
       gap: 20px 14px;
     }
+    &.post_time_draft_grid {
+      .time_item {
+        min-height: auto;
+        padding: 0;
+        border-radius: 0px;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        -ms-border-radius: 0px;
+        -o-border-radius: 0px;
+        background: transparent;
+      }
+    }
   }
   .time_item {
     min-height: 48px;
@@ -124,6 +136,15 @@
       font-weight: 600;
       line-height: normal;
       margin-top: 2px;
+      &.review {
+        color: #d58402;
+      }
+    }
+    .review_list {
+      gap: 2px;
+      img {
+        max-width: 13px;
+      }
     }
   }
   .client_area {
@@ -179,8 +200,15 @@
   .order_description_area {
     margin-top: 14px;
     padding-top: 10px;
+    padding-bottom: 14px;
     @include topLineBorder(16px, 48px);
-    p {
+    @include underLineBorder(16px, 48px, 1px, #f5f5f5);
+    .description_list {
+      margin-top: 24px;
+    }
+    p,
+    h4,
+    li {
       color: #000;
       font-family: SFMediumFont;
       font-size: 14px;
@@ -202,15 +230,160 @@
         }
       }
     }
+    ul {
+      padding-left: 20px;
+      li {
+        list-style-type: disc;
+      }
+    }
   }
   .order_action_btn_area {
     display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 0.6fr) minmax(0, 1fr);
     align-items: center;
     gap: 20px 13px;
     margin-top: 17px;
     padding-top: 13px;
     @include topLineBorder(16px, 48px);
+  }
+
+  //Finish tab
+  .review_btn {
+    margin-top: 18px;
+  }
+
+  //View tab
+  &.active_post_view_wrapper {
+    max-height: calc(100vh - 296px);
+  }
+  .post_user_grid {
+    display: grid;
+    grid-template-columns: minmax(0, 40px) minmax(0, 1fr) minmax(0, 0.5fr);
+    align-items: start;
+    gap: 10px 12px;
+    margin-bottom: 21px;
+    .user_image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+    }
+    .info {
+      h4 {
+        color: #000;
+        font-family: SFMediumFont;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .star_icon {
+        max-width: 13px;
+      }
+      h5 {
+        color: #000;
+        font-family: SFSemiBoldFont;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+      h6 {
+        color: rgba(0, 0, 0, 0.7);
+        font-family: SFMediumFont;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        padding-left: 6px;
+        margin-left: 6px;
+        border-left: 1px solid #a4a4a4;
+      }
+    }
+    .time {
+      color: #606060;
+      font-family: SFMediumFont;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+
+  //Proposal tab
+  .performance_grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 20px 26px;
+    margin-top: 19px;
+  }
+  .point_area {
+    padding: 12px 13px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    background: #f9f0fe;
+    .dollar_key {
+      max-width: 25px;
+    }
+    .content {
+      margin-top: 22px;
+      h4 {
+        color: rgba(0, 0, 0, 0.7);
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+      h5 {
+        color: #000;
+        font-family: SFSemiBoldFont;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-top: 5px;
+      }
+    }
+  }
+  .performance_item {
+    h3 {
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 4px;
+    }
+    h4 {
+      color: #000;
+      font-family: SFSemiBoldFont;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+    &.complete_job_item {
+      margin-top: 24px;
+    }
+  }
+  .progress {
+    border-radius: 29px;
+    width: 100%;
+    height: 9px;
+    .progress-bar {
+      background: #7741fb;
+    }
   }
 }
 

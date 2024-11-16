@@ -7,6 +7,9 @@
   padding: 24px;
   border-top: 2px solid #ebeaea;
   background: #fff;
+  &.Header_wrapper_others {
+    background: #f6f6f6;
+  }
   .menu_list {
     gap: 10px 16px;
   }

@@ -16,10 +16,10 @@ return new class extends Migration
             $table->bigInteger('category_id')->nullable();
             $table->string('title')->nullable();
             $table->string('project_size')->nullable();
-            $table->longText('descrition')->nullable();
+            $table->longText('description')->nullable();
             $table->string('attacments')->nullable();
             $table->string('budget')->nullable();
-            $table->tinyInteger('status')->default(0);
+            $table->enum('status', ['Active', 'In Order', 'Draft', 'Finish'])->default('Active');
             $table->timestamps();
         });
     }

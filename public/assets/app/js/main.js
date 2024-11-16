@@ -27,6 +27,20 @@ $(document).ready(function () {
     scrollOutsideScroll();
   });
 
+  //Ratting Modal Functionality
+  $(".reviewBtn").click(function (e) {
+    e.preventDefault();
+    $("#rattingModalArea").addClass("active_ratting");
+    $("#rattingOverlay").show();
+    scrollOutsideHidden();
+  });
+  $(".removeRattingBtn").click(function (e) {
+    e.preventDefault();
+    $("#rattingModalArea").removeClass("active_ratting");
+    $("#rattingOverlay").hide();
+    scrollOutsideScroll();
+  });
+
   //More less functionality
   const maxLength = 400; // Set the max characters to show initially
 
@@ -37,7 +51,9 @@ $(document).ready(function () {
     // If full text is longer, show truncated and save full text in data attribute
     if (fullText.length > maxLength) {
       $(this).data("full-text", fullText);
-      $(this).html(truncatedText + ' <span class="more_less_btn">more...</span>');
+      $(this).html(
+        truncatedText + ' <span class="more_less_btn">more...</span>'
+      );
     }
   });
 

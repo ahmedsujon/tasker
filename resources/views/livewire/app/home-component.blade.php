@@ -8,7 +8,7 @@
                 <h4>Rahat Ali Khan</h4>
             </div>
             <div class="d-flex justify-content-end">
-                <a href="{{ route('jobPostOne') }}" class="job_post_btn">
+                <a href="{{ route('user.jobPostOne') }}" class="job_post_btn">
                     <img src="{{ asset('assets/app/icons/plus.svg') }}" alt="plus icon" />
                     <span>Post a job</span>
                 </a>
@@ -49,163 +49,47 @@
             <!-- Active Post Tab Section  -->
             <section class="active_tab_wrapper mrn-24">
                 <div class="mr-24">
-                    <div class="active_post_card">
-                        <div class="post_title_grid">
-                            <h3>
-                                I’m looking for a service provider for furniture assembly in
-                                my shop
-                            </h3>
-                            <button type="button" class="postMoreBtn">
-                                <img src="{{ asset('assets/app/icons/more-vertical.svg') }}" alt="more vertical icon" />
-                            </button>
-                        </div>
-                        <div class="post_time_grid">
-                            <div class="time_item">
-                                <h4>Estimate</h4>
-                                <h5>4 - 6 hours</h5>
+                    @foreach ($active_jobs as $job)
+                        <div class="active_post_card">
+                            <div class="post_title_grid">
+                                <h3>
+                                    {{ $job->title }}
+                                </h3>
+                                <button type="button" class="postMoreBtn">
+                                    <img src="{{ asset('assets/app/icons/more-vertical.svg') }}"
+                                        alt="more vertical icon" />
+                                </button>
                             </div>
-                            <div class="time_item">
-                                <h4>Cost</h4>
-                                <h5>SAR 300</h5>
+                            <div class="post_time_grid">
+                                <div class="time_item">
+                                    <h4>Estimate</h4>
+                                    <h5>{{ $job->project_size }}</h5>
+                                </div>
+                                <div class="time_item">
+                                    <h4>Cost</h4>
+                                    <h5>SAR {{ $job->budget }}</h5>
+                                </div>
+                                <div class="time_item">
+                                    <h4>Proposal</h4>
+                                    <h5>20+</h5>
+                                </div>
                             </div>
-                            <div class="time_item">
-                                <h4>Proposal</h4>
-                                <h5>20+</h5>
-                            </div>
-                        </div>
-                        <div class="category_area">
-                            <h6>Categories</h6>
-                            <ul class="category_list d-flex align-items-center flex-wrap gap-1">
-                                <li>
-                                    <a href="#"> General Furniture Assembly </a>
-                                </li>
-                                <li>
-                                    <a href="#"> IKEA Assembly </a>
-                                </li>
-                                <li>
-                                    <a href="#"> Bookshelf Assembly </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="active_post_card">
-                        <div class="post_title_grid">
-                            <h3>
-                                I’m looking for a service provider for furniture assembly in
-                                my shop
-                            </h3>
-                            <button type="button" class="postMoreBtn">
-                                <img src="{{ asset('assets/app/icons/more-vertical.svg') }}" alt="more vertical icon" />
-                            </button>
-                        </div>
-                        <div class="post_time_grid">
-                            <div class="time_item">
-                                <h4>Estimate</h4>
-                                <h5>4 - 6 hours</h5>
-                            </div>
-                            <div class="time_item">
-                                <h4>Cost</h4>
-                                <h5>SAR 300</h5>
-                            </div>
-                            <div class="time_item">
-                                <h4>Proposal</h4>
-                                <h5>20+</h5>
+                            <div class="category_area">
+                                <h6>Categories</h6>
+                                <ul class="category_list d-flex align-items-center flex-wrap gap-1">
+                                    <li>
+                                        <a href="#"> General Furniture Assembly </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> IKEA Assembly </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Bookshelf Assembly </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="category_area">
-                            <h6>Categories</h6>
-                            <ul class="category_list d-flex align-items-center flex-wrap gap-1">
-                                <li>
-                                    <a href="#"> General Furniture Assembly </a>
-                                </li>
-                                <li>
-                                    <a href="#"> IKEA Assembly </a>
-                                </li>
-                                <li>
-                                    <a href="#"> Bookshelf Assembly </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="active_post_card">
-                        <div class="post_title_grid">
-                            <h3>
-                                I’m looking for a service provider for furniture assembly in
-                                my shop
-                            </h3>
-                            <button type="button" class="postMoreBtn">
-                                <img src="{{ asset('assets/app/icons/more-vertical.svg') }}" alt="more vertical icon" />
-                            </button>
-                        </div>
-                        <div class="post_time_grid">
-                            <div class="time_item">
-                                <h4>Estimate</h4>
-                                <h5>4 - 6 hours</h5>
-                            </div>
-                            <div class="time_item">
-                                <h4>Cost</h4>
-                                <h5>SAR 300</h5>
-                            </div>
-                            <div class="time_item">
-                                <h4>Proposal</h4>
-                                <h5>20+</h5>
-                            </div>
-                        </div>
-                        <div class="category_area">
-                            <h6>Categories</h6>
-                            <ul class="category_list d-flex align-items-center flex-wrap gap-1">
-                                <li>
-                                    <a href="#"> General Furniture Assembly </a>
-                                </li>
-                                <li>
-                                    <a href="#"> IKEA Assembly </a>
-                                </li>
-                                <li>
-                                    <a href="#"> Bookshelf Assembly </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="active_post_card">
-                        <div class="post_title_grid">
-                            <h3>
-                                I’m looking for a service provider for furniture assembly in
-                                my shop
-                            </h3>
-                            <button type="button" class="postMoreBtn">
-                                <img src="{{ asset('assets/app/icons/more-vertical.svg') }}"
-                                    alt="more vertical icon" />
-                            </button>
-                        </div>
-                        <div class="post_time_grid">
-                            <div class="time_item">
-                                <h4>Estimate</h4>
-                                <h5>4 - 6 hours</h5>
-                            </div>
-                            <div class="time_item">
-                                <h4>Cost</h4>
-                                <h5>SAR 300</h5>
-                            </div>
-                            <div class="time_item">
-                                <h4>Proposal</h4>
-                                <h5>20+</h5>
-                            </div>
-                        </div>
-                        <div class="category_area">
-                            <h6>Categories</h6>
-                            <ul class="category_list d-flex align-items-center flex-wrap gap-1">
-                                <li>
-                                    <a href="#"> General Furniture Assembly </a>
-                                </li>
-                                <li>
-                                    <a href="#"> IKEA Assembly </a>
-                                </li>
-                                <li>
-                                    <a href="#"> Bookshelf Assembly </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </section>
         </div>
@@ -213,46 +97,64 @@
             tabindex="0">
             <section class="active_tab_wrapper mrn-24">
                 <div class="mr-24">
-                    <div class="active_post_card">
-                        <div class="post_title_grid">
-                            <h3>
-                                I’m looking for a service provider for furniture assembly in
-                                my shop
-                            </h3>
-                            <button type="button" class="postMoreBtn">
-                                <img src="{{ asset('assets/app/icons/more-vertical.svg') }}"
-                                    alt="more vertical icon" />
-                            </button>
-                        </div>
-                        <div class="post_time_grid">
-                            <div class="time_item">
-                                <h4>Estimate</h4>
-                                <h5>4 - 6 hours</h5>
+                    @foreach ($inorder_jobs as $item)
+                        <div class="active_post_card">
+                            <div class="post_title_grid">
+                                <h3>
+                                    {{ $job->title }}
+                                </h3>
+                                <button type="button" class="postMoreBtn">
+                                    <img src="{{ asset('assets/app/icons/more-vertical.svg') }}"
+                                        alt="more vertical icon" />
+                                </button>
                             </div>
-                            <div class="time_item">
-                                <h4>Cost</h4>
-                                <h5>SAR 300</h5>
+                            <div class="post_time_grid">
+                                <div class="time_item">
+                                    <h4>Estimate</h4>
+                                    <h5>{{ $job->project_size }}</h5>
+                                </div>
+                                <div class="time_item">
+                                    <h4>Cost</h4>
+                                    <h5>SAR {{ $job->budget }}</h5>
+                                </div>
+                                <div class="time_item">
+                                    <h4>Proposal</h4>
+                                    <div class="client_area d-flex align-items-center gap-1">
+                                        <img src="{{ asset('assets/app/images/user/client_user.png') }}"
+                                            alt="user image" class="user_img" />
+                                        <h5>Ali Hasan</h5>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="time_item">
-                                <h4>Proposal</h4>
-                                <h5>20+</h5>
+                            <div class="order_description_area">
+                                <p class="descriptionPara">
+                                    {{ $job->description }}
+                                </p>
+                            </div>
+                            <div class="category_area">
+                                <h6>Categories</h6>
+                                <ul class="category_list d-flex align-items-center flex-wrap gap-1">
+                                    <li>
+                                        <a href="#"> General Furniture Assembly </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> IKEA Assembly </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Bookshelf Assembly </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="order_action_btn_area">
+                                <a href="#" class="cancel_job_btn">Cancel the job</a>
+                                <a href="#" class="complete_job_btn">
+                                    <span>Completed the job</span>
+                                    <img src="{{ asset('assets/app/icons/arrow-right-purple.svg') }}"
+                                        alt="arrow right" />
+                                </a>
                             </div>
                         </div>
-                        <div class="category_area">
-                            <h6>Categories</h6>
-                            <ul class="category_list d-flex align-items-center flex-wrap gap-1">
-                                <li>
-                                    <a href="#"> General Furniture Assembly </a>
-                                </li>
-                                <li>
-                                    <a href="#"> IKEA Assembly </a>
-                                </li>
-                                <li>
-                                    <a href="#"> Bookshelf Assembly </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </section>
         </div>
@@ -260,46 +162,48 @@
             tabindex="0">
             <section class="active_tab_wrapper mrn-24">
                 <div class="mr-24">
-                    <div class="active_post_card">
-                        <div class="post_title_grid">
-                            <h3>
-                                I’m looking for a service provider for furniture assembly in
-                                my shop
-                            </h3>
-                            <button type="button" class="postMoreBtn">
-                                <img src="{{ asset('assets/app/icons/more-vertical.svg') }}"
-                                    alt="more vertical icon" />
-                            </button>
-                        </div>
-                        <div class="post_time_grid">
-                            <div class="time_item">
-                                <h4>Estimate</h4>
-                                <h5>4 - 6 hours</h5>
+                    @foreach ($draft_jobs as $item)
+                        <div class="active_post_card">
+                            <div class="post_title_grid">
+                                <h3>
+                                    {{ $job->title }}
+                                </h3>
+                                <button type="button" class="postMoreBtn">
+                                    <img src="{{ asset('assets/app/icons/more-vertical.svg') }}"
+                                        alt="more vertical icon" />
+                                </button>
                             </div>
-                            <div class="time_item">
-                                <h4>Cost</h4>
-                                <h5>SAR 300</h5>
+                            <div class="post_time_grid">
+                                <div class="time_item">
+                                    <h4>Estimate</h4>
+                                    <h5>{{ $job->project_size }}</h5>
+                                </div>
+                                <div class="time_item">
+                                    <h4>Cost</h4>
+                                    <h5>SAR {{ $job->budget }}</h5>
+                                </div>
                             </div>
-                            <div class="time_item">
-                                <h4>Proposal</h4>
-                                <h5>20+</h5>
+                            <div class="order_description_area">
+                                <p class="descriptionPara">
+                                    {{ $job->description }}
+                                </p>
+                            </div>
+                            <div class="category_area">
+                                <h6>Categories</h6>
+                                <ul class="category_list d-flex align-items-center flex-wrap gap-1">
+                                    <li>
+                                        <a href="#"> General Furniture Assembly </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> IKEA Assembly </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Bookshelf Assembly </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="category_area">
-                            <h6>Categories</h6>
-                            <ul class="category_list d-flex align-items-center flex-wrap gap-1">
-                                <li>
-                                    <a href="#"> General Furniture Assembly </a>
-                                </li>
-                                <li>
-                                    <a href="#"> IKEA Assembly </a>
-                                </li>
-                                <li>
-                                    <a href="#"> Bookshelf Assembly </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </section>
         </div>
@@ -307,46 +211,56 @@
             tabindex="0">
             <section class="active_tab_wrapper mrn-24">
                 <div class="mr-24">
-                    <div class="active_post_card">
-                        <div class="post_title_grid">
-                            <h3>
-                                I’m looking for a service provider for furniture assembly in
-                                my shop
-                            </h3>
-                            <button type="button" class="postMoreBtn">
-                                <img src="{{ asset('assets/app/icons/more-vertical.svg') }}"
-                                    alt="more vertical icon" />
+                    @foreach ($finished_jobs as $job)
+                        <div class="active_post_card">
+                            <div class="post_title_grid">
+                                <h3>
+                                    {{ $job->title }}
+                                </h3>
+                                <button type="button" class="postMoreBtn">
+                                    <img src="{{ asset('assets/app/icons/more-vertical.svg') }}"
+                                        alt="more vertical icon" />
+                                </button>
+                            </div>
+                            <div class="post_time_grid post_time_draft_grid">
+                                <div class="time_item">
+                                    <h4>Estimate</h4>
+                                    <h5>{{ $job->project_size }}</h5>
+                                </div>
+                                <div class="time_item">
+                                    <h4>Cost</h4>
+                                    <h5>{{ $job->budget }}</h5>
+                                </div>
+                                <div class="time_item">
+                                    <h4>Review</h4>
+                                    <h5 class="review">Due review</h5>
+                                </div>
+                            </div>
+                            <div class="order_description_area">
+                                <p class="descriptionPara">
+                                    {{ $job->description }}
+                                </p>
+                            </div>
+                            <div class="category_area">
+                                <h6>Categories</h6>
+                                <ul class="category_list d-flex align-items-center flex-wrap gap-1">
+                                    <li>
+                                        <a href="#"> General Furniture Assembly </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> IKEA Assembly </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Bookshelf Assembly </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <button type="button" class="review_btn reviewBtn">
+                                <img src="{{ asset('assets/app/icons/Star_big.svg') }}" alt="star icon" />
+                                <span>Give a review</span>
                             </button>
                         </div>
-                        <div class="post_time_grid">
-                            <div class="time_item">
-                                <h4>Estimate</h4>
-                                <h5>4 - 6 hours</h5>
-                            </div>
-                            <div class="time_item">
-                                <h4>Cost</h4>
-                                <h5>SAR 300</h5>
-                            </div>
-                            <div class="time_item">
-                                <h4>Proposal</h4>
-                                <h5>20+</h5>
-                            </div>
-                        </div>
-                        <div class="category_area">
-                            <h6>Categories</h6>
-                            <ul class="category_list d-flex align-items-center flex-wrap gap-1">
-                                <li>
-                                    <a href="#"> General Furniture Assembly </a>
-                                </li>
-                                <li>
-                                    <a href="#"> IKEA Assembly </a>
-                                </li>
-                                <li>
-                                    <a href="#"> Bookshelf Assembly </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </section>
         </div>
@@ -371,5 +285,54 @@
             Cancel
         </button>
     </section>
+    <!-- Review Modal  -->
+    <div class="ratting_modal_area" id="rattingModalArea">
+        <form action="" class="form_area">
+            <div class="input_row">
+                <label for="#" class="form_label text-center">Give a review</label>
+                <div class="d-flex justify-content-center flex-wrap gap-2 mt-3" id="rattingArea"></div>
+                <div class="ratting_number">
+                    <span id="rattingNumber">0</span>/5
+                </div>
+            </div>
+            <div class="input_row">
+                <label for="" class="form_label text-center">How was your experience with Provider</label>
+                <textarea rows="7" name="" id="" placeholder="Write your experience "
+                    class="input_field bg-transparent"></textarea>
+                <div class="form_status justify-content-end text-end">
+                    999 characters left
+                </div>
+            </div>
+            <button type="submit" class="login_btn">Publish</button>
+        </form>
+    </div>
     <div class="overlay removeDropdownBtn" id="dropdownOverlay"></div>
 </div>
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            //Ratting
+            $("#rattingArea").starRating({
+                totalStars: 5,
+                initialRating: 0,
+                // useFullStars:true,
+                // readOnly:true,
+                starSize: 40,
+                disableAfterRate: false,
+                emptyColor: "white",
+                strokeColor: "#000",
+                activeColor: "#000",
+                hoverColor: "#000",
+                ratedColor: "#000",
+                callback: function(currentRating, $el) {
+                    $("#rattingNumber").text(currentRating);
+                },
+            });
+            // set rating example
+            // $("your-selector").starRating("setRating", 2.5);
+            // set rating and round
+            // $("your-selector").starRating("setRating", 2.8, true); // 3.0
+        });
+    </script>
+@endpush

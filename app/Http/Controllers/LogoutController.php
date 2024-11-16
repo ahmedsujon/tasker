@@ -16,6 +16,6 @@ class LogoutController extends Controller
     public function userLogout(Request $request)
     {
         Auth::guard('web')->logout();
-        return redirect()->route('app.home');
+        return redirect()->route('user.home');
     }
 }

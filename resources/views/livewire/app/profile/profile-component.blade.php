@@ -2,9 +2,14 @@
     <section class="client_profile_wrapper mt-12">
         <div class="d-flex-between">
             <h2 class="page_title text-black">Profile</h2>
-            <button type="button" id="alertModalOpen">
+            <a href="{{ route('user.logout') }}" type="button" id="alertModalOpen"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <img src="{{ asset('assets/app/icons/log-out-02.svg') }}" alt="log out icon" />
-            </button>
+            </a>
+            <form id="logout-form" style="display: none;" method="POST" action="{{ route('user.logout') }}">
+                @csrf
+            </form>
+
         </div>
         <div class="horizontal-m-w">
             <div class="client_user_info_grid">
@@ -18,25 +23,24 @@
             </div>
             <div class="account_area">
                 <h4 class="item_short_title">Account</h4>
-                <a href="#" class="account_item_grid">
+                <a href="{{ route('user.accountInformation', ['id' => user()->id]) }}" class="account_item_grid">
                     <img src="{{ asset('assets/app/icons/user-03.svg') }}" alt="user icon" class="user_icon" />
                     <span class="title"> Account Information </span>
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />
                 </a>
-                <a href="#" class="account_item_grid">
+                <a href="{{ route('user.billingPayment') }}" class="account_item_grid">
                     <img src="{{ asset('assets/app/icons/credit-card-01.svg') }}" alt="user icon" class="user_icon" />
                     <span class="title">Billing Payment </span>
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />
                 </a>
-                <a href="#" class="account_item_grid">
+                <a href="{{ route('user.orderHistory') }}" class="account_item_grid">
                     <img src="{{ asset('assets/app/icons/shopping-bag-03.svg') }}" alt="user icon" class="user_icon" />
                     <span class="title">Order Management </span>
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />
                 </a>
             </div>
-            <div class="account_area">
+            {{-- <div class="account_area">
                 <h4 class="item_short_title">Change Language</h4>
-
                 <div class="dropdown">
                     <a id="dropdownMenuButton" class="account_item_grid dropdown-toggle" href="#" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -70,10 +74,10 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> --}}
             <div class="account_area">
                 <h4 class="item_short_title">Settings</h4>
-                <a href="#" class="account_item_grid">
+                <a href="{{ route('user.profileSettings') }}" class="account_item_grid">
                     <img src="{{ asset('assets/app/icons/settings-02.svg') }}" alt="user icon" class="user_icon" />
                     <span class="title">Settings</span>
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />
