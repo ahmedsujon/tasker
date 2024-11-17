@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id')->nullable();
             $table->bigInteger('category_id')->nullable();
             $table->string('title')->nullable();
             $table->string('project_size')->nullable();
