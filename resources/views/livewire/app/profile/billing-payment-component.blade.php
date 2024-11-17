@@ -26,6 +26,25 @@
                         can hire when you’re reday
                     </p>
                 </div>
+                <div class="card_list_area color_radio_btn mt-24">
+                    <div class="form-check">
+                        <label class="form-check-label" for="cardListRadio1">
+                            <img src="{{ asset('assets/app/icons/master_card_logo.svg') }}" alt="master card"
+                                class="card_logo" />
+                            <span>Master Card **********987</span>
+                        </label>
+                        <input class="form-check-input" type="radio" name="cardListRadio" id="cardListRadio1" />
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label" for="cardListRadio2">
+                            <img src="{{ asset('assets/app/icons//logos_visa.svg') }}" alt="visa card"
+                                class="card_logo" />
+                            <span>Visa Card **********098</span>
+                        </label>
+                        <input class="form-check-input" type="radio" name="cardListRadio" id="cardListRadio2"
+                            checked />
+                    </div>
+                </div>
             </div>
             <a href="{{ route('user.billingMethod') }}" class="login_btn mt-24" style="margin-bottom: 90px;">
                 + Add a billing method

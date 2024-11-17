@@ -16,6 +16,7 @@ class JobSeeder extends Seeder
     {
         DB::table('jobs')->insert([
             [
+                'user_id' => 1,
                 'category_id' => 1,
                 'title' => 'Website Development',
                 'project_size' => 'Large',
@@ -25,6 +26,7 @@ class JobSeeder extends Seeder
                 'status' => 'Active',
             ],
             [
+                'user_id' => 1,
                 'category_id' => 2,
                 'title' => 'Logo Design',
                 'project_size' => 'Small',
@@ -34,6 +36,7 @@ class JobSeeder extends Seeder
                 'status' => 'Active',
             ],
             [
+                'user_id' => 1,
                 'category_id' => 1,
                 'title' => 'SEO Optimization',
                 'project_size' => 'Medium',
@@ -43,6 +46,7 @@ class JobSeeder extends Seeder
                 'status' => 'In Order',
             ],
             [
+                'user_id' => 1,
                 'category_id' => 4,
                 'title' => 'Content Writing',
                 'project_size' => 'Medium',
@@ -52,6 +56,7 @@ class JobSeeder extends Seeder
                 'status' => 'In Order',
             ],
             [
+                'user_id' => 2,
                 'category_id' => 2,
                 'title' => 'Social Media Marketing',
                 'project_size' => 'Large',
@@ -61,6 +66,7 @@ class JobSeeder extends Seeder
                 'status' => 'Active',
             ],
             [
+                'user_id' => 2,
                 'category_id' => 6,
                 'title' => 'Data Entry',
                 'project_size' => 'Small',
@@ -70,6 +76,7 @@ class JobSeeder extends Seeder
                 'status' => 'Active',
             ],
             [
+                'user_id' => 3,
                 'category_id' => 4,
                 'title' => 'Video Editing',
                 'project_size' => 'Medium',
@@ -79,6 +86,7 @@ class JobSeeder extends Seeder
                 'status' => 'Finish',
             ],
             [
+                'user_id' => 3,
                 'category_id' => 1,
                 'title' => 'Virtual Assistance',
                 'project_size' => 'Small',
@@ -88,6 +96,7 @@ class JobSeeder extends Seeder
                 'status' => 'Active',
             ],
             [
+                'user_id' => 4,
                 'category_id' => 1,
                 'title' => 'Mobile App Development',
                 'project_size' => 'Large',
@@ -97,6 +106,7 @@ class JobSeeder extends Seeder
                 'status' => 'Draft',
             ],
             [
+                'user_id' => 5,
                 'category_id' => 10,
                 'title' => 'Translation Services',
                 'project_size' => 'Medium',
