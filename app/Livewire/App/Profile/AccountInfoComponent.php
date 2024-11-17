@@ -5,19 +5,36 @@ namespace App\Livewire\App\Profile;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\Attributes\Title;
+use Livewire\WithFileUploads;
 
 class AccountInfoComponent extends Component
 {
+    use WithFileUploads;
+
     public $edit_id, $first_name, $last_name, $online_status, $email, $phone, $avatar, $updatedAvatar;
-    public function mount($id)
+    public function mount()
     {
-        $data = User::where('id', $id)->first();
-        $this->edit_id = $id;
+        $data = User::find(user()->id);
         $this->first_name = $data->first_name;
         $this->last_name = $data->last_name;
         $this->email = $data->email;
         $this->phone = $data->phone;
+        $this->updatedAvatar = $data->avatar;
         $this->online_status = $data->online_status;
+    }
+
+    public function updatedAvatar()
+    {
+        if ($this->avatar) {
+            $img_to_delete = user()->avatar;
+
+            $file = uploadFile('image', 100, 'profile-images/', 'user', $this->avatar);
+            User::where('id', user()->id)->update(['avatar' => $file]);
+
+            deleteFile($img_to_delete);
+            $this->mount();
+            $this->dispatch('success', ['message' => 'Profile picture updated']);
+        }
     }
 
     public function updateData()

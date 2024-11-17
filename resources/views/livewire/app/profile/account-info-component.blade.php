@@ -1,4 +1,13 @@
 <div>
+    <style>
+        .mising-img-style {
+            font-size: 50px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+
     <section class="google_sign_up_wrapper">
         <div class="horizontal-m-w">
             <form wire:submit.prevent='updateData' class="form_area h-full-screen space-between mt-0 pt-12">
@@ -9,15 +18,32 @@
                         </button>
                         <h3>Account Information</h3>
                     </div>
+
                     <div class="user_image_area mx-auto">
                         <div class="user_img">
-                            <img src="{{ asset('assets/app/images/user/user_image.png') }}" alt="user image" />
+                            @if ($updatedAvatar)
+                                <img src="{{ asset($updatedAvatar) }}" alt="user_img" />
+                            @else
+                                <div class="user_img chat-avatar mising-img-style">
+                                    {{ Str::limit(user()->first_name, 1, '') }}{{ Str::limit(user()->last_name, 1, '') }}
+                                </div>
+                            @endif
                         </div>
+
+                        <div wire:loading wire:target='avatar' wire:key='avatar'>
+                            <div class="spinner-container">
+                                <button type="button" class="spinner-btn">
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </button>
+                            </div>
+                        </div>
+
                         <label for="userFileUpload" class="change_icon">
                             <img src="{{ asset('assets/app/icons/image_change.svg') }}" alt="image change icon" />
                         </label>
-                        <input type="file" id="userFileUpload" hidden />
+                        <input type="file" id="userFileUpload" wire:model.live='avatar' hidden />
                     </div>
+
                     <div class="status_area">
                         <div class="status_grid">
                             <img src="{{ asset('assets/app/icons/disc.svg') }}" alt="disc icon" class="disc_icon" />
