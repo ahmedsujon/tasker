@@ -62,8 +62,10 @@
                             </div>
                             <div class="post_time_grid">
                                 <div class="time_item">
-                                    <h4>Estimate</h4>
-                                    <h5>{{ $job->project_size }}</h5>
+                                    <a href="{{ route('user.jobDetails', ['id' => $job->id]) }}">
+                                        <h4>Estimate</h4>
+                                        <h5>{{ $job->project_size }}</h5>
+                                    </a>
                                 </div>
                                 <div class="time_item">
                                     <h4>Cost</h4>
@@ -97,7 +99,7 @@
             tabindex="0">
             <section class="active_tab_wrapper mrn-24">
                 <div class="mr-24">
-                    @foreach ($inorder_jobs as $item)
+                    @foreach ($inorder_jobs as $job)
                         <div class="active_post_card">
                             <div class="post_title_grid">
                                 <h3>
@@ -110,8 +112,10 @@
                             </div>
                             <div class="post_time_grid">
                                 <div class="time_item">
-                                    <h4>Estimate</h4>
-                                    <h5>{{ $job->project_size }}</h5>
+                                    <a href="{{ route('user.jobDetails', ['id' => $job->id]) }}">
+                                        <h4>Estimate</h4>
+                                        <h5>{{ $job->project_size }}</h5>
+                                    </a>
                                 </div>
                                 <div class="time_item">
                                     <h4>Cost</h4>
@@ -162,7 +166,7 @@
             tabindex="0">
             <section class="active_tab_wrapper mrn-24">
                 <div class="mr-24">
-                    @foreach ($draft_jobs as $item)
+                    @foreach ($draft_jobs as $job)
                         <div class="active_post_card">
                             <div class="post_title_grid">
                                 <h3>
@@ -175,8 +179,10 @@
                             </div>
                             <div class="post_time_grid">
                                 <div class="time_item">
-                                    <h4>Estimate</h4>
-                                    <h5>{{ $job->project_size }}</h5>
+                                    <a href="{{ route('user.jobDetails', ['id' => $job->id]) }}">
+                                        <h4>Estimate</h4>
+                                        <h5>{{ $job->project_size }}</h5>
+                                    </a>
                                 </div>
                                 <div class="time_item">
                                     <h4>Cost</h4>
@@ -224,8 +230,10 @@
                             </div>
                             <div class="post_time_grid post_time_draft_grid">
                                 <div class="time_item">
-                                    <h4>Estimate</h4>
-                                    <h5>{{ $job->project_size }}</h5>
+                                    <a href="{{ route('user.jobDetails', ['id' => $job->id]) }}">
+                                        <h4>Estimate</h4>
+                                        <h5>{{ $job->project_size }}</h5>
+                                    </a>
                                 </div>
                                 <div class="time_item">
                                     <h4>Cost</h4>
@@ -281,9 +289,6 @@
                 <a href="#" class="red"> Remove </a>
             </li>
         </ul>
-        <button type="button" class="dropdown_cancel_btn removeDropdownBtn">
-            Cancel
-        </button>
     </section>
     <!-- Review Modal  -->
     <div class="ratting_modal_area" id="rattingModalArea">
