@@ -16,6 +16,7 @@ use App\Livewire\App\Jobs\JobStepThreeComponent;
 use App\Livewire\App\Auth\ResetPasswordComponent;
 use App\Livewire\App\Auth\ForgetPasswordComponent;
 use App\Livewire\App\Auth\PasswordResetSuccessComponent;
+use App\Livewire\App\Jobs\JobDetailsComponent;
 use App\Livewire\App\Profile\BillingPaymentComponent;
 use App\Livewire\App\Profile\OrderHistoryComponent;
 use App\Livewire\App\Profile\PaymentMethodComponent;
@@ -65,6 +66,7 @@ Route::prefix('user/')->name('user.')->middleware('auth')->group(function () {
     Route::get('job-post-step-three', JobStepTwoComponent::class)->name('jobPostThree');
     Route::get('job-post-step-four', JobStepThreeComponent::class)->name('jobPostFour');
     Route::get('job-post-step-five', JobStepFourComponent::class)->name('jobPostFive');
+    Route::get('job-details/{id}', JobDetailsComponent::class)->name('jobDetails');
 
     // Logout Routes
     Route::post('logout', [LogoutController::class, 'userLogout'])->name('logout');
