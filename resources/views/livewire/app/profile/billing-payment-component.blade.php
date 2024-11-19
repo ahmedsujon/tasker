@@ -27,23 +27,30 @@
                     </p>
                 </div>
                 <div class="card_list_area color_radio_btn mt-24">
-                    <div class="form-check">
-                        <label class="form-check-label" for="cardListRadio1">
-                            <img src="{{ asset('assets/app/icons/master_card_logo.svg') }}" alt="master card"
-                                class="card_logo" />
-                            <span>Master Card **********987</span>
-                        </label>
-                        <input class="form-check-input" type="radio" name="cardListRadio" id="cardListRadio1" />
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label" for="cardListRadio2">
-                            <img src="{{ asset('assets/app/icons//logos_visa.svg') }}" alt="visa card"
-                                class="card_logo" />
-                            <span>Visa Card **********098</span>
-                        </label>
-                        <input class="form-check-input" type="radio" name="cardListRadio" id="cardListRadio2"
-                            checked />
-                    </div>
+
+                    @foreach ($card_infos as $item)
+                        <div class="form-check">
+                            <label class="form-check-label" for="cardListRadio{{ $loop->index }}">
+                                @if (Str::startsWith($item->card_number, '4'))
+                                    {{-- Visa Card Logo --}}
+                                    <img src="{{ asset('assets/app/icons/master_card_logo.svg') }}" alt="Visa card"
+                                        class="card_logo" />
+                                    <span>Visa Card **********{{ substr($item->card_number, -4) }}</span>
+                                @elseif (Str::startsWith($item->card_number, ['51', '52', '53', '54', '55']) ||
+                                        ($item->card_number >= 222100 && $item->card_number <= 272099))
+                                    {{-- MasterCard Logo --}}
+                                    <img src="{{ asset('assets/app/icons//logos_visa.svg') }}" alt="MasterCard"
+                                        class="card_logo" />
+                                    <span>MasterCard **********{{ substr($item->card_number, -4) }}</span>
+                                @else
+                                    {{-- Default Logo or Message for Unknown Card Type --}}
+                                    <span>Unknown **********{{ substr($item->card_number, -4) }}</span>
+                                @endif
+                            </label>
+                            <input class="form-check-input" type="radio" name="cardListRadio"
+                                id="cardListRadio{{ $loop->index }}" />
+                        </div>
+                    @endforeach
                 </div>
             </div>
             <a href="{{ route('user.billingMethod') }}" class="login_btn mt-24" style="margin-bottom: 90px;">
