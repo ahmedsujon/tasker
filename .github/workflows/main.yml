@@ -21,7 +21,6 @@ jobs:
           PASSWORD: ${{ secrets.SSH_PASSWORD }}
           script: |
             cd /var/www/html/tasker
-            git checkout main
             git pull
             php artisan optimize:clear
             php artisan config:cache
