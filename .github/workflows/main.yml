@@ -2,7 +2,7 @@ name: Deployment to takecare Ubuntu
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
