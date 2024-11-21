@@ -2,13 +2,9 @@
     <section class="client_profile_wrapper mt-12">
         <div class="d-flex-between">
             <h2 class="page_title text-black">Profile</h2>
-            <a href="{{ route('user.logout') }}" type="button" id="alertModalOpen"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <button type="button" id="alertModalOpen">
                 <img src="{{ asset('assets/app/icons/log-out-02.svg') }}" alt="log out icon" />
-            </a>
-            <form id="logout-form" style="display: none;" method="POST" action="{{ route('user.logout') }}">
-                @csrf
-            </form>
+            </button>
         </div>
         <div class="horizontal-m-w" style="margin-bottom: 100px;">
             <div class="client_user_info_grid">
@@ -93,7 +89,11 @@
     <div class="modal_alert_area" id="alertModalArea">
         <ul class="list_alert">
             <li>
-                <button type="button" class="sign_out_btn">Sign out</button>
+                <a href="{{ route('user.logout') }}" type="button" class="sign_out_btn"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sign out</a>
+                <form id="logout-form" style="display: none;" method="POST" action="{{ route('user.logout') }}">
+                    @csrf
+                </form>
             </li>
             <li>
                 <button type="button" class="list_close_btn alertModalCloseBtn">
