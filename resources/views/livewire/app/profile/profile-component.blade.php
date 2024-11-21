@@ -9,9 +9,8 @@
             <form id="logout-form" style="display: none;" method="POST" action="{{ route('user.logout') }}">
                 @csrf
             </form>
-
         </div>
-        <div class="horizontal-m-w">
+        <div class="horizontal-m-w" style="margin-bottom: 100px;">
             <div class="client_user_info_grid">
                 <div class="img">
                     <img src="{{ asset('assets/app/images/user/client_user2.png') }}" alt="client image" />
@@ -84,8 +83,8 @@
                 </a>
             </div>
             <div class="terms_area d-flex justify-content-center align-items-center flex-wrap g-smm">
-                <a href="#">Terms & Condition </a> <span>&</span>
-                <a href="#">Privacy Policy</a>
+                <a href="{{ route('user.termsCondition') }}">Terms & Condition </a> <span>&</span>
+                <a href="{{ route('user.privacyPolicy') }}">Privacy Policy</a>
             </div>
         </div>
     </section>
