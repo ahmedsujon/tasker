@@ -25,7 +25,11 @@ class RedirectIfAuthenticated
                     return redirect()->route('admin.dashboard');
                 }
                 else{
-                    return redirect()->route('user.dashboard');
+                    if (user()->type == 'seller') {
+                        return redirect()->route('seller.dashboard');
+                    } else {
+                        return redirect()->route('client.dashboard');
+                    }
                 }
             }
         }
