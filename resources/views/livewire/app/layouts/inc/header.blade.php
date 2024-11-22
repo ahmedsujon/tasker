@@ -19,7 +19,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="menu_list_item">
+                <a href="{{ route('user.notifications') }}" class="menu_list_item">
                     <img src="{{ asset('assets/app/icons/notification.svg') }}" alt="home icon" class="inactive_icon" />
                     <img src="{{ asset('assets/app/icons/notification_active.svg') }}" alt="home active icon"
                         class="active_icon" />
