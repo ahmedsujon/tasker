@@ -746,9 +746,57 @@
     padding-left: 38px;
     background: rgba(120, 120, 128, 0.12);
   }
-  .search_btn{
+  .search_btn {
     position: absolute;
     top: 11px;
     left: 11px;
+  }
+}
+
+//Mail invite area
+.mail_invite_area {
+  h3 {
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 12px;
+  }
+  .input_gird {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)) minmax(0, 105px);
+    align-items: start;
+    gap: 20px 10px;
+    height: 56px;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: white;
+    input,
+    button {
+      height: 100%;
+      width: 100%;
+    }
+    input {
+      padding: 0 20px;
+      border: none;
+      &:focus {
+        border: none !important;
+      }
+    }
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: SFMediumFont;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      border-radius: 12px;
+      background: #000;
+    }
   }
 }
