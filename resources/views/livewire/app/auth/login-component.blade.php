@@ -52,9 +52,9 @@
             <img src="{{ asset('assets/app/icons/apple.svg') }}" alt="apple icon" />
             <span>Continue with apple</span>
         </button>
-        <div class="as_guest">
+        {{-- <div class="as_guest">
             Continue as a <button type="button">Guest</button>
-        </div>
+        </div> --}}
     </section>
 </div>
 @push('scripts')

@@ -68,9 +68,9 @@
                     <input class="form-check-input" type="checkbox" value="" id="rememberCheckbox" />
                     <label class="form-check-label" for="rememberCheckbox">
                         <span>By creating an account. I agree to Salesman </span>
-                        <a href="#">Terms of Service</a>
+                        <a href="{{ route('user.termsCondition') }}">Terms of Service</a>
                         <span> and</span>
-                        <a href="#">Privacy Policy</a>
+                        <a href="{{ route('user.privacyPolicy') }}">Privacy Policy</a>
                     </label>
                 </div>
             </div>

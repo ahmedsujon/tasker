@@ -2,7 +2,7 @@
     <section class="forget_password_wrapper">
         <form wire:submit.prevent='sendEmail' class="form_area h-full-screen space-between horizontal-m-w pt-12">
             <div class="w-100">
-                <button type="button" class="page_back_btn">
+                <button type="button" class="page_back_btn" onclick="history.back()">
                     <img src="{{ asset('assets/app/icons/arrow-left.svg') }}" alt="arrow left" />
                 </button>
                 <h2 class="page_inner_title">Forgot Password</h2>
