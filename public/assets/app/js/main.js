@@ -27,6 +27,20 @@ $(document).ready(function () {
     scrollOutsideScroll();
   });
 
+  //Modal Functionality
+  $("#modalOpenBtn").click(function (e) {
+    e.preventDefault();
+    $("#modalArea").addClass("modal_active");
+    $("#modalOverlay").show();
+    scrollOutsideHidden();
+  });
+  $(".modalFormCloseBtn").click(function (e) {
+    e.preventDefault();
+    $("#modalArea").removeClass("modal_active");
+    $("#modalOverlay").hide();
+    scrollOutsideScroll();
+  });
+
   //Ratting Modal Functionality
   $(".reviewBtn").click(function (e) {
     e.preventDefault();
@@ -124,3 +138,37 @@ function scrollOutsideScroll() {
     );
   });
 })();
+
+
+
+//Fixed screen height
+function updateVH() {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+}
+window.addEventListener("resize", updateVH);
+updateVH();
+
+
+//Text Line Clamp
+function clampText(selector, lineCount) {
+  const elements = document.querySelectorAll(selector);
+  
+  elements.forEach(element => {
+    const lineHeight = parseFloat(getComputedStyle(element).lineHeight);
+    const maxHeight = lineHeight * lineCount;
+
+    element.style.maxHeight = `${maxHeight}px`;
+    element.style.overflow = 'hidden';
+
+    if (element.scrollHeight > maxHeight) {
+      let text = element.textContent;
+      while (element.scrollHeight > maxHeight && text.length > 0) {
+        text = text.slice(0, -1);
+        element.textContent = text + '...';
+      }
+    }
+  });
+}
+
+ 

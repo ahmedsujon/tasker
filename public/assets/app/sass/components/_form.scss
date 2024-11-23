@@ -586,15 +586,26 @@
 //Message chat
 .message_chat_area {
   padding-right: $bodyRightSpace;
-  height: calc(100vh - 270px);
+  height: calc($fullScreenHeight - 270px);
   width: calc(100% + $bodyRightSpace);
   @include customScrollbarInner();
+  .date {
+    color: #23262f;
+    text-align: center;
+    font-family: SFBoldFont;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 20px;
+  }
   .client_msg_grid {
     display: grid;
     grid-template-columns: minmax(0, 36px) repeat(1, minmax(0, 1fr));
     align-items: start;
     gap: 20px 16px;
     margin-bottom: 29px;
+
     &.support_msg_grid {
       .time {
         margin-left: 2px;

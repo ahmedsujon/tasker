@@ -12,6 +12,7 @@ body {
   background-color: $body-bg;
   font-family: $body-font-family;
   font-size: $font-size-base;
+  min-height: $fullScreenHeight;
   @include customScrollbar();
 }
 html,
@@ -162,6 +163,9 @@ input[type="number"] {
 .text-black {
   color: #000;
 }
+.text-f00 {
+  color: #f00 !important;
+}
 .g-smm {
   gap: 10px 8px;
 }
@@ -171,8 +175,14 @@ input[type="number"] {
 .g-lg {
   gap: 10px 15px;
 }
+.mt-32 {
+  margin-top: 32px !important;
+}
 .mt-24 {
   margin-top: 24px;
+}
+.mtm-24 {
+  margin-top: 24px !important;
 }
 .mrn-24 {
   margin-right: -$bodyRightSpace;
@@ -195,8 +205,20 @@ input[type="number"] {
 .pt-16 {
   padding-top: 16px;
 }
+.pr-24 {
+  padding-right: $bodyRightSpace;
+}
+.pb-12 {
+  padding-bottom: 12px;
+}
+.max-h-100 {
+  max-height: 100% !important;
+}
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
 .h-full-screen {
-  min-height: calc(100vh - $fullHeightRemove);
+  min-height: calc($fullScreenHeight - $fullHeightRemove);
 }
 .space-between {
   display: flex;
@@ -216,11 +238,17 @@ input[type="number"] {
     margin-top: 30px;
   }
 }
+.text-line-clamp1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
 .bg_color {
   background-color: #f4f4f4;
 }
 .header_bottom_space {
-  padding-bottom: 100px;
+  padding-bottom: 80px;
 }
 
 .default_section_gap {
@@ -253,7 +281,7 @@ input[type="number"] {
   text-align: center;
   gap: 10px;
   width: 100%;
-  height: calc(100vh - $fullHeightRemove);
+  height: calc($fullScreenHeight - $fullHeightRemove);
   h3 {
     font-family: SFBoldFont;
     color: #000;

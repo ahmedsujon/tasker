@@ -13,6 +13,7 @@ use App\Livewire\Client\Jobs\JobStepFourComponent;
 use App\Livewire\Client\Jobs\JobStepOneComponent;
 use App\Livewire\Client\Jobs\JobStepThreeComponent;
 use App\Livewire\Client\Jobs\JobStepTwoComponent;
+use App\Livewire\Client\Messages\MessageComponent;
 use App\Livewire\Client\Notifications\NotificationComponent;
 use App\Livewire\Client\Notifications\NotificationDetailsComponent;
 use App\Livewire\Client\Profile\AccountInfoComponent;
@@ -73,6 +74,9 @@ Route::middleware('auth')->group(function () {
         Route::get('job-post-step-four', JobStepThreeComponent::class)->name('jobPostFour');
         Route::get('job-post-step-five', JobStepFourComponent::class)->name('jobPostFive');
         Route::get('job-details/{id}', JobDetailsComponent::class)->name('jobDetails');
+
+        // Chat Routes
+        Route::get('chats', MessageComponent::class)->name('chats');
 
         // Notifications Routes
         Route::get('notifications', NotificationComponent::class)->name('notifications');

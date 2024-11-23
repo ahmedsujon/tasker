@@ -56,7 +56,7 @@
 
 /* Active Post Tab Section */
 .active_tab_wrapper {
-  max-height: calc(100vh - 280px);
+  max-height: calc($fullScreenHeight - 280px);
   margin-top: 22px;
   @include customScrollbarInner();
   .active_post_card {
@@ -75,7 +75,8 @@
       grid-template-columns: repeat(1, minmax(0, 1fr)) minmax(0, 24px);
       align-items: start;
       gap: 11px;
-      h3 {
+      h3,
+      a {
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
@@ -87,6 +88,14 @@
         font-style: normal;
         font-weight: 600;
         line-height: normal;
+      }
+      .details_pera {
+        color: #000;
+        font-family: SFSemiBoldFont;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 22px;
       }
     }
   }
@@ -254,7 +263,24 @@
 
   //View tab
   &.active_post_view_wrapper {
-    max-height: calc(100vh - 296px);
+    max-height: calc($fullScreenHeight - 164px);
+    .active_post_card {
+      margin-bottom: 16px;
+    }
+    .post_title_grid {
+      h3,
+      a,
+      .details_pera {
+        display: block;
+        font-family: SFMediumFont;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+      }
+      .underline {
+        text-decoration: underline;
+      }
+    }
   }
   .post_user_grid {
     display: grid;
@@ -320,12 +346,15 @@
   //Proposal tab
   .performance_grid {
     display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
-    align-items: start;
+    grid-template-columns: minmax(0, 130px) minmax(0, 1fr);
     gap: 20px 26px;
     margin-top: 19px;
   }
   .point_area {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 12px 13px;
     border-radius: 8px;
     -webkit-border-radius: 8px;
@@ -333,6 +362,19 @@
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
     background: #f9f0fe;
+    .dollar_icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+      background-color: white;
+    }
     .dollar_key {
       max-width: 25px;
     }
@@ -358,12 +400,12 @@
   }
   .performance_item {
     h3 {
-      color: rgba(0, 0, 0, 0.7);
+      color: rgba(0, 0, 0, 0.5);
+      font-family: SFMediumFont;
       font-size: 14px;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 500;
       line-height: normal;
-      margin-bottom: 4px;
     }
     h4 {
       color: #000;
@@ -373,8 +415,15 @@
       font-weight: 600;
       line-height: normal;
     }
+    .progress_area {
+      gap: 4px;
+      margin-top: 4px;
+    }
     &.complete_job_item {
-      margin-top: 24px;
+      margin-top: 29px;
+      h4 {
+        margin-top: 4px;
+      }
     }
   }
   .progress {
