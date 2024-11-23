@@ -666,3 +666,63 @@ $alertModalLeftRightPadding: 20px;
     }
   }
 }
+
+//Custom modal area
+.modal_area {
+  position: fixed;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  z-index: 502;
+  max-width: 382px;
+  width: 90%;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  border-radius: 16px;
+  background: #fff;
+  @include hover-transition();
+  &.modal_active {
+    top: 50%;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  //Form area
+  .modal_form_area {
+    .input_row {
+      label {
+        color: #000;
+        font-family: $secondary-font;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        display: block;
+        margin-bottom: 12px;
+      }
+      textarea {
+        color: rgba(0, 0, 0, 0.7);
+        font-family: $secondary-font;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        padding: 16px;
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid #d6d6d6;
+        background: #f8f8f8;
+      }
+    }
+    .login_btn {
+      margin-top: 20px;
+    }
+  }
+}

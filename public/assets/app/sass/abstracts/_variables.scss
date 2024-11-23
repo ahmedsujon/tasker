@@ -2,8 +2,15 @@
 // This file contains all application-wide Sass variables.
 // -----------------------------------------------------------------------------
 
+// Html Variable
+:root {
+  --vh: 1vh;
+}
+
 // Colors
 $body-bg: white;
+
+//Space
 $fullHeightRemove: 40px;
 $bodyTopSpace: 16px;
 $bodyLeftSpace: 24px;
@@ -11,3 +18,5 @@ $bodyRightSpace: 24px;
 $bodyBottomSpace: 24px;
 $bodyLeftRightSpace: 48px;
 $bodyLeftRightSingleSpace: 24px;
+$fullScreenHeight: calc(var(--vh) * 100);
+
