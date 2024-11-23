@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class RegistrationComponent extends Component
 {
-    public $first_name, $last_name, $email, $phone, $password, $confirm_password, $remember_me = 0, $login_status;
+    public $first_name, $last_name, $email, $phone, $password, $confirm_password, $remember_me = 0, $login_status, $type;
 
     public function updated($fields)
     {
@@ -37,8 +37,8 @@ class RegistrationComponent extends Component
         $user->last_name = $this->last_name;
         $user->email = $this->email;
         $user->password = Hash::make($this->password);
+        $user->type = session()->get('type');
         $user->save();
-
         Auth::guard('web')->attempt(['email' => $this->email, 'password' => $this->password]);
         session()->flash('success', 'Registration successful');
         return redirect()->route('seller.dashboard');

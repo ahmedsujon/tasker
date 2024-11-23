@@ -3,6 +3,7 @@
 use App\Http\Controllers\LogoutController;
 use App\Livewire\Auth\ForgetPasswordComponent;
 use App\Livewire\Auth\LoginComponent;
+use App\Livewire\Auth\OnboardingComponent;
 use App\Livewire\Auth\PasswordResetSuccessComponent;
 use App\Livewire\Auth\RegistrationComponent;
 use App\Livewire\Auth\ResetPasswordComponent;
@@ -43,6 +44,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', LoginComponent::class)->name('login');
+Route::get('/onboarding', OnboardingComponent::class)->name('onboarding');
 Route::get('/register', RegistrationComponent::class)->name('register')->middleware('guest');
 
 Route::middleware('auth')->group(function () {
