@@ -84,7 +84,7 @@
             </div>
         </div>
     </section>
-    @livewire('client.layouts.inc.header')
+    @livewire('seller.layouts.inc.header')
     <!-- Alert Area  -->
     <div class="modal_alert_area" id="alertModalArea">
         <ul class="list_alert">

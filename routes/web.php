@@ -116,3 +116,7 @@ Route::middleware('auth')->group(function () {
 Route::get('client/password/reset', ForgetPasswordComponent::class)->name('client.reset.password');
 Route::get('client/change/password', ResetPasswordComponent::class)->name('client.change.password');
 Route::get('client/password/reset/success', PasswordResetSuccessComponent::class)->name('client.change.password.success');
+
+
+//Call Route Files
+require __DIR__ . '/admin.php';

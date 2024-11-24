@@ -3,7 +3,7 @@
     <header class="Header_wrapper">
         <ul class="menu_list d-flex align-items-center justify-content-evenly flex-wrap">
             <li>
-                <a href="#" class="menu_list_item active_menu">
+                <a href="{{ route('seller.dashboard') }}" class="menu_list_item active_menu">
                     <img src="{{ asset('assets/app/icons/header/home.svg') }}" alt="home icon" class="inactive_icon" />
                     <img src="{{ asset('assets/app/icons//header/home-active.svg') }}" alt="home active icon"
                         class="active_icon" />
