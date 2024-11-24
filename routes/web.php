@@ -30,6 +30,8 @@ use App\Livewire\Client\Profile\Settings\SettingsComponent;
 use App\Livewire\Client\Profile\Settings\SupportComponent;
 use App\Livewire\Client\User\DashboardComponent;
 use App\Livewire\Seller\DashboardComponent as SellerDashboardComponent;
+use App\Livewire\Seller\Jobs\JobDetailsComponent as JobsJobDetailsComponent;
+use App\Livewire\Seller\Jobs\JobsComponent as JobsJobsComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -91,6 +93,8 @@ Route::middleware('auth')->group(function () {
     Route::prefix('seller/')->name('seller.')->middleware('role:seller')->group(function () {
         // all seller routes here
         Route::get('dashboard', SellerDashboardComponent::class)->name('dashboard');
+        Route::get('seller-jobs', JobsJobsComponent::class)->name('sellerJobs');
+        Route::get('seller-jobs/details/{id}', JobsJobDetailsComponent::class)->name('sellerJobsDetails');
     });
 });
 

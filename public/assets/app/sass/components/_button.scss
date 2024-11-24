@@ -19,6 +19,10 @@
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
   background-color: #7741fb;
+  &.login_btn_sm {
+    font-family: SFRegularFont;
+    font-weight: 400;
+  }
 }
 
 .sing_up_btn {
@@ -218,8 +222,21 @@
     line-height: normal;
   }
 }
+.widthraw_earning_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: SFMediumFont;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 9px 24px;
+  border-radius: 6px;
+  background: #7741fb;
+}
 
-//Sahre notifictoin
 .share_notificatin_btn {
   img {
     max-width: 24px;
@@ -230,5 +247,29 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+  }
+}
+.wishlist_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  padding: 8px;
+  gap: 10px;
+  border-radius: 20px;
+  border: 1px solid #e4e4e4;
+  background: #fff;
+  .active {
+    display: none;
+  }
+  &.wishlist_active {
+    background-color: #7741fb;
+    .inactive {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
   }
 }

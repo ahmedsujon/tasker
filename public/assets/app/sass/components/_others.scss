@@ -36,6 +36,23 @@
       background-color: transparent;
     }
   }
+  .page_back_gray_btn {
+    border-radius: 14px !important;
+    -webkit-border-radius: 14px !important;
+    -moz-border-radius: 14px !important;
+    -ms-border-radius: 14px !important;
+    -o-border-radius: 14px !important;
+    background: #eeeeec !important;
+  }
+  .back_more_white_btn {
+    border-radius: 14px !important;
+    border: 1px solid #dcdcdc !important;
+    -webkit-border-radius: 14px !important;
+    -moz-border-radius: 14px !important;
+    -ms-border-radius: 14px !important;
+    -o-border-radius: 14px !important;
+    background: #fff;
+  }
 }
 
 //Client user area
@@ -723,6 +740,71 @@ $alertModalLeftRightPadding: 20px;
     }
     .login_btn {
       margin-top: 20px;
+    }
+  }
+}
+
+//Tab
+.tab_list {
+  margin-top: 32px;
+  &.border_tab_list {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: -$bodyLeftSpace;
+      height: 1px;
+      width: calc(100% + $bodyLeftRightSpace);
+      background-color: #f2f2f2;
+    }
+  }
+  li {
+    text-align: center;
+    &:first-child {
+      .nav-link {
+        &::after {
+          width: 98px;
+        }
+      }
+    }
+    &:last-child {
+      .nav-link {
+        &::after {
+          width: 100px;
+        }
+      }
+    }
+    .nav-link {
+      position: relative;
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      padding: 0;
+      padding-bottom: 16px;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        width: 85px;
+        height: 2px;
+      }
+      &.active {
+        font-family: SFSemiBoldFont;
+        color: #000;
+        font-weight: 600;
+        &::after {
+          background-color: #7741fb;
+        }
+      }
     }
   }
 }

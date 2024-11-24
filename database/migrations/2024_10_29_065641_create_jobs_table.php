@@ -20,6 +20,7 @@ return new class extends Migration
             $table->longText('description')->nullable();
             $table->string('attacments')->nullable();
             $table->string('budget')->nullable();
+            $table->string('location')->nullable();
             $table->enum('status', ['Active', 'In Order', 'Draft', 'Finish', 'Cancel'])->default('Active');
             $table->timestamps();
         });

@@ -87,6 +87,14 @@ $(document).ready(function () {
       $description.addClass("expanded");
     }
   });
+
+
+  //Text line clamp
+  $(".text-line-clamp2").clamp({
+    clamp:2,
+    alwaysDisplay:false,
+    
+  });
 });
 
 //Add Class
@@ -150,25 +158,8 @@ window.addEventListener("resize", updateVH);
 updateVH();
 
 
-//Text Line Clamp
-function clampText(selector, lineCount) {
-  const elements = document.querySelectorAll(selector);
-  
-  elements.forEach(element => {
-    const lineHeight = parseFloat(getComputedStyle(element).lineHeight);
-    const maxHeight = lineHeight * lineCount;
+ 
 
-    element.style.maxHeight = `${maxHeight}px`;
-    element.style.overflow = 'hidden';
-
-    if (element.scrollHeight > maxHeight) {
-      let text = element.textContent;
-      while (element.scrollHeight > maxHeight && text.length > 0) {
-        text = text.slice(0, -1);
-        element.textContent = text + '...';
-      }
-    }
-  });
-}
+ 
 
  
