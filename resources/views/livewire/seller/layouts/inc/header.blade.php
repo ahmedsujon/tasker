@@ -29,7 +29,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="menu_list_item">
+                <a href="{{ route('seller.sellerProfile') }}" class="menu_list_item">
                     <img src="{{ asset('assets/app/icons/header/user.svg') }}" alt="user icon" class="inactive_icon" />
                     <img src="{{ asset('assets/app/icons/header/user-active.svg') }}" alt="user active icon"
                         class="active_icon" />

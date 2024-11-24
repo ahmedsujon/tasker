@@ -81,7 +81,7 @@
                 </div>
             </div>
         </div>
-        <div class="proposal_area d-flex-between">
+        <div class="proposal_area d-flex-between" style="margin-bottom: 100px;">
             <h3>Proposal</h3>
             <a href="#">
                 <img src="{{ asset('assets/app/icons/arrow-up-right.svg') }}" alt="arrow icon" />

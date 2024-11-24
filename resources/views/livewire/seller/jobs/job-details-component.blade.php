@@ -50,9 +50,9 @@
                     <img src="{{ asset('assets/app/icons/heart.svg') }}" alt="heart icon" class="inactive" />
                     <img src="{{ asset('assets/app/icons/heart-white.svg') }}" alt="heart icon" class="active" />
                 </button>
-                <button type="button" class="login_btn login_btn_sm">
+                <a href="{{ route('seller.sellerJobsApply') }}" type="button" class="login_btn login_btn_sm">
                     Apply Bid
-                </button>
+                </a>
             </div>
         </div>
     </section>
@@ -74,9 +74,11 @@
             <li>
                 <button type="button" class="red">Delete the Job Post</button>
             </li>
+            <li>
+                <button type="button" class="dropdown_cancel_btn removeDropdownBtn red">
+                    Cancel
+                </button>
+            </li>
         </ul>
-        <button type="button" class="dropdown_cancel_btn removeDropdownBtn">
-            Cancel
-        </button>
     </section>
 </div>
