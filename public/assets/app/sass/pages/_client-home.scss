@@ -1,57 +1,7 @@
 /* Active Post  Section */
 .active_post_wrapper {
   @include backgroundBg();
-  .tab_list {
-    margin-top: 32px;
-    li {
-      text-align: center;
-      &:first-child {
-        .nav-link {
-          &::after {
-            width: 98px;
-          }
-        }
-      }
-      &:last-child {
-        .nav-link {
-          &::after {
-            width: 100px;
-          }
-        }
-      }
-      .nav-link {
-        position: relative;
-        color: rgba(0, 0, 0, 0.7);
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        padding: 0;
-        padding-bottom: 16px;
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          transform: translateX(-50%);
-          -webkit-transform: translateX(-50%);
-          -moz-transform: translateX(-50%);
-          -ms-transform: translateX(-50%);
-          -o-transform: translateX(-50%);
-          width: 85px;
-          height: 2px;
-        }
-        &.active {
-          font-family: SFSemiBoldFont;
-          color: #000;
-          font-weight: 600;
-          &::after {
-            background-color: #7741fb;
-          }
-        }
-      }
-    }
-  }
+
 }
 
 /* Active Post Tab Section */

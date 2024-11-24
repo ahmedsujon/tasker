@@ -23,6 +23,7 @@ class JobSeeder extends Seeder
                 'description' => 'Build a responsive e-commerce website with payment integration.',
                 'attacments' => 'specifications.pdf',
                 'budget' => '5000',
+                'location' => 'Jeddah',
                 'status' => 'Active',
             ],
             [
@@ -33,6 +34,7 @@ class JobSeeder extends Seeder
                 'description' => 'Create a unique logo for a new startup.',
                 'attacments' => 'logo_ideas.zip',
                 'budget' => '500',
+                'location' => 'Riyadh',
                 'status' => 'Active',
             ],
             [
@@ -43,6 +45,7 @@ class JobSeeder extends Seeder
                 'description' => 'Optimize the website to improve search engine rankings.',
                 'attacments' => 'seo_audit.docx',
                 'budget' => '1200',
+                'location' => 'Jeddah',
                 'status' => 'In Order',
             ],
             [
@@ -53,6 +56,7 @@ class JobSeeder extends Seeder
                 'description' => 'Write blog posts for a tech blog, focused on AI and machine learning.',
                 'attacments' => 'topics_list.xlsx',
                 'budget' => '800',
+                'location' => 'Riyadh',
                 'status' => 'In Order',
             ],
             [
@@ -63,6 +67,7 @@ class JobSeeder extends Seeder
                 'description' => 'Develop a social media strategy for a product launch.',
                 'attacments' => 'strategy_outline.pdf',
                 'budget' => '2000',
+                'location' => 'Jeddah',
                 'status' => 'Active',
             ],
         ]);

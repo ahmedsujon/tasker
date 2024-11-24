@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @font-face {
   font-family: SFLightFont;
   src: url(/assets/fonts/SF-Pro-Display-Light.woff);
@@ -74,6 +75,15 @@
   font-family: SFBoldFont;
   color: rgba(0, 0, 0, 0.8);
   font-weight: 700;
+}
+.Header_wrapper .menu_list_item .user_image {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 
 /* Splash Section */
@@ -443,49 +453,6 @@
   width: calc(100% + 48px);
   height: calc(100% + 16px);
   background-color: white;
-}
-.active_post_wrapper .tab_list {
-  margin-top: 32px;
-}
-.active_post_wrapper .tab_list li {
-  text-align: center;
-}
-.active_post_wrapper .tab_list li:first-child .nav-link::after {
-  width: 98px;
-}
-.active_post_wrapper .tab_list li:last-child .nav-link::after {
-  width: 100px;
-}
-.active_post_wrapper .tab_list li .nav-link {
-  position: relative;
-  color: rgba(0, 0, 0, 0.7);
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  padding: 0;
-  padding-bottom: 16px;
-}
-.active_post_wrapper .tab_list li .nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  width: 85px;
-  height: 2px;
-}
-.active_post_wrapper .tab_list li .nav-link.active {
-  font-family: SFSemiBoldFont;
-  color: #000;
-  font-weight: 600;
-}
-.active_post_wrapper .tab_list li .nav-link.active::after {
-  background-color: #7741fb;
 }
 
 /* Active Post Tab Section */
@@ -1841,6 +1808,276 @@
   margin-top: 20px;
 }
 
+/* Freelancer Header Section */
+.freelancer_header_wrapper {
+  position: relative;
+  padding-top: 58px;
+  padding-bottom: 28px;
+}
+.freelancer_header_wrapper::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: -24px;
+  width: calc(100% + 48px);
+  height: calc(100% + 16px);
+  z-index: -1;
+  background: #7741fb;
+}
+.freelancer_header_wrapper .header_grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 20px 16px;
+}
+.freelancer_header_wrapper .logo img {
+  max-width: 50px;
+  max-width: 50px;
+}
+.freelancer_header_wrapper .notification_list {
+  gap: 10px 23px;
+}
+.freelancer_header_wrapper .notification_list img {
+  max-width: 24px;
+}
+.freelancer_header_wrapper .user_info_area {
+  margin-top: 28px;
+}
+.freelancer_header_wrapper .user_info_area h3 {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.freelancer_header_wrapper .user_info_area h1 {
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 2px;
+}
+
+/* Earning Overview  Section */
+.earning_overview_wrapper {
+  margin-top: 30px;
+}
+.earning_overview_wrapper h1 {
+  color: #101010;
+  font-family: SFBoldFont;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 14px;
+}
+.earning_overview_wrapper .overview_card {
+  padding: 13px 15px 32px 15px;
+  border-radius: 8px;
+  border: 1px solid #f2f2f2;
+  background: #fff;
+}
+.earning_overview_wrapper .avaiable_balance_area {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 26px;
+  margin-bottom: 10px;
+  padding-bottom: 18px;
+  border-radius: 8px;
+  border: 1px solid #f2f2f2;
+  background: #eee;
+  box-shadow: 0px 10px 13.9px 0px rgba(0, 0, 0, 0.04);
+}
+.earning_overview_wrapper .avaiable_balance_area::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: -15px;
+  width: calc(100% + 30px);
+  height: 1px;
+  background-color: #f3f3f3;
+}
+.earning_overview_wrapper .avaiable_balance_area h4 {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.earning_overview_wrapper .avaiable_balance_area h2 {
+  color: #000;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+.earning_overview_wrapper .earning_grid_area {
+  margin-top: 26px;
+}
+.earning_overview_wrapper .earning_grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 20px 16px;
+  margin-top: 21px;
+}
+.earning_overview_wrapper .earning_grid h5 {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.earning_overview_wrapper .earning_grid h3 {
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: 6px;
+}
+.earning_overview_wrapper .job_seats_area {
+  margin-top: 36px;
+}
+.earning_overview_wrapper .job_seat_grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 22px 20px;
+  margin-top: 0;
+  border-radius: 8px;
+  border: 1px solid #f2f2f2;
+  background: #fff;
+}
+.earning_overview_wrapper .proposal_area {
+  padding: 16px 15px;
+  margin-top: 13px;
+  border-radius: 8px;
+  border: 1px solid #f2f2f2;
+  background: #fff;
+}
+.earning_overview_wrapper .proposal_area h3 {
+  color: #101010;
+  font-family: SFBoldFont;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+/* Bid Section */
+.bids_wrapper .bids_card {
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #f2f2f2;
+  background: #fff;
+}
+.bids_wrapper .bids_card .bids_title {
+  display: block;
+  color: #000;
+  font-family: SFBoldFont;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.bids_wrapper .bid_inf_grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 12px 16px;
+  margin-top: 20px;
+}
+.bids_wrapper .bid_inf_grid .bid_icon {
+  max-width: 16px;
+}
+.bids_wrapper .bid_inf_grid h4 {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.bids_wrapper .bid_inf_grid h3 {
+  color: #000;
+  font-family: SFBoldFont;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.bids_wrapper .bid_inf_grid h5 {
+  color: #000;
+  font-family: SFMediumFont;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.bids_wrapper .bid_inf_grid h3,
+.bids_wrapper .bid_inf_grid h5 {
+  margin-top: 4px;
+}
+.bids_wrapper .bid_tag_list {
+  gap: 12px;
+  margin-top: 20px;
+}
+.bids_wrapper .bid_tag_list li,
+.bids_wrapper .bid_tag_list a,
+.bids_wrapper .bid_tag_list button {
+  padding: 6px 16px;
+  color: #000;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border-radius: 8px;
+  background: #f2f2f2;
+}
+.bids_wrapper .details_content {
+  margin-top: 20px;
+}
+.bids_wrapper .details_content p,
+.bids_wrapper .details_content li,
+.bids_wrapper .details_content h3 {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.bids_wrapper .details_content li {
+  margin-bottom: 2px;
+}
+.bids_wrapper .details_content li span {
+  display: inline;
+}
+.bids_wrapper .details_content li span,
+.bids_wrapper .details_content h3 {
+  color: #000;
+  font-family: SFMediumFont;
+  font-size: 16px;
+  font-weight: 500;
+}
+.bids_wrapper .details_content h3,
+.bids_wrapper .details_content p {
+  margin-top: 20px;
+}
+.bids_wrapper .bids_wishlist_grid {
+  display: grid;
+  grid-template-columns: minmax(0, 56px) repeat(1, minmax(0, 1fr));
+  align-items: center;
+  gap: 20px 16px;
+}
+
+/* Section */
 .swiper {
   width: 100%;
 }
@@ -1888,6 +2125,10 @@
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
   background-color: #7741fb;
+}
+.login_btn.login_btn_sm {
+  font-family: SFRegularFont;
+  font-weight: 400;
 }
 
 .sing_up_btn {
@@ -2095,6 +2336,21 @@
   line-height: normal;
 }
 
+.widthraw_earning_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: SFMediumFont;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 9px 24px;
+  border-radius: 6px;
+  background: #7741fb;
+}
+
 .share_notificatin_btn img {
   max-width: 24px;
 }
@@ -2104,6 +2360,31 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.wishlist_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  padding: 8px;
+  gap: 10px;
+  border-radius: 20px;
+  border: 1px solid #e4e4e4;
+  background: #fff;
+}
+.wishlist_btn .active {
+  display: none;
+}
+.wishlist_btn.wishlist_active {
+  background-color: #7741fb;
+}
+.wishlist_btn.wishlist_active .inactive {
+  display: none;
+}
+.wishlist_btn.wishlist_active .active {
+  display: block;
 }
 
 .page_inner_title {
@@ -3068,6 +3349,23 @@
   border: 1px solid #e0e0e0 !important;
   background-color: transparent;
 }
+.back_btn_grid .page_back_gray_btn {
+  border-radius: 14px !important;
+  -webkit-border-radius: 14px !important;
+  -moz-border-radius: 14px !important;
+  -ms-border-radius: 14px !important;
+  -o-border-radius: 14px !important;
+  background: #eeeeec !important;
+}
+.back_btn_grid .back_more_white_btn {
+  border-radius: 14px !important;
+  border: 1px solid #dcdcdc !important;
+  -webkit-border-radius: 14px !important;
+  -moz-border-radius: 14px !important;
+  -ms-border-radius: 14px !important;
+  -o-border-radius: 14px !important;
+  background: #fff;
+}
 
 .client_user_grid {
   display: grid;
@@ -3783,6 +4081,62 @@
   margin-top: 20px;
 }
 
+.tab_list {
+  margin-top: 32px;
+}
+.tab_list.border_tab_list {
+  position: relative;
+}
+.tab_list.border_tab_list::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -24px;
+  height: 1px;
+  width: calc(100% + 48px);
+  background-color: #f2f2f2;
+}
+.tab_list li {
+  text-align: center;
+}
+.tab_list li:first-child .nav-link::after {
+  width: 98px;
+}
+.tab_list li:last-child .nav-link::after {
+  width: 100px;
+}
+.tab_list li .nav-link {
+  position: relative;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 0;
+  padding-bottom: 16px;
+}
+.tab_list li .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  width: 85px;
+  height: 2px;
+}
+.tab_list li .nav-link.active {
+  font-family: SFSemiBoldFont;
+  color: #000;
+  font-weight: 600;
+}
+.tab_list li .nav-link.active::after {
+  background-color: #7741fb;
+}
+
 /*
 !Utilities Or Helper CSS
 */
@@ -3990,6 +4344,10 @@ input[type=number] {
   color: #f00 !important;
 }
 
+.text-f60 {
+  color: #f60 !important;
+}
+
 .g-smm {
   gap: 10px 8px;
 }
@@ -4028,6 +4386,10 @@ input[type=number] {
 
 .mt-16 {
   margin-top: 16px;
+}
+
+.mt-8 {
+  margin-top: 8px;
 }
 
 .pt-10 {
@@ -4093,6 +4455,10 @@ input[type=number] {
 
 .bg_color {
   background-color: #f4f4f4;
+}
+
+.bg_color_f3 {
+  background: #f3f3f3;
 }
 
 .header_bottom_space {
