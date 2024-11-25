@@ -30,8 +30,11 @@ use App\Livewire\Client\Profile\Settings\SettingsComponent;
 use App\Livewire\Client\Profile\Settings\SupportComponent;
 use App\Livewire\Client\User\DashboardComponent;
 use App\Livewire\Seller\DashboardComponent as SellerDashboardComponent;
+use App\Livewire\Seller\Jobs\JobApplyComponent;
 use App\Livewire\Seller\Jobs\JobDetailsComponent as JobsJobDetailsComponent;
 use App\Livewire\Seller\Jobs\JobsComponent as JobsJobsComponent;
+use App\Livewire\Seller\Profile\ProfileComponent as ProfileProfileComponent;
+use App\Livewire\Seller\Profile\SellerProfileComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -93,8 +96,19 @@ Route::middleware('auth')->group(function () {
     Route::prefix('seller/')->name('seller.')->middleware('role:seller')->group(function () {
         // all seller routes here
         Route::get('dashboard', SellerDashboardComponent::class)->name('dashboard');
+
+        // Jobs Routes
         Route::get('seller-jobs', JobsJobsComponent::class)->name('sellerJobs');
         Route::get('seller-jobs/details/{id}', JobsJobDetailsComponent::class)->name('sellerJobsDetails');
+        Route::get('job-apply', JobApplyComponent::class)->name('sellerJobsApply');
+
+        // Profile Routes
+        Route::get('seller-profile', SellerProfileComponent::class)->name('sellerProfile');
+        // Route::get('account/information/{id}', AccountInfoComponent::class)->name('accountInformation');
+        // Route::get('billing/payment', BillingPaymentComponent::class)->name('billingPayment');
+        // Route::get('add/billing/method', PaymentMethodComponent::class)->name('billingMethod');
+        // Route::get('order/history', OrderHistoryComponent::class)->name('orderHistory');
+
     });
 });
 
@@ -102,3 +116,7 @@ Route::middleware('auth')->group(function () {
 Route::get('client/password/reset', ForgetPasswordComponent::class)->name('client.reset.password');
 Route::get('client/change/password', ResetPasswordComponent::class)->name('client.change.password');
 Route::get('client/password/reset/success', PasswordResetSuccessComponent::class)->name('client.change.password.success');
+
+
+//Call Route Files
+require __DIR__ . '/admin.php';
