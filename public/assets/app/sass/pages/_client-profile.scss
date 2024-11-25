@@ -209,10 +209,6 @@
       padding-top: 20px;
       .content {
         h3 {
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 2;
-          overflow: hidden;
           color: #000;
           text-overflow: ellipsis;
           font-family: SFBoldFont;
@@ -449,6 +445,14 @@
     min-height: 200px;
     @include customScrollbarInner();
   }
+
+  //Payroll list pagte
+  &.payroll_list_wrapper {
+    .inner_transaction_area {
+      padding-right: 24px !important;
+      max-height: calc($fullScreenHeight - 160px);
+    }
+  }
 }
 
 /*  Notification Settings Section */
@@ -482,6 +486,27 @@
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
+    }
+  }
+
+  // Privacy Preferences  Section
+  &.privacy_preference_wrapper {
+    .notification_setting_item {
+      align-items: center;
+      gap: 20px 21px;
+      padding: 8px 9px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      background: #fff;
+      h3 {
+        color: #002807;
+        font-size: 18px;
+      }
+      p {
+        color: rgba(0, 40, 7, 0.8);
+        font-size: 14px;
+        margin-top: 4px;
+      }
     }
   }
 }
