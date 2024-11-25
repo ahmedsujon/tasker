@@ -109,6 +109,8 @@ Route::middleware('auth')->group(function () {
         // Route::get('add/billing/method', PaymentMethodComponent::class)->name('billingMethod');
         // Route::get('order/history', OrderHistoryComponent::class)->name('orderHistory');
 
+        // Logout Routes
+        Route::post('logout', [LogoutController::class, 'sellerLogout'])->name('logout');
     });
 });
 
