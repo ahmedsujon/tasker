@@ -9,27 +9,27 @@
     <section class="client_profile_wrapper  mt-12">
         <div class="horizontal-m-w">
             <div class="account_area">
-                <a href="#" class="account_item_grid">
+                {{-- <a href="#" class="account_item_grid">
                     <img src="{{ asset('assets/app/icons/eye-black.svg') }}" alt="eye icon" class="user_icon" />
                     <span class="title"> Privacy preferences </span>
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />
-                </a>
-                <a href="#" class="account_item_grid">
+                </a> --}}
+                <a href="{{ route('seller.sellerSettingsNotification') }}" class="account_item_grid">
                     <img src="{{ asset('assets/app/icons/bell-04.svg') }}" alt="notification icon" class="user_icon" />
                     <span class="title">Notification settings </span>
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />
                 </a>
-                <a href="#" class="account_item_grid">
+                <a href="{{ route('seller.sellerSettingsSupport') }}" class="account_item_grid">
                     <img src="{{ asset('assets/app/icons/help-circle.svg') }}" alt="support icon" class="user_icon" />
                     <span class="title">Tasker Support</span>
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />
                 </a>
-                <a href="#" class="account_item_grid">
+                {{-- <a href="#" class="account_item_grid">
                     <img src="{{ asset('assets/app/icons/check-verified-02.svg') }}" alt="user icon"
                         class="user_icon" />
                     <span class="title">2-step verification </span>
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />
-                </a>
+                </a> --}}
                 <a href="{{ route('seller.sellerPasswordChange') }}" class="account_item_grid">
                     <img src="{{ asset('assets/app/icons/lock-unlocked-01.svg') }}" alt="user icon" class="user_icon" />
                     <span class="title">Change Password </span>

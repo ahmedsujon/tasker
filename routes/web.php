@@ -40,7 +40,9 @@ use App\Livewire\Seller\Profile\SellerBillingComponent;
 use App\Livewire\Seller\Profile\SellerProfileComponent;
 use App\Livewire\Seller\Profile\Settings\SellerChangePasswordComponent;
 use App\Livewire\Seller\Profile\Settings\SellerChangeSupportComponent;
+use App\Livewire\Seller\Profile\Settings\SellerNotificationComponent;
 use App\Livewire\Seller\Profile\Settings\SellerSettingsComponent;
+use App\Livewire\Seller\Profile\Settings\SellerSupportComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -116,8 +118,8 @@ Route::middleware('auth')->group(function () {
 
         // Settings Routes
         Route::get('seller/profile/settings', SellerSettingsComponent::class)->name('sellerSettings');
-        // Route::get('settings/notification', NotificationsComponent::class)->name('settingsNotification');
-        // Route::get('settings/tasker/support', SupportComponent::class)->name('settingsSupport');
+        Route::get('seller/settings/notification', SellerNotificationComponent::class)->name('sellerSettingsNotification');
+        Route::get('seller/settings/tasker/support', SellerSupportComponent::class)->name('sellerSettingsSupport');
         Route::get('seller/change/password', SellerChangePasswordComponent::class)->name('sellerPasswordChange');
 
         // Logout Routes
