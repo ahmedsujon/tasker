@@ -1,4 +1,9 @@
 <div>
+    <style>
+        .client_user_info_grid .img img {
+            border-radius: 50% !important;
+        }
+    </style>
     <section class="client_profile_wrapper mt-12">
         <div class="d-flex-between">
             <h2 class="page_title text-black">Profile</h2>
@@ -11,10 +16,11 @@
         <div class="horizontal-m-w">
             <div class="client_user_info_grid bg-black">
                 <div class="img">
-                    <img src="{{ asset('assets/app/images/user/client_user2.png') }}" alt="client image" />
+                    <img src="{{ asset(user()->avatar ? user()->avatar : 'assets/images/placeholder.jpg') }}"
+                        alt="client image" />
                 </div>
                 <div>
-                    <h3>Ramjan Ahmed</h3>
+                    <h3>{{ user()->first_name }} {{ user()->last_name }}</h3>
                     <h4>Tasker Client</h4>
                 </div>
             </div>
@@ -37,7 +43,7 @@
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />
                 </a>
             </div>
-            <div class="account_area">
+            {{-- <div class="account_area">
                 <h4 class="item_short_title">Change Language</h4>
                 <div class="dropdown">
                     <a id="dropdownMenuButton" class="account_item_grid dropdown-toggle" href="#" role="button"
@@ -71,10 +77,10 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> --}}
             <div class="account_area" style="margin-bottom: 90px;">
                 <h4 class="item_short_title">Settings</h4>
-                <a href="#" class="account_item_grid">
+                <a href="{{ route('seller.sellerSettings') }}" class="account_item_grid">
                     <img src="{{ asset('assets/app/icons/settings-02.svg') }}" alt="user icon" class="user_icon" />
                     <span class="title">Settings</span>
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />

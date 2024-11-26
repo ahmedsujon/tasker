@@ -29,7 +29,7 @@
         </div>
         <div class="user_info_area">
             <h3>Welcome to tasker</h3>
-            <h1>Muhammad Faisal</h1>
+            <h1>{{ user()->first_name }} {{ user()->last_name }}</h1>
         </div>
     </section>
     <!-- Earning Overview Section  -->
