@@ -20,7 +20,8 @@
             </div>
             <div class="account_area">
                 <h4 class="item_short_title">Account</h4>
-                <a href="#" class="account_item_grid">
+                <a href="{{ route('seller.sellerAccountInformation', ['id' => user()->id]) }}"
+                    class="account_item_grid">
                     <img src="{{ asset('assets/app/icons/user-03.svg') }}" alt="user icon" class="user_icon" />
                     <span class="title"> Account Information </span>
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />

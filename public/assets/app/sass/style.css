@@ -1991,6 +1991,7 @@
 
 /* Bid Section */
 .bids_wrapper .bids_card {
+  margin-bottom: 12px;
   padding: 16px;
   border-radius: 12px;
   border: 1px solid #f2f2f2;
@@ -2092,6 +2093,9 @@
   grid-template-columns: minmax(0, 56px) repeat(1, minmax(0, 1fr));
   align-items: center;
   gap: 20px 16px;
+}
+.bids_wrapper .message_btn {
+  margin-top: 20px;
 }
 
 /* Section */
@@ -2402,6 +2406,28 @@
 }
 .wishlist_btn.wishlist_active .active {
   display: block;
+}
+
+.message_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: #7741fb;
+}
+.message_btn img {
+  max-width: 20px;
+}
+.message_btn span {
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .page_inner_title {
@@ -2877,9 +2903,32 @@
   border-radius: 8px;
   background: #f4f4f3;
 }
+.form_area .timeline_list_area {
+  margin-top: 15px;
+  gap: 6px;
+}
+.form_area .timeline_list_area a,
+.form_area .timeline_list_area button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 17px;
+  color: #000;
+  font-family: SFMediumFont;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border-radius: 8px;
+  border: 1px solid rgba(128, 128, 128, 0.55);
+}
+.form_area .timeline_list_area a.active,
+.form_area .timeline_list_area button.active {
+  color: white;
+  background-color: #7741fb;
+}
 .form_area.job_post_form_area .input_row .input_field {
-  font-size: 18px !important;
-  font-weight: 600 !important;
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
@@ -4189,6 +4238,59 @@
 }
 .tab_list li .nav-link.active::after {
   background-color: #7741fb;
+}
+
+.user_status_info_area {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.5fr);
+  align-items: start;
+  gap: 10px 12px;
+  margin-bottom: 22px;
+}
+.user_status_info_area .info_area {
+  display: grid;
+  grid-template-columns: minmax(0, 40px) repeat(1, minmax(0, 1fr));
+  align-items: start;
+  gap: 20px 12px;
+}
+.user_status_info_area .info_area .user_image {
+  width: 100%;
+  height: 40px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.user_status_info_area .info_area .client_name {
+  color: #000;
+  font-family: SFMediumFont;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+.user_status_info_area .info_area .client_status {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 2px;
+}
+.user_status_info_area .info_area .client_status.active {
+  color: rgb(24, 207, 24);
+}
+.user_status_info_area .info_area .client_status.not_active {
+  color: rgb(207, 18, 62);
+}
+.user_status_info_area .order_status_btn.cancel {
+  color: #ff3b30;
+  background: rgba(255, 59, 48, 0.1);
 }
 
 /*

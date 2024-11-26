@@ -34,6 +34,7 @@ use App\Livewire\Seller\Jobs\JobApplyComponent;
 use App\Livewire\Seller\Jobs\JobDetailsComponent as JobsJobDetailsComponent;
 use App\Livewire\Seller\Jobs\JobsComponent as JobsJobsComponent;
 use App\Livewire\Seller\Profile\ProfileComponent as ProfileProfileComponent;
+use App\Livewire\Seller\Profile\SellerAccountComponent;
 use App\Livewire\Seller\Profile\SellerProfileComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -104,7 +105,7 @@ Route::middleware('auth')->group(function () {
 
         // Profile Routes
         Route::get('seller-profile', SellerProfileComponent::class)->name('sellerProfile');
-        // Route::get('account/information/{id}', AccountInfoComponent::class)->name('accountInformation');
+        Route::get('seller/account/information/{id}', SellerAccountComponent::class)->name('sellerAccountInformation');
         // Route::get('billing/payment', BillingPaymentComponent::class)->name('billingPayment');
         // Route::get('add/billing/method', PaymentMethodComponent::class)->name('billingMethod');
         // Route::get('order/history', OrderHistoryComponent::class)->name('orderHistory');
