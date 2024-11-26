@@ -26,12 +26,12 @@
                     <span class="title"> Account Information </span>
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />
                 </a>
-                <a href="#" class="account_item_grid">
+                <a href="{{ route('seller.sellerBilling') }}" class="account_item_grid">
                     <img src="{{ asset('assets/app/icons/credit-card-01.svg') }}" alt="user icon" class="user_icon" />
                     <span class="title">Billing Payment </span>
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />
                 </a>
-                <a href="#" class="account_item_grid">
+                <a href="{{ route('seller.sellerJobManagement') }}" class="account_item_grid">
                     <img src="{{ asset('assets/app/icons/package.svg') }}" alt="user icon" class="user_icon" />
                     <span class="title">Job Management </span>
                     <img src="{{ asset('assets/app/icons/chevron-down.svg') }}" alt="right arrow" class="right_icon" />
