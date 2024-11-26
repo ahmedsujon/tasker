@@ -22,10 +22,11 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('avatar', 2048)->nullable();
-            $table->rememberToken();
             $table->tinyInteger('status')->default(0);
             $table->tinyInteger('online_status')->default(0);
+            $table->longText('biograpgy')->nullable();
             $table->enum('type', ['seller', 'client'])->default('seller');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

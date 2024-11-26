@@ -12,7 +12,7 @@
             <form wire:submit.prevent='updateData' class="form_area h-full-screen space-between mt-0 pt-12">
                 <div class="w-100">
                     <div class="back_btn_grid">
-                        <button type="button" class="page_back_btn">
+                        <button type="button" class="page_back_btn" onclick="history.back()">
                             <img src="{{ asset('assets/app/icons/arrow-left.svg') }}" alt="arrow left" />
                         </button>
                         <h3>Account Information</h3>
@@ -80,6 +80,33 @@
                                 <div class="form_status error">{{ $message }}</div>
                             @enderror
                         </div>
+                        <div class="input_row">
+                            <div class="d-flex-between mb-8">
+                                <label for="biograpgy" class="form_label mb-0">Biography</label>
+                            </div>
+                            <textarea name="" id="" rows="7" wire:model.blur='biograpgy' placeholder="Write your bio"
+                                class="input_field"></textarea>
+                            @error('biograpgy')
+                                <div class="form_status error">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="input_row">
+                            <div class="d-flex-between mb-8">
+                                <label for="" class="form_label mb-0">Skills</label>
+                                <button type="button" class="label_edit_btn">
+                                    Edit Skills
+                                </button>
+                            </div>
+                            <ul class="skill_list d-flex align-items-center flex-wrap">
+                                <li>Animation</li>
+                                <li>Design Systems</li>
+                                <li>Tasker Design</li>
+                                <li>Banner</li>
+                                <li>Banner Design</li>
+                                <li>UI Design</li>
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
                 <div class="w-100" style="margin-bottom: 90px;">

@@ -10,13 +10,14 @@ use Livewire\WithFileUploads;
 class SellerAccountComponent extends Component
 {
     use WithFileUploads;
-    public $edit_id, $first_name, $last_name, $online_status, $phone, $avatar, $updatedAvatar;
+    public $edit_id, $first_name, $last_name, $online_status, $phone, $biograpgy, $avatar, $updatedAvatar;
 
     public function mount()
     {
         $data = User::find(user()->id);
         $this->first_name = $data->first_name;
         $this->last_name = $data->last_name;
+        $this->biograpgy = $data->biograpgy;
         $this->phone = $data->phone;
         $this->updatedAvatar = $data->avatar;
         $this->online_status = $data->online_status;
@@ -47,6 +48,7 @@ class SellerAccountComponent extends Component
         $data->first_name = $this->first_name;
         $data->last_name = $this->last_name;
         $data->phone = $this->phone;
+        $data->biograpgy = $this->biograpgy;
         // dd($data);
         $data->save();
         $this->dispatch('success', ['message' => 'Informatio updated successfully']);
