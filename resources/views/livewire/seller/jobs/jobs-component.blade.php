@@ -156,4 +156,6 @@
             </section>
         </div>
     </div>
+    @livewire('seller.layouts.inc.header')
+
 </div>

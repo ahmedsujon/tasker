@@ -33,8 +33,16 @@ use App\Livewire\Seller\DashboardComponent as SellerDashboardComponent;
 use App\Livewire\Seller\Jobs\JobApplyComponent;
 use App\Livewire\Seller\Jobs\JobDetailsComponent as JobsJobDetailsComponent;
 use App\Livewire\Seller\Jobs\JobsComponent as JobsJobsComponent;
+use App\Livewire\Seller\Profile\JobManagementComponent;
 use App\Livewire\Seller\Profile\ProfileComponent as ProfileProfileComponent;
+use App\Livewire\Seller\Profile\SellerAccountComponent;
+use App\Livewire\Seller\Profile\SellerBillingComponent;
 use App\Livewire\Seller\Profile\SellerProfileComponent;
+use App\Livewire\Seller\Profile\Settings\SellerChangePasswordComponent;
+use App\Livewire\Seller\Profile\Settings\SellerChangeSupportComponent;
+use App\Livewire\Seller\Profile\Settings\SellerNotificationComponent;
+use App\Livewire\Seller\Profile\Settings\SellerSettingsComponent;
+use App\Livewire\Seller\Profile\Settings\SellerSupportComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -104,11 +112,18 @@ Route::middleware('auth')->group(function () {
 
         // Profile Routes
         Route::get('seller-profile', SellerProfileComponent::class)->name('sellerProfile');
-        // Route::get('account/information/{id}', AccountInfoComponent::class)->name('accountInformation');
-        // Route::get('billing/payment', BillingPaymentComponent::class)->name('billingPayment');
-        // Route::get('add/billing/method', PaymentMethodComponent::class)->name('billingMethod');
-        // Route::get('order/history', OrderHistoryComponent::class)->name('orderHistory');
+        Route::get('seller/account/information/{id}', SellerAccountComponent::class)->name('sellerAccountInformation');
+        Route::get('seller/billing', SellerBillingComponent::class)->name('sellerBilling');
+        Route::get('seller/job/management', JobManagementComponent::class)->name('sellerJobManagement');
 
+        // Settings Routes
+        Route::get('seller/profile/settings', SellerSettingsComponent::class)->name('sellerSettings');
+        Route::get('seller/settings/notification', SellerNotificationComponent::class)->name('sellerSettingsNotification');
+        Route::get('seller/settings/tasker/support', SellerSupportComponent::class)->name('sellerSettingsSupport');
+        Route::get('seller/change/password', SellerChangePasswordComponent::class)->name('sellerPasswordChange');
+
+        // Logout Routes
+        Route::post('logout', [LogoutController::class, 'sellerLogout'])->name('logout');
     });
 });
 

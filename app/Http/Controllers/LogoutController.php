@@ -18,4 +18,10 @@ class LogoutController extends Controller
         Auth::guard('web')->logout();
         return redirect()->route('login');
     }
+
+    public function sellerLogout(Request $request)
+    {
+        Auth::guard('web')->logout();
+        return redirect()->route('login');
+    }
 }
