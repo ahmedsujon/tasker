@@ -14,19 +14,12 @@
                     <h4>Amount</h4>
                 </div>
                 <div class="inner_transaction_area mrn-24">
-                    <div class="transaction_grid">
-                        <h5>Jun 30, 2024</h5>
-                        <h6>300 SAR</h6>
-                    </div>
-                    <div class="transaction_grid">
-                        <h5>Jun 30, 2024</h5>
-                        <h6>300 SAR</h6>
-                    </div>
-                    <div class="transaction_grid">
-                        <h5>Jun 30, 2024</h5>
-                        <h6>300 SAR</h6>
-                    </div>
-
+                    @foreach ($transections as $transection)
+                        <div class="transaction_grid">
+                            <h5>{{ $transection->created_at->format('M d, Y') }}</h5>
+                            <h6>{{ $transection->amount }} SAR</h6>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
