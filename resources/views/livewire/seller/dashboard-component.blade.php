@@ -16,15 +16,6 @@
                         <img src="{{ asset('assets/app/icons/bell-white.svg') }}" alt="bell icon" />
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('client.logout') }}" type="button"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <img src="{{ asset('assets/app/icons/logout-white.svg') }}" alt="logout icon" />
-                    </a>
-                    <form id="logout-form" style="display: none;" method="POST" action="{{ route('client.logout') }}">
-                        @csrf
-                    </form>
-                </li>
             </ul>
         </div>
         <div class="user_info_area">
