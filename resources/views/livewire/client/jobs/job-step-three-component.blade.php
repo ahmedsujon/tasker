@@ -1,6 +1,6 @@
 <div>
     <section class="job_post_wrapper">
-        <form action="" class="form_area job_post_form_area h-full-screen space-between">
+        <form wire:submit.prevent='nextStep' class="form_area job_post_form_area h-full-screen space-between">
             <div class="w-100">
                 <div class="back_btn_grid back_btn_white pt-12">
                     <button type="button" class="page_back_btn" onclick="history.back()">
@@ -75,8 +75,7 @@
             </div>
             <div class="horizontal-m-w w-100">
                 <button type="submit" class="login_btn">
-                    Submit & review job post
-                    <img src="{{ asset('assets/app/icons/arrow-right.svg') }}" alt="arrow icon" />
+                    {!! loadingStateWithText('nextStep', 'Submit & review job post') !!} <img src="{{ asset('assets/app/icons/arrow-right.svg') }}" alt="arrow icon" />
                 </button>
             </div>
         </form>

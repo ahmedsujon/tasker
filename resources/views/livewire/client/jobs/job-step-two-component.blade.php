@@ -1,18 +1,22 @@
 <div>
     <section class="job_post_wrapper">
-        <form action="" class="form_area job_post_form_area h-full-screen space-between">
+        <form wire:submit.prevent='nextStep' class="form_area job_post_form_area h-full-screen space-between">
             <div class="w-100">
                 <div class="back_btn_grid back_btn_white pt-12">
-                    <button type="button" class="page_back_btn" onclick="history.back()">
+                    <a href="{{ route('client.jobPostTwo') }}" type="button" class="page_back_btn">
                         <img src="{{ asset('assets/app/icons/arrow-left.svg') }}" alt="arrow left" />
-                    </button>
+                    </a>
                     <h3>Post a job</h3>
                 </div>
                 <div class="horizontal-m-w mt-24">
                     <div class="input_row">
                         <label for="" class="form_label">Description</label>
-                        <textarea rows="5" name="" id="" placeholder="Write a title" class="input_field"></textarea>
+                        <textarea rows="5" name="" id="" placeholder="Write a title" wire:model.blur='description'
+                            class="input_field"></textarea>
                         <div class="form_status text-end">999 characters left</div>
+                        @error('description')
+                            <div class="form_status error">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="input_row pt-16">
                         <label for="" class="form_label">Attach File</label>
@@ -23,43 +27,52 @@
                                 <h6 id="dropText">pdf, png, jpeg and max 10mb</h6>
                             </div>
                         </div>
-                        <input type="file" accept="" id="contactUploadImage" hidden />
-                        <div class="file_uploaded_area">
-                            <h3>Just attatched files</h3>
-                            <div class="upload_grid">
-                                <img src="{{ asset('assets/app/images/client/file_upload_image1.png') }}"
-                                    alt="upload image" class="upload_img" />
-                                <div>
-                                    <h4>Attachment file 2024.jpeg</h4>
-                                    <h6>1.2 MB</h6>
+                        <input type="file" accept="pdf,png,jpg,jpeg" id="contactUploadImage"
+                            wire:model.live='newAttachments' multiple hidden />
+                        @error('newAttachments.*')
+                            <div class="form_status error">{{ $message }}</div>
+                        @enderror
+                        @error('attachments')
+                            <div class="form_status error">{{ $message }}</div>
+                        @enderror
+                        @if ($attachments)
+                            <div class="file_uploaded_area">
+                                <h3>Attached Files</h3>
+                                @foreach ($attachments as $index => $attachment)
+                                <div class="upload_grid">
+                                    <!-- Display file icon or preview for images -->
+                                    @if (in_array($attachment->getMimeType(), ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']))
+                                        <img src="{{ $attachment->temporaryUrl() }}" alt="File preview" class="upload_img" style="height: 50px; width: 50px;"/>
+                                    @else
+                                        <img src="{{ asset('assets/app/images/placeholder.jpg') }}" alt="Default upload icon" class="upload_img" style="height: 50px; width: 50px;"/>
+                                    @endif
+                                    <div>
+                                        <h4>{{ $attachment->getClientOriginalName() }}</h4>
+                                        <h6>
+                                            @if ($attachment->getSize() >= 1024 * 1024)
+                                                {{ round($attachment->getSize() / (1024 * 1024), 2) }} MB
+                                            @else
+                                                {{ round($attachment->getSize() / 1024, 2) }} KB
+                                            @endif
+                                        </h6>
+                                    </div>
+                                    <div class="text-end">
+                                        <button type="button" class="file_delete_btn" wire:click="removeAttachment({{ $index }})">
+                                            Delete
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="text-end">
-                                    <button type="button" class="file_delete_btn">
-                                        Delete
-                                    </button>
-                                </div>
+                            @endforeach
                             </div>
-                            <div class="upload_grid">
-                                <img src="{{ asset('assets/app/images/client/file_upload_image2.png') }}"
-                                    alt="upload image" class="upload_img" />
-                                <div>
-                                    <h4>Attachment file 2024.jpeg</h4>
-                                    <h6>1.2 MB</h6>
-                                </div>
-                                <div class="text-end">
-                                    <button type="button" class="file_delete_btn">
-                                        Delete
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                        @endif
+
                     </div>
                 </div>
             </div>
             <div class="horizontal-m-w w-100">
                 <button type="submit" class="login_btn">
-                    Next Step
-                    <img src="{{ asset('assets/app/icons/arrow-right.svg') }}" alt="arrow icon" />
+                    {!! loadingStateWithText('nextStep', 'Next Step') !!} <img src="{{ asset('assets/app/icons/arrow-right.svg') }}"
+                        alt="arrow icon" />
                 </button>
             </div>
         </form>
