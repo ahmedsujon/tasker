@@ -38,5 +38,6 @@
                 </div>
             </a>
         </div>
+        @livewire('client.layouts.inc.header')
     </section>
 </div>

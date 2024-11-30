@@ -1,4 +1,9 @@
 <div>
+    <style>
+        .client_user_info_grid .img img {
+            border-radius: 50% !important;
+        }
+    </style>
     <section class="client_profile_wrapper mt-12">
         <div class="d-flex-between">
             <h2 class="page_title text-black">Profile</h2>
@@ -9,10 +14,11 @@
         <div class="horizontal-m-w" style="margin-bottom: 100px;">
             <div class="client_user_info_grid">
                 <div class="img">
-                    <img src="{{ asset('assets/app/images/user/client_user2.png') }}" alt="client image" />
+                    <img src="{{ asset(user()->avatar ? user()->avatar : 'assets/images/placeholder.jpg') }}"
+                        alt="client image" />
                 </div>
                 <div>
-                    <h3>Ramjan Ahmed</h3>
+                    <h3>{{ user()->first_name }} {{ user()->last_name }}</h3>
                     <h4>Tasker Client</h4>
                 </div>
             </div>

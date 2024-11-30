@@ -1,0 +1,278 @@
+/* Freelancer Header Section */
+.freelancer_header_wrapper {
+  position: relative;
+  padding-top: 58px;
+  padding-bottom: 28px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -$bodyTopSpace;
+    left: -$bodyLeftSpace;
+    width: calc(100% + $bodyLeftRightSpace);
+    height: calc(100% + $bodyTopSpace);
+    z-index: -1;
+    background: #7741fb;
+  }
+  .header_grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 20px 16px;
+  }
+  .logo {
+    img {
+      max-width: 50px;
+      max-width: 50px;
+    }
+  }
+  .notification_list {
+    gap: 10px 23px;
+    img {
+      max-width: 24px;
+    }
+  }
+  .user_info_area {
+    margin-top: 28px;
+    h3 {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    h1 {
+      color: #fff;
+      font-family: $third-font;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-top: 2px;
+    }
+  }
+}
+
+/* Earning Overview  Section */
+.earning_overview_wrapper {
+  margin-top: 30px;
+  h1 {
+    color: #101010;
+    font-family: SFBoldFont;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 14px;
+  }
+  .overview_card {
+    padding: 13px 15px 32px 15px;
+    border-radius: 8px;
+    border: 1px solid #f2f2f2;
+    background: #fff;
+  }
+  .avaiable_balance_area {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 26px;
+    margin-bottom: 10px;
+    padding-bottom: 18px;
+    border-radius: 8px;
+    border: 1px solid #f2f2f2;
+    background: #eee;
+    box-shadow: 0px 10px 13.9px 0px rgba(0, 0, 0, 0.04);
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: -15px;
+      width: calc(100% + 30px);
+      height: 1px;
+      background-color: #f3f3f3;
+    }
+    h4 {
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    h2 {
+      color: #000;
+      text-align: center;
+      font-family: $third-font;
+      font-size: 21px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
+    }
+  }
+  .earning_grid_area {
+    margin-top: 26px;
+  }
+  .earning_grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 20px 16px;
+    margin-top: 21px;
+
+    h5 {
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    h3 {
+      color: #000;
+      font-family: $third-font;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin-top: 6px;
+    }
+  }
+  .job_seats_area {
+    margin-top: 36px;
+  }
+  .job_seat_grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 22px 20px;
+    margin-top: 0;
+    border-radius: 8px;
+    border: 1px solid #f2f2f2;
+    background: #fff;
+  }
+  .proposal_area {
+    padding: 16px 15px;
+    margin-top: 13px;
+    border-radius: 8px;
+    border: 1px solid #f2f2f2;
+    background: #fff;
+    h3 {
+      color: #101010;
+      font-family: SFBoldFont;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+}
+
+/* Bid Section */
+.bids_wrapper {
+  .bids_card {
+    margin-bottom: 12px;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #f2f2f2;
+    background: #fff;
+    .bids_title {
+      display: block;
+      color: #000;
+      font-family: SFBoldFont;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+  .bid_inf_grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 12px 16px;
+    margin-top: 20px;
+    .bid_icon {
+      max-width: 16px;
+    }
+    h4 {
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    h3 {
+      color: #000;
+      font-family: SFBoldFont;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+    h5 {
+      color: #000;
+      font-family: SFMediumFont;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    h3,
+    h5 {
+      margin-top: 4px;
+    }
+  }
+  .bid_tag_list {
+    gap: 12px;
+    margin-top: 20px;
+    li,
+    a,
+    button {
+      padding: 6px 16px;
+      color: #000;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      border-radius: 8px;
+      background: #f2f2f2;
+    }
+  }
+  .details_content {
+    margin-top: 20px;
+    p,
+    li,
+    h3 {
+      color: rgba(0, 0, 0, 0.8);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    li {
+      margin-bottom: 2px;
+      span {
+        display: inline;
+      }
+    }
+    li span,
+    h3 {
+      color: #000;
+      font-family: SFMediumFont;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    h3,
+    p {
+      margin-top: 20px;
+    }
+  }
+  .bids_wishlist_grid {
+    display: grid;
+    grid-template-columns: minmax(0, 56px) repeat(1, minmax(0, 1fr));
+    align-items: center;
+    gap: 20px 16px;
+  }
+  .message_btn {
+    margin-top: 20px;
+  }
+}
+/* Section */

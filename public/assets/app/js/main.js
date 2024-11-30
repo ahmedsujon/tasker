@@ -27,6 +27,20 @@ $(document).ready(function () {
     scrollOutsideScroll();
   });
 
+  //Modal Functionality
+  $("#modalOpenBtn").click(function (e) {
+    e.preventDefault();
+    $("#modalArea").addClass("modal_active");
+    $("#modalOverlay").show();
+    scrollOutsideHidden();
+  });
+  $(".modalFormCloseBtn").click(function (e) {
+    e.preventDefault();
+    $("#modalArea").removeClass("modal_active");
+    $("#modalOverlay").hide();
+    scrollOutsideScroll();
+  });
+
   //Ratting Modal Functionality
   $(".reviewBtn").click(function (e) {
     e.preventDefault();
@@ -72,6 +86,14 @@ $(document).ready(function () {
       $description.html(fullText + ' <span class="more_less_btn">less</span>');
       $description.addClass("expanded");
     }
+  });
+
+
+  //Text line clamp
+  $(".text-line-clamp2").clamp({
+    clamp:2,
+    alwaysDisplay:false,
+    
   });
 });
 
@@ -124,3 +146,20 @@ function scrollOutsideScroll() {
     );
   });
 })();
+
+
+
+//Fixed screen height
+function updateVH() {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+}
+window.addEventListener("resize", updateVH);
+updateVH();
+
+
+ 
+
+ 
+
+ 

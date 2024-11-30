@@ -2,7 +2,7 @@
     <section class="login_form_wrapper horizontal-m-w">
         <h1 class="page_title">Tasker</h1>
         <h2 class="page_inner_title">Log In</h2>
-        <h4>Don’t have an account? <a href="{{ route('register') }}">Sign Up</a></h4>
+        <h4>Don’t have an account? <a href="{{ route('onboarding') }}">Sign Up</a></h4>
         <form class="form_area" wire:submit.prevent='userLogin'>
             <div class="input_row">
                 <label for="" class="form_label">Email </label>

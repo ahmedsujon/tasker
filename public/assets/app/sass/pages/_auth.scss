@@ -7,7 +7,7 @@
   text-align: center;
   gap: 10px;
   width: 100%;
-  height: calc(100vh - $fullHeightRemove);
+  height: calc($fullScreenHeight - $fullHeightRemove);
   h3 {
     color: #7741fb;
     font-family: SFBoldFont;
