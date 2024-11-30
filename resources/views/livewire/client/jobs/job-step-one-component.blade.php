@@ -1,11 +1,11 @@
 <div>
     <section class="job_post_wrapper">
-        <form action="" class="form_area job_post_form_area h-full-screen space-between">
+        <form wire:submit.prevent='nextStep' class="form_area job_post_form_area h-full-screen space-between">
             <div class="w-100">
                 <div class="back_btn_grid back_btn_white pt-12">
-                    <button type="button" class="page_back_btn" onclick="history.back()">
+                    <a href="{{ route('client.jobPostOne') }}" type="button" class="page_back_btn">
                         <img src="{{ asset('assets/app/icons/arrow-left.svg') }}" alt="arrow left" />
-                    </button>
+                    </a>
                     <h3>Post a job</h3>
                 </div>
                 <div class="horizontal-m-w mt-24">
@@ -14,7 +14,7 @@
                         <div class="project_size_area">
                             <div class="color_radio_btn">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="projectSizeRadio"
+                                    <input class="form-check-input" type="radio" value="Large" wire:model.live='project_size' name="projectSizeRadio"
                                         id="projectSizeRadio1" />
                                     <label class="form-check-label" for="projectSizeRadio1">
                                         <span class="label">Large</span>
@@ -25,7 +25,7 @@
                             </div>
                             <div class="color_radio_btn">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="projectSizeRadio"
+                                    <input class="form-check-input" type="radio" value="Medium" wire:model.live='project_size' name="projectSizeRadio"
                                         id="projectSizeRadio2" checked />
                                     <label class="form-check-label" for="projectSizeRadio2">
                                         <span class="label">Medium</span>
@@ -37,7 +37,7 @@
                             </div>
                             <div class="color_radio_btn">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="projectSizeRadio"
+                                    <input class="form-check-input" type="radio" value="Small" wire:model.live='project_size' name="projectSizeRadio"
                                         id="projectSizeRadio3" />
                                     <label class="form-check-label" for="projectSizeRadio3">
                                         <span class="label">Small</span>
@@ -48,13 +48,15 @@
                                 </div>
                             </div>
                         </div>
+                        @error('project_size')
+                            <div class="form_status error">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
             </div>
             <div class="horizontal-m-w w-100">
                 <button type="submit" class="login_btn">
-                    Next Step
-                    <img src="{{ asset('assets/app/icons/arrow-right.svg') }}" alt="arrow icon" />
+                    {!! loadingStateWithText('nextStep', 'Next Step') !!} <img src="{{ asset('assets/app/icons/arrow-right.svg') }}" alt="arrow icon" />
                 </button>
             </div>
         </form>

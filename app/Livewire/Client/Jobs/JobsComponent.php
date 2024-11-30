@@ -10,6 +10,15 @@ class JobsComponent extends Component
     public $categories;
     public $title, $skill_search, $skills = [], $selectedItems = [], $list_status = 0;
 
+    public function mount()
+    {
+        $jobData = session()->get('jobData');
+        if ($jobData) {
+            $this->title = isset($jobData['title']) ? $jobData['title'] : '';
+            $this->skills = isset($jobData['skills']) ? $jobData['skills'] : [];
+            $this->selectedItems = isset($jobData['skill_names']) ? $jobData['skill_names'] : [];
+        }
+    }
     public function updatedSkillSearch()
     {
         $this->categories = DB::table('categories')->select('id', 'parent_id', 'name')->where('name', 'like', '%'.$this->skill_search.'%')->get();
@@ -56,7 +65,8 @@ class JobsComponent extends Component
 
         $jobData = [
             'title' => $this->title,
-            'skills' => $this->skills
+            'skills' => $this->skills,
+            'skill_names' => $this->selectedItems
         ];
 
         session()->put('jobData', $jobData);
