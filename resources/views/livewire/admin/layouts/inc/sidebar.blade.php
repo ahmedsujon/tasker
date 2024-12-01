@@ -16,6 +16,62 @@
                         </a>
                     </li>
 
+                    <li>
+                        <a href="{{ route('admin.dashboard') }}"
+                            class="waves-effect {{ request()->is('admin/dashboard') ? 'active_menu' : '' }}">
+                            <i class="bx bxs-user-detail"></i>
+                            <span key="t-dashboard">Client & Provider</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('admin.dashboard') }}"
+                            class="waves-effect {{ request()->is('admin/dashboard') ? 'active_menu' : '' }}">
+                            <i class="bx bx-mail-send"></i>
+                            <span key="t-dashboard">Conversations</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('admin.dashboard') }}"
+                            class="waves-effect {{ request()->is('admin/dashboard') ? 'active_menu' : '' }}">
+                            <i class="bx bx-cube"></i>
+                            <span key="t-dashboard">Order Management</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('admin.dashboard') }}"
+                            class="waves-effect {{ request()->is('admin/dashboard') ? 'active_menu' : '' }}">
+                            <i class="bx bx-grid-alt"></i>
+                            <span key="t-dashboard">Billing & Payments</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('admin.dashboard') }}"
+                            class="waves-effect {{ request()->is('admin/dashboard') ? 'active_menu' : '' }}">
+                            <i class="bx bx-grid-alt"></i>
+                            <span key="t-dashboard">Notification</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('admin.dashboard') }}"
+                            class="waves-effect {{ request()->is('admin/dashboard') ? 'active_menu' : '' }}">
+                            <i class="bx bx-grid-alt"></i>
+                            <span key="t-dashboard">Roles</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('admin.dashboard') }}"
+                            class="waves-effect {{ request()->is('admin/dashboard') ? 'active_menu' : '' }}">
+                            <i class="bx bx-command"></i>
+                            <span key="t-dashboard">Support Tickets</span>
+                        </a>
+                    </li>
+
                     @if (is_permitted('manage_admins'))
                         <li>
                             <a href="javascript: void(0);"
@@ -37,25 +93,6 @@
                                         <a href="{{ route('admin.adminRolePermissions') }}" key="t-level-1-1"
                                             class="{{ request()->is('admin/all-admins/role-permissions') ? 'active_sub_menu' : '' }}">Roles
                                             & Permissions</a>
-                                    </li>
-                                @endif
-                            </ul>
-                        </li>
-                    @endif
-
-                    @if (is_permitted('manage_users'))
-                        <li>
-                            <a href="javascript: void(0);"
-                                class="has-arrow waves-effect {{ request()->is('admin/all-users') || request()->is('admin/all-users/*') ? 'active_menu' : '' }}">
-                                <i class="bx bx-group"></i>
-                                <span key="t-multi-level">Users</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                @if (is_permitted('manage_users'))
-                                    <li>
-                                        <a href="{{ route('admin.allUsers') }}" key="t-level-1-1"
-                                            class="{{ request()->is('admin/all-users') ? 'active_sub_menu' : '' }}">All
-                                            Users</a>
                                     </li>
                                 @endif
                             </ul>

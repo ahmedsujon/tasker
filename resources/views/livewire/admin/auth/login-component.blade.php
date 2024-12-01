@@ -31,7 +31,7 @@
                                 <a href="/" class="auth-logo-dark">
                                     <div class="avatar-md profile-user-wid mb-4">
                                         <span class="avatar-title rounded-circle bg-light">
-                                            <img src="{{ asset('assets/images/logo-sm2.png') }}" alt="" class="" height="34">
+                                            <img src="{{ asset('assets/admin/images/logo.png') }}" alt="" class="" height="34">
                                         </span>
                                     </div>
                                 </a>
