@@ -11,12 +11,10 @@
                 <div class="horizontal-m-w mt-24">
                     <div class="input_row">
                         <label for="" class="form_label">Project cost add your won *</label>
-                        <input type="text" placeholder="Type cost" class="input_field" />
-                        <div class="form_status error">
-                            <img src="{{ asset('assets/app/icons/info-circle.svg') }}" alt="info icon"
-                                class="info_circle_red" />
-                            Job title is required
-                        </div>
+                        <input type="text" placeholder="Type cost" wire:model.blur='cost' class="input_field" />
+                        @error('cost')
+                            <div class="form_status error">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="most_using_category">
