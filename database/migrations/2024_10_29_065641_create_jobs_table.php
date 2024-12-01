@@ -20,7 +20,7 @@ return new class extends Migration
             $table->longText('description')->nullable();
             $table->longText('attachments')->nullable();
             $table->string('budget')->nullable();
-            $table->string('location')->nullable();
+            $table->text('location')->nullable();
             $table->longText('category_names')->nullable();
             $table->enum('status', ['Pending', 'Active', 'In Order', 'Draft', 'Finish', 'Cancel'])->default('Pending');
             $table->timestamps();

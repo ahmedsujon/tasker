@@ -34,12 +34,13 @@ class JobStepThreeComponent extends Component
         $job = new Job();
         $job->user_id = user()->id;
         $job->categories = $jobData['skills'];
+        $job->category_names = $jobData['skill_names'];
         $job->title = $jobData['title'];
         $job->project_size = $jobData['project_size'];
         $job->description = $jobData['description'];
         $job->attachments = $jobData['attachments'];
         $job->budget = $jobData['cost'];
-        // $job->location = $jobData['location'];
+        $job->location = $jobData['location'];
         $job->status = 'Pending';
         $job->save();
 

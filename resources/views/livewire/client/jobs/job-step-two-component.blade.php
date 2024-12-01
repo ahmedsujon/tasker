@@ -10,6 +10,14 @@
                 </div>
                 <div class="horizontal-m-w mt-24">
                     <div class="input_row">
+                        <label for="" class="form_label">Location</label>
+                        <input type="text" placeholder="Enter location" wire:model.blur='location' class="input_field" />
+                        @error('location')
+                            <div class="form_status error">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="input_row">
                         <label for="" class="form_label">Description</label>
                         <textarea rows="5" name="" id="" placeholder="Write a title" wire:model.blur='description'
                             class="input_field"></textarea>

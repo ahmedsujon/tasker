@@ -12,6 +12,7 @@ class Job extends Model
     protected $table = 'jobs';
     protected $casts = [
         'categories' => 'array',
+        'category_names' => 'array',
         'attachments' => 'array'
     ];
 }

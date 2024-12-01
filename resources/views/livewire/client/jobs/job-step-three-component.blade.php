@@ -11,7 +11,7 @@
                 <div class="horizontal-m-w mt-24">
                     <div class="input_row">
                         <label for="" class="form_label">Project cost add your won *</label>
-                        <input type="text" placeholder="Type cost" wire:model.blur='cost' class="input_field" />
+                        <input type="number" placeholder="Type cost" wire:model.blur='cost' class="input_field" />
                         @error('cost')
                             <div class="form_status error">{{ $message }}</div>
                         @enderror

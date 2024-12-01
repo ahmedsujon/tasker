@@ -8,11 +8,12 @@ use Livewire\Features\SupportFileUploads\WithFileUploads;
 class JobStepTwoComponent extends Component
 {
     use WithFileUploads;
-    public $description, $attachments = [], $session_attachments = [], $newAttachments = [];
+    public $location, $description, $attachments = [], $session_attachments = [], $newAttachments = [];
     public function mount()
     {
         $jobData = session()->get('jobData');
         if ($jobData) {
+            $this->location = isset($jobData['location']) ? $jobData['location'] : '';
             $this->description = isset($jobData['description']) ? $jobData['description'] : '';
             $this->session_attachments = isset($jobData['attachments']) ? $jobData['attachments'] : '';
         }
@@ -20,6 +21,7 @@ class JobStepTwoComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields, [
+            'location' => 'required',
             'description' => 'required',
             'attachments' => 'required|array',
             'attachments.*' => 'file|size:10240',
@@ -51,6 +53,7 @@ class JobStepTwoComponent extends Component
     public function nextStep()
     {
         $this->validate([
+            'location' => 'required',
             'description' => 'required',
             'attachments' => 'required'
         ]);
@@ -65,6 +68,7 @@ class JobStepTwoComponent extends Component
         $jobData = session()->get('jobData');
         $jobData['description'] = $this->description;
         $jobData['attachments'] = $selected_attachments;
+        $jobData['location'] = $this->location;
 
         session()->put('jobData', $jobData);
         return redirect()->route('client.jobPostFour');
