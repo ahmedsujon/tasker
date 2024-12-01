@@ -30,7 +30,7 @@
             <div class="avaiable_balance_area">
                 <h4>Available balance</h4>
                 <h2>SAR 2,543.00</h2>
-                <a href="#" class="widthraw_earning_btn">Withdraw earning</a>
+                <a href="{{ route('seller.sellerBanks') }}" class="widthraw_earning_btn">Withdraw earning</a>
             </div>
             <div class="earning_grid_area">
                 <div class="earning_grid">

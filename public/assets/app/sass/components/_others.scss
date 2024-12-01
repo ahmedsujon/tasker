@@ -744,6 +744,66 @@ $alertModalLeftRightPadding: 20px;
   }
 }
 
+//Payout procress modal
+.payout_process_modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  img {
+    max-width: 105px;
+    margin-top: 12px;
+  }
+  h3 {
+    color: #000;
+    text-align: center;
+    font-family: SFBoldFont;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  h4 {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    max-width: 230px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 16px;
+  }
+  h5,
+  h6 {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+  }
+  h6 {
+    .amount {
+      color: #000;
+      font-family: SFBoldFont;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 20px;
+    }
+    .currency {
+      color: #949494;
+      font-family: SFMediumFont;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
+    }
+  }
+}
+
 //Tab
 .tab_list {
   margin-top: 32px;
@@ -812,7 +872,7 @@ $alertModalLeftRightPadding: 20px;
 //User status area
 .user_status_info_area {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.5fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.6fr);
   align-items: start;
   gap: 10px 12px;
   margin-bottom: 22px;
@@ -862,5 +922,32 @@ $alertModalLeftRightPadding: 20px;
       color: #ff3b30;
       background: rgba(255, 59, 48, 0.1);
     }
+    &.time {
+      color: #387622;
+    }
+  }
+}
+
+//Verify Area
+.verify_modal_area {
+  h3 {
+    color: #000;
+    font-family: $third-font;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  p {
+    color: rgba(0, 0, 0, 0.7);
+    font-family: $third-font;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 16px;
+  }
+  .login_btn {
+    margin-top: 60px;
   }
 }

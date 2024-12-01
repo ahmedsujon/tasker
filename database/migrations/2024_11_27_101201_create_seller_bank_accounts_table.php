@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('post_code')->nullable();
             $table->string('account_type')->nullable();
             $table->string('branch_name')->nullable();
-            $table->string('branch_address')->nullable();
             $table->string('dob')->nullable();
             $table->string('customer_id_type')->nullable();
             $table->string('customer_id')->nullable();

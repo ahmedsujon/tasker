@@ -1,0 +1,220 @@
+/*  Get Paid Now  Section */
+.get_paid_now_wrapper {
+  .sar_headers {
+    display: grid;
+    grid-template-columns: minmax(0, 60px) repeat(1, minmax(0, 1fr));
+    align-items: center;
+    gap: 20px 27px;
+    padding: 13px 24px 13px 14px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border: 1px solid #f2f2f2;
+    background: #fff5df;
+    h5 {
+      color: rgba(0, 0, 0, 0.7);
+      font-family: SFMediumFont;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+    }
+  }
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 61px;
+    border-radius: 50%;
+    background: #f9ebcd;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border: 1px solid #e5d4ae;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    h4 {
+      color: #8e6a1a;
+      font-family: $third-font;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+  }
+  .get_payment_card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 27px 16px 22px 16px;
+    margin-bottom: 22px;
+    border-radius: 8px;
+    border: 2px solid #f2f2f2;
+    background: #fff;
+    box-shadow: 0px 10px 13.9px 0px rgba(0, 0, 0, 0.04);
+    h4 {
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    h2 {
+      color: #000;
+      font-family: $third-font;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin-top: 12px;
+    }
+    h3 {
+      color: rgba(0, 0, 0, 0.7);
+      font-family: SFMediumFont;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    .default {
+      position: absolute;
+      top: 11px;
+      right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7741fb;
+      font-family: SFMediumFont;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      padding: 4px 12px;
+      border-radius: 11px;
+      border: 1px solid #7741fb;
+    }
+  }
+  .edit_btn {
+    color: #7741fb;
+    font-family: SFSemiBoldFont;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+  }
+  .get_sar_btn {
+    margin-top: 32px;
+    max-width: 220px;
+    width: 100%;
+  }
+  p {
+    color: #5f5f5f;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 6px;
+  }
+  .add_payment_btn {
+    margin-top: 15px;
+  }
+}
+
+/* Delivery Progress Section */
+.delivery_progress_wrapper {
+  .progress_area {
+    margin-top: 28px;
+    h2 {
+      color: #000;
+      font-family: SFBoldFont;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin-bottom: 22px;
+    }
+  }
+  .progress_item {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 32px) repeat(1, minmax(0, 1fr));
+    align-items: start;
+    gap: 20px 12px;
+    padding-bottom: 32px;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 16px;
+      width: 2px;
+      height: 100%;
+      background: #7741fb;
+    }
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+    &.complete {
+      .step {
+        border: 2px solid #7741fb;
+        .check_icon {
+          display: block;
+        }
+      }
+    }
+    .step {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border: 7px solid #7741fb;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+      background-color: #e1ffd6;
+      .check_icon {
+        display: none;
+      }
+    }
+    h3 {
+      color: #000;
+      font-family: SFMediumFont;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-bottom: 10px;
+    }
+    h4 {
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 2px;
+    }
+  }
+}
+/* Section */
