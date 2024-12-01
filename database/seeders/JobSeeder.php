@@ -24,6 +24,7 @@ class JobSeeder extends Seeder
                 'attachments' => json_encode(['specifications.pdf']),
                 'budget' => '5000',
                 'location' => 'Jeddah',
+                'category_names' => json_encode(["Assembly","General Furniture Assembly","IKEA Assembly"]),
                 'status' => 'Active',
             ],
             [
@@ -35,6 +36,7 @@ class JobSeeder extends Seeder
                 'attachments' => json_encode(['logo_ideas.zip']),
                 'budget' => '500',
                 'location' => 'Riyadh',
+                'category_names' => json_encode(["Assembly","General Furniture Assembly","IKEA Assembly"]),
                 'status' => 'Active',
             ],
             [
@@ -46,6 +48,7 @@ class JobSeeder extends Seeder
                 'attachments' => json_encode(['seo_audit.docx']),
                 'budget' => '1200',
                 'location' => 'Jeddah',
+                'category_names' => json_encode(["Assembly","General Furniture Assembly","IKEA Assembly"]),
                 'status' => 'In Order',
             ],
             [
@@ -57,6 +60,7 @@ class JobSeeder extends Seeder
                 'attachments' => json_encode(['topics_list.xlsx']),
                 'budget' => '800',
                 'location' => 'Riyadh',
+                'category_names' => json_encode(["Assembly","General Furniture Assembly","IKEA Assembly"]),
                 'status' => 'In Order',
             ],
             [
@@ -68,6 +72,7 @@ class JobSeeder extends Seeder
                 'attachments' => json_encode(['strategy_outline.pdf']),
                 'budget' => '2000',
                 'location' => 'Jeddah',
+                'category_names' => json_encode(["Assembly","General Furniture Assembly","IKEA Assembly"]),
                 'status' => 'Active',
             ],
         ]);

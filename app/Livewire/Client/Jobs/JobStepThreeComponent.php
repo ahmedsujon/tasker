@@ -44,6 +44,7 @@ class JobStepThreeComponent extends Component
         $job->status = 'Pending';
         $job->save();
 
+        session()->forget('jobData');
         return redirect()->route('client.jobPostFive', ['job_id'=>$job->id]);
     }
 

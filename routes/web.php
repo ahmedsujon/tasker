@@ -56,7 +56,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', LoginComponent::class)->name('login');
+Route::get('/', LoginComponent::class)->name('login')->middleware('guest');
 Route::get('/onboarding', OnboardingComponent::class)->name('onboarding');
 Route::get('/register', RegistrationComponent::class)->name('register')->middleware('guest');
 
