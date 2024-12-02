@@ -5,12 +5,7 @@
                 <button type="button" class="page_back_btn page_back_gray_btn" onclick="history.back()">
                     <img src="{{ asset('assets/app/icons/arrow-left.svg') }}" alt="arrow left" />
                 </button>
-                <h3>Full Details</h3>
-                <div class="text-end">
-                    <button type="button" class="page_back_btn back_more_white_btn postMoreBtn">
-                        <img src="{{ asset('assets/app/icons/more-vertical.svg') }}" alt="more icon" />
-                    </button>
-                </div>
+                <h3>Job Details</h3>
             </div>
             <div class="bids_card mt-8">
                 <h1 class="bids_title">
@@ -55,30 +50,5 @@
                 </a>
             </div>
         </div>
-    </section>
-    <!-- More Dropdown Section  -->
-    <section class="more_dropdown_area" id="moreDropdownArea">
-        <ul class="dropdown_list">
-            <li>
-                <a href="javascript:void(0)">
-                    <span class="short_title">A Short Title is Best</span>
-                    <span class="message">A message should be a short, complete sentence.</span>
-                </a>
-            </li>
-            <li>
-                <a href="#"> Edit Job Post </a>
-            </li>
-            <li>
-                <button type="button">Save as a draft</button>
-            </li>
-            <li>
-                <button type="button" class="red">Delete the Job Post</button>
-            </li>
-            <li>
-                <button type="button" class="dropdown_cancel_btn removeDropdownBtn red">
-                    Cancel
-                </button>
-            </li>
-        </ul>
     </section>
 </div>
