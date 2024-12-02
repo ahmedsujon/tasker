@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="time_item">
                                     <h4>Proposal</h4>
-                                    <h5>20+</h5>
+                                    <h5>{{ $job->proposal_count ?? 0 }}</h5>
                                 </div>
                             </div>
                             <div class="category_area">

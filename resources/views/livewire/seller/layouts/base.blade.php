@@ -10,6 +10,7 @@
     <link rel="shortcut icon" href="{{ asset('assets/app/images/header/logo.png') }}" type="image/x-icon" />
     <link rel="stylesheet" href="{{ asset('assets/app/plugins/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/app/plugins/css/swiper-bundle.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/app/plugins/css/nice-select2.css') }}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
     <link rel="stylesheet" href="{{ asset('assets/app/sass/style.css') }}" />
 </head>
@@ -31,6 +32,7 @@
     <script src="{{ asset('assets/app/plugins/js/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('assets/app/js/auth.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
+    <script src="{{ asset('assets/app/plugins/js/nice-select2.js') }}"></script>
     <script src="{{ asset('assets/admin/js/custom-toast.js') }}"></script>
     <script src="{{ asset('assets/app/js/main.js') }}"></script>
 

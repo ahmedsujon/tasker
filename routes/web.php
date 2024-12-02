@@ -33,6 +33,10 @@ use App\Livewire\Seller\DashboardComponent as SellerDashboardComponent;
 use App\Livewire\Seller\Jobs\JobApplyComponent;
 use App\Livewire\Seller\Jobs\JobDetailsComponent as JobsJobDetailsComponent;
 use App\Livewire\Seller\Jobs\JobsComponent as JobsJobsComponent;
+use App\Livewire\Seller\Payments\AddBankInfoComponent;
+use App\Livewire\Seller\Payments\BankInfoComponent;
+use App\Livewire\Seller\Payments\EditBankInfoComponent;
+use App\Livewire\Seller\Payments\ViewBankInfoComponent;
 use App\Livewire\Seller\Profile\JobManagementComponent;
 use App\Livewire\Seller\Profile\ProfileComponent as ProfileProfileComponent;
 use App\Livewire\Seller\Profile\SellerAccountComponent;
@@ -121,6 +125,13 @@ Route::middleware('auth')->group(function () {
         Route::get('seller/settings/notification', SellerNotificationComponent::class)->name('sellerSettingsNotification');
         Route::get('seller/settings/tasker/support', SellerSupportComponent::class)->name('sellerSettingsSupport');
         Route::get('seller/change/password', SellerChangePasswordComponent::class)->name('sellerPasswordChange');
+
+        // Sellers Routes
+        Route::get('seller/bank/accounts', BankInfoComponent::class)->name('sellerBanks');
+        Route::get('seller/bank/accounts/create', AddBankInfoComponent::class)->name('sellerBankCreate');
+        Route::get('seller/bank/accounts/edit/{id}', EditBankInfoComponent::class)->name('sellerBanksEdit');
+        Route::get('seller/bank/accounts/view/{id}', ViewBankInfoComponent::class)->name('sellerBanksView');
+
 
         // Logout Routes
         Route::post('logout', [LogoutController::class, 'sellerLogout'])->name('logout');
