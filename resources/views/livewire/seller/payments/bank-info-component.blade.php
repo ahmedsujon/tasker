@@ -21,7 +21,8 @@
                     <h3>Account no:
                         {{ str_repeat('*', strlen($bank_account->account_number) - 4) . substr($bank_account->account_number, -4) }}
                     </h3>
-                    <a href="#" class="edit_btn"> Edit </a>
+                    <a href="{{ route('seller.sellerBanksEdit', ['id' => $bank_account->id]) }}" class="edit_btn"> Edit
+                    </a>
                 </div>
                 <button type="button" class="get_sar_btn modalOpenBtn">
                     Get paid (SAR 635)
