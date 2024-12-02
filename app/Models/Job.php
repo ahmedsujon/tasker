@@ -10,4 +10,9 @@ class Job extends Model
     use HasFactory;
 
     protected $table = 'jobs';
+    protected $casts = [
+        'categories' => 'array',
+        'category_names' => 'array',
+        'attachments' => 'array'
+    ];
 }

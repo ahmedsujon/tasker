@@ -1,6 +1,6 @@
 <div>
     <section class="job_post_wrapper">
-        <form action="" class="form_area job_post_form_area h-full-screen space-between">
+        <form wire:submit.prevent='nextStep' class="form_area job_post_form_area h-full-screen space-between">
             <div class="w-100">
                 <div class="back_btn_grid back_btn_white pt-12">
                     <button type="button" class="page_back_btn" onclick="history.back()">
@@ -11,12 +11,10 @@
                 <div class="horizontal-m-w mt-24">
                     <div class="input_row">
                         <label for="" class="form_label">Project cost add your won *</label>
-                        <input type="text" placeholder="Type cost" class="input_field" />
-                        <div class="form_status error">
-                            <img src="{{ asset('assets/app/icons/info-circle.svg') }}" alt="info icon"
-                                class="info_circle_red" />
-                            Job title is required
-                        </div>
+                        <input type="number" placeholder="Type cost" wire:model.blur='cost' class="input_field" />
+                        @error('cost')
+                            <div class="form_status error">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="most_using_category">
@@ -75,8 +73,7 @@
             </div>
             <div class="horizontal-m-w w-100">
                 <button type="submit" class="login_btn">
-                    Submit & review job post
-                    <img src="{{ asset('assets/app/icons/arrow-right.svg') }}" alt="arrow icon" />
+                    {!! loadingStateWithText('nextStep', 'Submit & review job post') !!} <img src="{{ asset('assets/app/icons/arrow-right.svg') }}" alt="arrow icon" />
                 </button>
             </div>
         </form>

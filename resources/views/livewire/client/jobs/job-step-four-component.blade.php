@@ -17,76 +17,62 @@
                     <div class="post_overview_item">
                         <h2>Job title</h2>
                         <h4>
-                            I’m looking for a service provider for furniture assembly in
-                            my shop
+                            {{ $job ? $job->title : '' }}
                         </h4>
                     </div>
                     <div class="post_overview_item most_using_category">
                         <h2>Added categories</h2>
-                        <ul class="category_list category_inner_list d-flex align-items-center flex-wrap bg-transparent p-0"
-                            id="innerCategoryList">
-                            <li>
-                                <button type="button" class="selected_category">
-                                    <span>General Furniture Assembly</span>
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" class="selected_category">
-                                    <span>IKEA Assembly</span>
-                                </button>
-                            </li>
-                            <li>
-                                <button type="button" class="selected_category">
-                                    <span>Bookshelf Assembly</span>
-                                </button>
-                            </li>
+                        <ul class="category_list category_inner_list d-flex align-items-center flex-wrap bg-transparent p-0" id="innerCategoryList">
+                            @foreach ($job->category_names as $category)
+                                <li>
+                                    <button type="button" class="selected_category">
+                                        <span>{{ $category }}</span>
+                                    </button>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                     <div class="post_overview_item">
                         <h2>Project size</h2>
-                        <h4>Small</h4>
-                        <h6>
-                            Simple and efficient tasks <b>[estimate : 4 - 6 hours]</b>
-                        </h6>
+                        @if ($job->project_size == 'Large')
+                            <h4>Large</h4>
+                            <h6>
+                                Extended or multifaceted <b>[estimate : 1+ Day]</b>
+                            </h6>
+                        @elseif ($job->project_size == 'Medium')
+                            <h4>Small</h4>
+                            <h6>
+                                Precisely defined projects <b>[estimate : 6 - 10 hours]</b>
+                            </h6>
+                        @elseif ($job->project_size == 'Small')
+                            <h4>Small</h4>
+                            <h6>
+                                Simple and efficient tasks <b>[estimate : 4 - 6 hours]</b>
+                            </h6>
+                        @endif
                     </div>
                     <div class="post_overview_item">
                         <h2>Description</h2>
                         <p>
-                            I am seeking a skilled and reliable service provider to handle
-                            the assembly of furniture in my shop. The ideal candidate will
-                            have experience with assembling various types of furniture,
-                            including shelving units, display cases, and seating.
-                            Attention to detail and the ability to work efficiently are
-                            essential.
+                            {!! $job->description !!}
                         </p>
                     </div>
                     <div class="post_overview_item file_uploaded_area mt-0">
                         <h2>Attached files</h2>
-                        <div class="upload_grid remove_delete_btn_grid">
-                            <img src="{{ asset('assets/app/images/client/file_upload_image1.png') }}" alt="upload image"
-                                class="upload_img" />
-                            <div>
-                                <h4>Attachment file 2024.jpeg</h4>
-                                <h6>1.2 MB</h6>
+                        @foreach ($job->attachments as $attach)
+                            <div class="upload_grid remove_delete_btn_grid">
+                                <img src="{{ asset('assets/app/images/client/file_upload_image1.png') }}" alt="upload image"
+                                    class="upload_img" />
+                                <div>
+                                    <h4>{{ $attach }}</h4>
+                                    <h6>1.2 MB</h6>
+                                </div>
                             </div>
-                        </div>
-                        <div class="upload_grid remove_delete_btn_grid">
-                            <img src="{{ asset('assets/app/images/client/file_upload_image2.png') }}" alt="upload image"
-                                class="upload_img" />
-                            <div>
-                                <h4>Attachment file 2024.jpeg</h4>
-                                <h6>1.2 MB</h6>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="post_overview_item input_row mb-0">
                         <h2>Project cost</h2>
-                        <input type="text" placeholder="Type cost" class="input_field" value="SAR 600" disabled />
-                        <div class="form_status error">
-                            <img src="{{ asset('assets/app/icons/info-circle.svg') }}" alt="info icon"
-                                class="info_circle_red" />
-                            Job title is required
-                        </div>
+                        <input type="text" placeholder="Type cost" class="input_field" value="SAR {{ $job->budget }}" disabled />
                     </div>
                 </div>
             </div>

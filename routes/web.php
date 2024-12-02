@@ -60,7 +60,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', LoginComponent::class)->name('login');
+Route::get('/', LoginComponent::class)->name('login')->middleware('guest');
 Route::get('/onboarding', OnboardingComponent::class)->name('onboarding');
 Route::get('/register', RegistrationComponent::class)->name('register')->middleware('guest');
 
@@ -91,7 +91,7 @@ Route::middleware('auth')->group(function () {
         Route::get('job-post-step-two', JobStepOneComponent::class)->name('jobPostTwo');
         Route::get('job-post-step-three', JobStepTwoComponent::class)->name('jobPostThree');
         Route::get('job-post-step-four', JobStepThreeComponent::class)->name('jobPostFour');
-        Route::get('job-post-step-five', JobStepFourComponent::class)->name('jobPostFive');
+        Route::get('job-post-step-five/{job_id}', JobStepFourComponent::class)->name('jobPostFive');
         Route::get('job-details/{id}', JobDetailsComponent::class)->name('jobDetails');
 
         // Chat Routes

@@ -14,14 +14,15 @@ return new class extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->nullable();
-            $table->bigInteger('category_id')->nullable();
+            $table->string('categories')->nullable();
             $table->string('title')->nullable();
             $table->string('project_size')->nullable();
             $table->longText('description')->nullable();
-            $table->string('attacments')->nullable();
+            $table->longText('attachments')->nullable();
             $table->string('budget')->nullable();
-            $table->string('location')->nullable();
-            $table->enum('status', ['Active', 'In Order', 'Draft', 'Finish', 'Cancel'])->default('Active');
+            $table->text('location')->nullable();
+            $table->longText('category_names')->nullable();
+            $table->enum('status', ['Pending', 'Active', 'In Order', 'Draft', 'Finish', 'Cancel'])->default('Pending');
             $table->timestamps();
         });
     }
