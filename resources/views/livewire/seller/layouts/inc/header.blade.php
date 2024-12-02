@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="menu_list_item">
+                <a href="{{ route('seller.sellerMessages') }}" class="menu_list_item">
                     <img src="{{ asset('assets/app/icons/header/message.svg') }}" alt="message icon"
                         class="inactive_icon" />
                     <img src="{{ asset('assets/app/icons/header/message-active.svg') }}" alt="message active icon"
