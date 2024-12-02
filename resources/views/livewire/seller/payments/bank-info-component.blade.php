@@ -12,24 +12,26 @@
             </div>
             <h5>The payment will get paid into your account weekly basis.</h5>
         </div>
-        {{-- @foreach ($bank_accounts as $bank_account) --}}
-        <div class="get_payment_card">
-            <div class="default">Default</div>
-            <h4>Withdrawal method (1)</h4>
-            <h2>Alinma Bank, Riyad</h2>
-            <div class="d-flex align-items-center justify-content-center gap-2 mt-2">
-                <h3>Account no: **********9876</h3>
-                <a href="#" class="edit_btn"> Edit </a>
+        @foreach ($bank_accounts as $bank_account)
+            <div class="get_payment_card">
+                {{-- <div class="default">Default</div> --}}
+                <h4>Withdrawal method</h4>
+                <h2>{{ $bank_account->bank_name }}</h2>
+                <div class="d-flex align-items-center justify-content-center gap-2 mt-2">
+                    <h3>Account no:
+                        {{ str_repeat('*', strlen($bank_account->account_number) - 4) . substr($bank_account->account_number, -4) }}
+                    </h3>
+                    <a href="#" class="edit_btn"> Edit </a>
+                </div>
+                <button type="button" class="get_sar_btn modalOpenBtn">
+                    Get paid (SAR 635)
+                </button>
+                <p>You would receive SAR 635.75 each week for 4 weeks.</p>
+                <a href="{{ route('seller.sellerBankCreate') }}" type="button" class="add_payment_btn">
+                    + Add new payment method
+                </a>
             </div>
-            <button type="button" class="get_sar_btn modalOpenBtn">
-                Get paid (SAR 635)
-            </button>
-            <p>You would receive SAR 635.75 each week for 4 weeks.</p>
-            <a href="{{ route('seller.sellerBankCreate') }}" type="button" class="add_payment_btn">
-                + Add new payment method
-            </a>
-        </div>
-        {{-- @endforeach --}}
+        @endforeach
     </section>
     </main>
 

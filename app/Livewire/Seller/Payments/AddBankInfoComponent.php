@@ -22,22 +22,22 @@ class AddBankInfoComponent extends Component
             'customer_id' => 'required',
             'city' => 'required',
             'phone' => 'required',
+            'status' => 'required',
         ]);
 
         $data = new SellerBankAccount();
         $data->bank_name = $this->bank_name;
-        $data->account_name = $this->bank_name;
-        $data->account_number = $this->bank_name;
-        $data->post_code = $this->bank_name;
-        $data->account_type = $this->bank_name;
-        $data->branch_name = $this->bank_name;
-        $data->dob = $this->bank_name;
-        $data->customer_id_type = $this->bank_name;
-        $data->customer_id = $this->bank_name;
-        $data->city = $this->bank_name;
-        $data->phone = $this->bank_name;
-        $data->status = $this->bank_name;
-        dd($data);
+        $data->account_name = $this->account_name;
+        $data->account_number = $this->account_number;
+        $data->post_code = $this->post_code;
+        $data->account_type = $this->account_type;
+        $data->branch_name = $this->branch_name;
+        $data->dob = $this->dob;
+        $data->customer_id_type = $this->customer_id_type;
+        $data->customer_id = $this->customer_id;
+        $data->city = $this->city;
+        $data->phone = $this->phone;
+        $data->status = $this->status;
         $data->save();
         $this->resetInputs();
         $this->dispatch('success', ['message' => 'Account added successfully']);
@@ -55,6 +55,7 @@ class AddBankInfoComponent extends Component
         $this->customer_id = '';
         $this->city = '';
         $this->phone = '';
+        $this->status = '';
     }
 
     public function render()

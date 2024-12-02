@@ -15,7 +15,8 @@
                     <label for="">Select Bank </label>
                 </div>
                 <div class="nice_select_area" wire:ignore>
-                    <select class="searchableSelect" wire:model.blur='bank_name' data-placeholder="Select Bank">
+                    <select class="searchableSelect bank_name" wire:model.blur='bank_name'
+                        data-placeholder="Select Bank">
                         <option data-display="Select">Select Your Bank</option>
                         <option value="Saudi National Bank (SNB)">Saudi National Bank (SNB)</option>
                         <option value="Al Rajhi Bank">Al Rajhi Bank</option>
@@ -51,7 +52,7 @@
                 <div class="label_area">
                     <label for="account_name">Account Name </label>
                 </div>
-                <input type="number" wire:model.blur='account_name' placeholder="Enter bank name"
+                <input type="text" wire:model.blur='account_name' placeholder="Enter bank name"
                     class="input_field" />
                 @error('account_name')
                     <div class="form_status error">
@@ -96,7 +97,8 @@
                     <p>Type of bank account</p>
                 </div>
                 <div class="nice_select_area">
-                    <select class="searchableSelect" wire:model.blur='account_type' data-placeholder="Select Bank">
+                    <select class="searchableSelect account_type" wire:model.blur='account_type'
+                        data-placeholder="Select Bank">
                         <option data-display="Select">Select Account Type </option>
                         <option value="Savings Account">Savings Account</option>
                         <option value="Current Account">Current Account</option>
@@ -206,7 +208,8 @@
             </div>
 
             <div class="form-check color_checkbox_btn">
-                <input class="form-check-input" wire:model.blur='status' type="checkbox" id="acceptInput" />
+                <input class="form-check-input" wire:model.blur='status' type="checkbox" id="acceptInput"
+                    required />
                 <label class="form-check-label" for="acceptInput">
                     I attest that I’m the owner and have full authorization to this
                     bank account.
@@ -226,5 +229,12 @@
     </section>
 </div>
 @push('scripts')
-
+    <script>
+        $(".bank_name").on('change', function() {
+            @this.set('bank_name', $(this).val());
+        });
+        $(".account_type").on('change', function() {
+            @this.set('account_type', $(this).val());
+        });
+    </script>
 @endpush
