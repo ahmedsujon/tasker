@@ -3,7 +3,7 @@
     <header class="Header_wrapper">
         <ul class="menu_list d-flex align-items-center justify-content-evenly flex-wrap">
             <li>
-                <a href="{{ route('seller.dashboard') }}" class="menu_list_item active_menu">
+                <a href="{{ route('seller.dashboard') }}" class="menu_list_item">
                     @if (request()->is('seller/dashboard'))
                         <img src="{{ asset('assets/app/icons/header/home-active.svg') }}" alt="home active icon"
                             class="" />
