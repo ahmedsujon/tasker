@@ -10,9 +10,61 @@
     <link rel="shortcut icon" href="{{ asset('assets/app/images/header/logo.png') }}" type="image/x-icon" />
     <link rel="stylesheet" href="{{ asset('assets/app/plugins/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/app/plugins/css/swiper-bundle.min.css') }}" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify/dist/simple-notify.css" />
+    <link href="{{ asset('assets/admin/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{ asset('assets/app/sass/style.css') }}" />
 </head>
+
+<style>
+    .spinner-border-sm {
+        width: 13px;
+        height: 13px;
+        border-width: 1px;
+    }
+
+    .spinner-border-xs {
+        width: 10px;
+        height: 10px;
+        border-width: 1px;
+    }
+
+    .table tbody tr td {
+        font-weight: normal;
+    }
+
+    #customSwitchSuccess {
+        font-size: 15px;
+    }
+
+    .swal2-modal {
+        font-size: 12px;
+    }
+
+    .btn:focus,
+    .btn:active {
+        outline: none !important;
+        box-shadow: none;
+    }
+
+    .action-btn {
+        height: 30px;
+        width: 30px;
+    }
+
+    .sn-notify {
+        display: block !important;
+        text-align: center !important;
+        padding: 3px 20px !important;
+        padding-right: 7px !important;
+        margin-bottom: 70px !important;
+        width: auto !important;
+        border-radius: 20px !important;
+    }
+
+    .sn-notify-autoclose:before {
+        height: 2px !important;
+    }
+</style>
 
 <body>
     <main class="main_content_area">
@@ -30,8 +82,9 @@
     <script src="{{ asset('assets/app/plugins/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/app/plugins/js/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('assets/app/js/auth.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
-    <script src="{{ asset('assets/admin/js/custom-toast.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-notify/dist/simple-notify.min.js"></script>
+    <script src="{{ asset('assets/app/js/custom-toast.js') }}"></script>
+    <script src="{{ asset('assets/admin/libs/sweetalert2/sweetalert2.min.js') }}"></script>
     <script src="{{ asset('assets/app/js/main.js') }}"></script>
     @stack('scripts')
     <script>
