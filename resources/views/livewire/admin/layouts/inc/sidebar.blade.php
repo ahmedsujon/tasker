@@ -17,8 +17,8 @@
                     </li>
 
                     <li>
-                        <a href="{{ route('admin.dashboard') }}"
-                            class="waves-effect {{ request()->is('admin/dashboard') ? 'active_menu' : '' }}">
+                        <a href="{{ route('admin.clientProviders') }}"
+                            class="waves-effect {{ request()->is('admin/client-provides') ? 'active_menu' : '' }}">
                             <i class="bx bxs-user-detail"></i>
                             <span key="t-dashboard">Client & Provider</span>
                         </a>

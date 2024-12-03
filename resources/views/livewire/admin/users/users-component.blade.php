@@ -4,11 +4,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0 font-size-18">Users</h4>
+                        <h4 class="mb-sm-0 font-size-18">Client & Providers</h4>
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item active">Users</li>
+                                <li class="breadcrumb-item active">Client & Providers</li>
                             </ol>
                         </div>
                     </div>
@@ -19,7 +19,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header bg-white" style="border-bottom: 1px solid #e2e2e7;">
-                            <h4 class="card-title" style="float: left;">All Users</h4>
+                            <h4 class="card-title" style="float: left;">List Of Client & Providers</h4>
                             <button class="btn btn-sm btn-dark waves-effect waves-light" data-bs-toggle="modal"
                                 data-bs-target="#addDataModal" style="float: right;"><i class="bx bx-plus"></i> Add
                                 User</button>
@@ -47,8 +47,8 @@
 
                                 <div class="col-md-6 col-sm-12 mb-2 search_cont">
                                     <label class="font-weight-normal mr-2">Search:</label>
-                                    <input type="search" class="sinput" placeholder="Search..." wire:model.blur="searchTerm"
-                                        wire:keyup='resetPage' />
+                                    <input type="search" class="sinput" placeholder="Search..."
+                                        wire:model.blur="searchTerm" wire:keyup='resetPage' />
                                 </div>
                             </div>
 
@@ -58,7 +58,7 @@
                                         <tr>
                                             <th class="align-middle">#</th>
                                             <th class="align-middle">Name</th>
-                                            <th class="align-middle">Username</th>
+                                            <th class="align-middle">User Type</th>
                                             <th class="align-middle">Email</th>
                                             <th class="align-middle">Phone</th>
                                             <th class="align-middle text-center" style="width: 15%;">Status</th>
@@ -68,20 +68,31 @@
                                     <tbody>
                                         @if ($users->count() > 0)
                                             @php
-                                                $sl = $users->perPage() * $users->currentPage() - ($users->perPage() - 1);
+                                                $sl =
+                                                    $users->perPage() * $users->currentPage() - ($users->perPage() - 1);
                                             @endphp
                                             @foreach ($users as $user)
                                                 <tr>
                                                     <td class="align-middle">{{ $sl++ }}</td>
                                                     <td class="align-middle">
                                                         @if ($user->avatar)
-                                                            <img src="{{ asset($user->avatar) }}" class="img-fluid rounded-circle mr-3" style="height: 40px; width: 40px;" alt="">
+                                                            <img src="{{ asset($user->avatar) }}"
+                                                                class="img-fluid rounded-circle mr-3"
+                                                                style="height: 40px; width: 40px;" alt="">
                                                         @else
-                                                            <img src="{{ asset('assets/images/placeholder.jpg') }}" class="img-fluid rounded-circle mr-3" style="height: 40px; width: 40px;" alt="">
+                                                            <img src="{{ asset('assets/images/placeholder.jpg') }}"
+                                                                class="img-fluid rounded-circle mr-3"
+                                                                style="height: 40px; width: 40px;" alt="">
                                                         @endif
                                                         {{ $user->full_name }}
                                                     </td>
-                                                    <td class="align-middle">{{ $user->username }}</td>
+                                                    <td class="align-middle">
+                                                        @if ($user->type == 'client')
+                                                            Client
+                                                        @else
+                                                            Provider
+                                                        @endif
+                                                    </td>
                                                     <td class="align-middle">{{ $user->email }}</td>
                                                     <td class="align-middle">{{ $user->phone }}</td>
                                                     <td class="align-middle text-center">
@@ -100,7 +111,8 @@
                                                             class="btn btn-sm btn-soft-primary waves-effect waves-light action-btn edit_btn"
                                                             wire:click.prevent='editData({{ $user->id }})'
                                                             wire:loading.attr='disabled'>
-                                                            <i class="mdi mdi-square-edit-outline font-size-13 align-middle"></i>
+                                                            <i
+                                                                class="mdi mdi-square-edit-outline font-size-13 align-middle"></i>
                                                         </button>
                                                         <button
                                                             class="btn btn-sm btn-soft-danger waves-effect waves-light action-btn delete_btn"
@@ -191,7 +203,7 @@
                                     <div class="col-md-6">
                                         <label for="example-number-input" class="col-form-label">Password</label>
                                         <input class="form-control" type="password" wire:model.blur="password"
-                                            placeholder="Enter new password" >
+                                            placeholder="Enter new password">
                                         @error('password')
                                             <p class="text-danger" style="font-size: 11.5px;">{{ $message }}</p>
                                         @enderror
@@ -295,7 +307,7 @@
                                     <div class="col-md-6">
                                         <label for="example-number-input" class="col-form-label">Password</label>
                                         <input class="form-control" type="password" wire:model.blur="password"
-                                            placeholder="Enter new password" >
+                                            placeholder="Enter new password">
                                         @error('password')
                                             <p class="text-danger" style="font-size: 11.5px;">{{ $message }}</p>
                                         @enderror

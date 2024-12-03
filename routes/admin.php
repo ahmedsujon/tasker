@@ -37,6 +37,9 @@ Route::prefix('admin/')->name('admin.')->middleware('auth:admin')->group(functio
     Route::get('all-admins', AdminComponent::class)->name('allAdmins')->middleware('permission:manage_admins');
     Route::get('all-admins/role-permissions', RoleManagementComponent::class)->name('adminRolePermissions')->middleware('permission:manage_roles_permissions');
 
+    // client &provider routes
+    Route::get('client-provides', UsersComponent::class)->name('clientProviders');
+
     // user routes
     Route::get('all-users', UsersComponent::class)->name('allUsers')->middleware('permission:manage_users');
 
