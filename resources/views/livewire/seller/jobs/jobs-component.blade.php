@@ -48,8 +48,7 @@
                                         class="bid_icon" />
                                     <h4>Posted</h4>
                                 </div>
-                                <h5>{{ \Carbon\Carbon::parse($seller_job->created_at)->locale('en')->diffForHumans() }}
-                                </h5>
+                                <h5>{{ \Carbon\Carbon::parse($seller_job->created_at)->locale('en')->diffForHumans() }}</h5>
                             </div>
                             <div>
                                 <div class="d-flex align-items-cente gap-1r">

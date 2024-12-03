@@ -33,6 +33,8 @@ use App\Livewire\Seller\DashboardComponent as SellerDashboardComponent;
 use App\Livewire\Seller\Jobs\JobApplyComponent;
 use App\Livewire\Seller\Jobs\JobDetailsComponent as JobsJobDetailsComponent;
 use App\Livewire\Seller\Jobs\JobsComponent as JobsJobsComponent;
+use App\Livewire\Seller\Messages\MessageComponent as MessagesMessageComponent;
+use App\Livewire\Seller\Messages\SellerMessageComponent;
 use App\Livewire\Seller\Payments\AddBankInfoComponent;
 use App\Livewire\Seller\Payments\BankInfoComponent;
 use App\Livewire\Seller\Payments\EditBankInfoComponent;
@@ -131,6 +133,9 @@ Route::middleware('auth')->group(function () {
         Route::get('seller/bank/accounts/create', AddBankInfoComponent::class)->name('sellerBankCreate');
         Route::get('seller/bank/accounts/edit/{id}', EditBankInfoComponent::class)->name('sellerBanksEdit');
         Route::get('seller/bank/accounts/view/{id}', ViewBankInfoComponent::class)->name('sellerBanksView');
+
+        // Sellers Messages Routes
+        Route::get('seller/messages', SellerMessageComponent::class)->name('sellerMessages');
 
 
         // Logout Routes
