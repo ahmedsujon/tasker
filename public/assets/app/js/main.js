@@ -28,7 +28,7 @@ $(document).ready(function () {
   });
 
   //Modal Functionality
-  $("#modalOpenBtn").click(function (e) {
+  $("#modalOpenBtn,.modalOpenBtn").click(function (e) {
     e.preventDefault();
     $("#modalArea").addClass("modal_active");
     $("#modalOverlay").show();
@@ -88,12 +88,10 @@ $(document).ready(function () {
     }
   });
 
-
   //Text line clamp
   $(".text-line-clamp2").clamp({
-    clamp:2,
-    alwaysDisplay:false,
-    
+    clamp: 2,
+    alwaysDisplay: false,
   });
 });
 
@@ -147,8 +145,6 @@ function scrollOutsideScroll() {
   });
 })();
 
-
-
 //Fixed screen height
 function updateVH() {
   const vh = window.innerHeight * 0.01;
@@ -157,9 +153,17 @@ function updateVH() {
 window.addEventListener("resize", updateVH);
 updateVH();
 
+document.addEventListener("DOMContentLoaded", function (e) {
+  //Nice select 2
 
- 
-
- 
-
- 
+  // searchAbleSelect
+  var searchAbleSelect = document.querySelectorAll(".searchableSelect");
+  searchAbleSelect.forEach(function (select) {
+    console.log("select", select, select.getAttribute("data-placeholder"));
+    NiceSelect.bind(select, {
+      searchable: true,
+      placeholder: select.getAttribute("data-placeholder"),
+      searchtext: "Search",
+    });
+  });
+});

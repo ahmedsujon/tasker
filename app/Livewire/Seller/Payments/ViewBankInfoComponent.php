@@ -8,6 +8,6 @@ class ViewBankInfoComponent extends Component
 {
     public function render()
     {
-        return view('livewire.seller.payments.view-bank-info-component');
+        return view('livewire.seller.payments.view-bank-info-component')->layout('livewire.seller.layouts.base');
     }
 }

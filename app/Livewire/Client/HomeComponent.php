@@ -4,7 +4,9 @@ namespace App\Livewire\Client;
 
 use App\Models\Job;
 use Livewire\Component;
+use App\Models\Proposal;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\DB;
 
 class HomeComponent extends Component
 {
@@ -13,7 +15,15 @@ class HomeComponent extends Component
 
     public function render()
     {
-        $active_jobs = Job::where('status', 'Active')->orderBy('id', 'DESC')->paginate($this->sortingValue);
+
+        $active_jobs = DB::table('jobs')
+            ->leftJoin('proposals', 'jobs.id', '=', 'proposals.job_id')
+            ->select('jobs.*', DB::raw('COUNT(proposals.id) as proposal_count'))
+            ->where('jobs.status', 'Active')
+            ->groupBy('jobs.id')
+            ->orderBy('jobs.id', 'DESC')
+            ->paginate($this->sortingValue);
+
         $inorder_jobs = Job::where('status', 'Active')->orderBy('id', 'DESC')->paginate($this->sortingValue);
         $draft_jobs = Job::where('status', 'Active')->orderBy('id', 'DESC')->paginate($this->sortingValue);
         $finished_jobs = Job::where('status', 'Active')->orderBy('id', 'DESC')->paginate($this->sortingValue);

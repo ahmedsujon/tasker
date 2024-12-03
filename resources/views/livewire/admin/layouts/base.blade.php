@@ -20,7 +20,6 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css" />
     <link href="{{ asset('assets/admin/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
-
     <!-- App Css-->
     <link href="{{ asset('assets/admin/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 </head>
@@ -119,7 +118,6 @@
 
     @livewire('admin.partials.profile-modal-component')
 
-
     <!-- JAVASCRIPT -->
     <script src="{{ asset('assets/admin/libs/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/admin/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -129,6 +127,7 @@
 
     <!-- apexcharts -->
     <script src="{{ asset('assets/admin/libs/apexcharts/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/pages/dashboard-blog.init.js') }}"></script>
 
     <!-- Toast -->
     <script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
@@ -138,6 +137,7 @@
 
     <!-- dashboard init -->
     <script src="{{ asset('assets/admin/js/pages/dashboard.init.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/pages/dashboard-blog.init.js') }}"></script>
 
     <!-- App js -->
     <script src="{{ asset('assets/admin/js/app.js') }}"></script>
@@ -194,24 +194,24 @@
             $('.delete_btn').on('click', function(event) {
                 $(this).html(
                     '<span class="spinner-border spinner-border-xs align-middle" role="status" aria-hidden="true"></span>'
-                    );
+                );
             });
             $('.edit_btn').on('click', function(event) {
                 $(this).html(
                     '<span class="spinner-border spinner-border-xs align-middle" role="status" aria-hidden="true"></span>'
-                    );
+                );
             });
         });
         $(document).ready(function() {
             $('.delete_btn').on('click', function(event) {
                 $(this).html(
                     '<span class="spinner-border spinner-border-xs align-middle" role="status" aria-hidden="true"></span>'
-                    );
+                );
             });
             $('.edit_btn').on('click', function(event) {
                 $(this).html(
                     '<span class="spinner-border spinner-border-xs align-middle" role="status" aria-hidden="true"></span>'
-                    );
+                );
             });
         });
     </script>

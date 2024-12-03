@@ -69,6 +69,14 @@
     }
   }
 }
+.color_checkbox_btn {
+  .form-check-input {
+    &:checked {
+      border-color: #7741fb;
+      background-color: #7741fb;
+    }
+  }
+}
 
 //Form Area
 .form_area {
@@ -98,7 +106,8 @@
       text-underline-offset: auto;
       text-underline-position: from-font;
     }
-    .input_field {
+    .input_field,
+    .form-select {
       color: #313131;
       font-size: 16px;
       font-style: normal;
@@ -113,10 +122,13 @@
       -ms-border-radius: 12px;
       -o-border-radius: 12px;
       border: 1px solid #d9d9d9;
-      background: #fbfbfb;
+      background-color: #fbfbfb;
       &:disabled {
-        background: #d2cfcf !important;
+        background-color: #d2cfcf !important;
       }
+    }
+    .form-select {
+      padding-right: 26px;
     }
     textarea {
       &.input_field {
@@ -423,7 +435,8 @@
 
   &.job_post_form_area {
     .input_row {
-      .input_field {
+      .input_field,
+      .form-select {
         border-radius: 8px;
         -webkit-border-radius: 8px;
         -moz-border-radius: 8px;
@@ -437,6 +450,135 @@
       font-size: 16px !important;
       font-weight: 400 !important;
       color: #b5b5b5 !important;
+    }
+  }
+}
+
+//Setup withdaw form
+.setup_withdraw_form_area {
+  .input_row {
+    margin-bottom: 24px;
+    .label_area {
+      margin-bottom: 9px;
+    }
+    label {
+      display: block;
+      color: #000;
+      font-family: SFMediumFont;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    p {
+      color: rgba(0, 0, 0, 0.48);
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+  .input_field,
+  .form-select,
+  .nice-select {
+    color: rgba(0, 0, 0, 0.46);
+    font-family: SFMediumFont;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    height: 47px;
+    width: 100%;
+    padding: 15px 17px;
+    border-radius: 6px;
+    border: 1px solid #d6d6d6;
+    background-color: #fff;
+  }
+  .nice_select_area {
+    height: 47px;
+    .searchableSelect {
+      &:first-child {
+        display: none;
+      }
+    }
+  }
+
+  .customer_type_radio_area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+  }
+  .select_bank_area {
+    padding: 27px 20px;
+    border-radius: 8px;
+    border: 2px solid #f2f2f2;
+    background: #f1f1f1;
+    h5 {
+      color: rgba(0, 0, 0, 0.7);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    h3 {
+      color: #000;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin-top: 17px;
+    }
+    h6 {
+      color: #000;
+      font-family: SFMediumFont;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-top: 9px;
+    }
+    .not_bank_btn {
+      color: #7741fb;
+      font-family: SFBoldFont;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin-top: 23px;
+    }
+  }
+  .form_inner_title {
+    color: rgba(0, 0, 0, 0.47);
+    font-family: $third-font;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+}
+
+//Nice select
+.nice-select {
+  padding-right: 25px !important;
+  &::after {
+    width: 8px;
+    height: 8px;
+    margin-top: -5px;
+  }
+  .current {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .nice-select-dropdown {
+    width: 100%;
+    .list {
+      max-height: 300px;
+      @include customScrollbarInner();
+      overflow-x: hidden;
     }
   }
 }
@@ -603,6 +745,27 @@
     margin-bottom: 16px;
     &.remove_delete_btn_grid {
       grid-template-columns: minmax(0, 41px) repeat(1, minmax(0, 1fr));
+    }
+  }
+  .attach_slider_area {
+    .swiper {
+      padding-top: 12px;
+    }
+    .swiper-slide {
+      position: relative;
+      width: 150px;
+      height: 150px;
+    }
+
+    .attach_image {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+    }
+    .attach_delete_btn {
+      position: absolute;
+      top: -12px;
+      right: -10px;
     }
   }
 }
