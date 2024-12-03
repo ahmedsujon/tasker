@@ -13,7 +13,7 @@
                         <label for="" class="form_label">Project cost add your won *</label>
                         <input type="number" placeholder="Type cost" wire:model.blur='cost' class="input_field" />
                         @error('cost')
-                            <div class="form_status error">{{ $message }}</div>
+                        <div class="form_status error">{{ $message }}</div>
                         @enderror
                     </div>
 
@@ -23,46 +23,51 @@
                         <ul class="category_list category_inner_list d-flex align-items-center flex-wrap bg-transparent p-0"
                             id="innerCategoryList">
                             <li>
-                                <button type="button">
+                                <button type="button" wire:click.prevent='selectCost("400")' class="{{ $cost == 400 ? 'selected_category' : '' }}">
                                     <span>SAR 400</span>
-                                    <img src="{{ asset('assets/app/icons/plus_black.svg') }}" alt="plus icon"
-                                        class="plus_icon" />
+                                    @if ($cost != 400)
+                                        {!! loadingStateWithoutText("selectCost('400')", '<img src="'.asset('assets/app/icons/plus_black.svg').'" />') !!}
+                                    @endif
                                     <img src="{{ asset('assets/app/icons/check.svg') }}" alt="check icon"
                                         class="check_icon" />
                                 </button>
                             </li>
                             <li>
-                                <button type="button">
+                                <button type="button" wire:click.prevent='selectCost("600")' class="{{ $cost == 600 ? 'selected_category' : '' }}">
                                     <span>SAR 600</span>
-                                    <img src="{{ asset('assets/app/icons/plus_black.svg') }}" alt="plus icon"
-                                        class="plus_icon" />
+                                    @if ($cost != 600)
+                                        {!! loadingStateWithoutText("selectCost('600')", '<img src="'.asset('assets/app/icons/plus_black.svg').'" />') !!}
+                                    @endif
                                     <img src="{{ asset('assets/app/icons/check.svg') }}" alt="check icon"
                                         class="check_icon" />
                                 </button>
                             </li>
                             <li>
-                                <button type="button">
+                                <button type="button" wire:click.prevent='selectCost("800")' class="{{ $cost == 800 ? 'selected_category' : '' }}">
                                     <span>SAR 800</span>
-                                    <img src="{{ asset('assets/app/icons/plus_black.svg') }}" alt="plus icon"
-                                        class="plus_icon" />
+                                    @if ($cost != 800)
+                                        {!! loadingStateWithoutText("selectCost('800')", '<img src="'.asset('assets/app/icons/plus_black.svg').'" />') !!}
+                                    @endif
                                     <img src="{{ asset('assets/app/icons/check.svg') }}" alt="check icon"
                                         class="check_icon" />
                                 </button>
                             </li>
                             <li>
-                                <button type="button">
+                                <button type="button" wire:click.prevent='selectCost("1000")' class="{{ $cost == 1000 ? 'selected_category' : '' }}">
                                     <span>SAR 1000</span>
-                                    <img src="{{ asset('assets/app/icons/plus_black.svg') }}" alt="plus icon"
-                                        class="plus_icon" />
+                                    @if ($cost != 1000)
+                                        {!! loadingStateWithoutText("selectCost('1000')", '<img src="'.asset('assets/app/icons/plus_black.svg').'" />') !!}
+                                    @endif
                                     <img src="{{ asset('assets/app/icons/check.svg') }}" alt="check icon"
                                         class="check_icon" />
                                 </button>
                             </li>
                             <li>
-                                <button type="button">
+                                <button type="button" wire:click.prevent='selectCost("1200")' class="{{ $cost == 1200 ? 'selected_category' : '' }}">
                                     <span>SAR 1200</span>
-                                    <img src="{{ asset('assets/app/icons/plus_black.svg') }}" alt="plus icon"
-                                        class="plus_icon" />
+                                    @if ($cost != 1200)
+                                        {!! loadingStateWithoutText("selectCost('1200')", '<img src="'.asset('assets/app/icons/plus_black.svg').'" />') !!}
+                                    @endif
                                     <img src="{{ asset('assets/app/icons/check.svg') }}" alt="check icon"
                                         class="check_icon" />
                                 </button>
@@ -73,27 +78,26 @@
             </div>
             <div class="horizontal-m-w w-100">
                 <button type="submit" class="login_btn">
-                    {!! loadingStateWithText('nextStep', 'Submit & review job post') !!} <img src="{{ asset('assets/app/icons/arrow-right.svg') }}" alt="arrow icon" />
+                    {!! loadingStateWithText('nextStep', 'Submit & review job post') !!} <img
+                        src="{{ asset('assets/app/icons/arrow-right.svg') }}" alt="arrow icon" />
                 </button>
             </div>
         </form>
     </section>
 </div>
 @push('scripts')
-    <script>
-        $(document).ready(function() {
-            // Handle click on category buttons
-            $("#innerCategoryList button").on("click", function() {
-                const $button = $(this);
+<script>
+    // $(document).ready(function () {
+    //     // Handle click on category buttons
+    //     $("#innerCategoryList button").on("click", function () {
+    //       const $button = $(this);
+    //       var val = $(this).data('value');
 
-                if ($button.hasClass("selected_category")) {
-                    // Toggle the active class
-                    $button.removeClass("selected_category");
-                } else {
-                    // Toggle the active class
-                    $button.toggleClass("selected_category");
-                }
-            });
-        });
-    </script>
+    //       @this.set('cost', val);
+
+    //       $("#innerCategoryList button").removeClass("selected_category");
+    //       $button.toggleClass("selected_category");
+    //     });
+    //   });
+</script>
 @endpush

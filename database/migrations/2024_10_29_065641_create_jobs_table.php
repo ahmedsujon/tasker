@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('project_size')->nullable();
             $table->longText('description')->nullable();
-            $table->longText('attachments')->nullable();
             $table->string('budget')->nullable();
             $table->text('location')->nullable();
             $table->longText('category_names')->nullable();
