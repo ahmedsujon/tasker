@@ -4,8 +4,8 @@
         <div class="client_user_grid">
             <img src="{{ asset('assets/app/images/user/client_user.png') }}" alt="client user" class="client_user" />
             <div class="client_info">
-                <h3>Tasker Client</h3>
-                <h4>Rahat Ali Khan</h4>
+                <h3>Tasker Provider</h3>
+                <h4>{{ user()->first_name }} {{ user()->last_name }}</h4>
             </div>
             <div class="d-flex justify-content-end">
                 <a href="{{ route('client.jobPostOne') }}" class="job_post_btn">

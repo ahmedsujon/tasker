@@ -20,13 +20,14 @@ class HomeComponent extends Component
             ->leftJoin('proposals', 'jobs.id', '=', 'proposals.job_id')
             ->select('jobs.*', DB::raw('COUNT(proposals.id) as proposal_count'))
             ->where('jobs.status', 'Active')
+            ->where('jobs.user_id', user()->id)
             ->groupBy('jobs.id')
             ->orderBy('jobs.id', 'DESC')
             ->paginate($this->sortingValue);
 
-        $inorder_jobs = Job::where('status', 'Active')->orderBy('id', 'DESC')->paginate($this->sortingValue);
-        $draft_jobs = Job::where('status', 'Active')->orderBy('id', 'DESC')->paginate($this->sortingValue);
-        $finished_jobs = Job::where('status', 'Active')->orderBy('id', 'DESC')->paginate($this->sortingValue);
+        $inorder_jobs = Job::where('status', 'Active')->where('jobs.user_id', user()->id)->orderBy('id', 'DESC')->paginate($this->sortingValue);
+        $draft_jobs = Job::where('status', 'Active')->where('jobs.user_id', user()->id)->orderBy('id', 'DESC')->paginate($this->sortingValue);
+        $finished_jobs = Job::where('status', 'Active')->where('jobs.user_id', user()->id)->orderBy('id', 'DESC')->paginate($this->sortingValue);
         $this->dispatch('reload_scripts');
         return view(
             'livewire.client.home-component',
