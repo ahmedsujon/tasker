@@ -61,8 +61,13 @@ class JobStepTwoComponent extends Component
         $selected_attachments = [];
         foreach ($this->attachments as $key => $attach) {
             $fileName = $attach->getClientOriginalName();
-            $attach->storeAs('public/temp_attachments', $fileName);
-            $selected_attachments[] = 'public/temp_attachments/' . $fileName;
+            $attach->storeAs('attachments', $fileName);
+            $selected_attachments[] = [
+                'name' => $fileName,
+                'file' => 'uploads/attachments/' . $fileName,
+                'type' => $attach->getClientOriginalExtension(),
+                'size' => round(($attach->getSize() / 1024), 2), // Convert to KB
+            ];
         }
 
         $jobData = session()->get('jobData');

@@ -50,9 +50,9 @@
                                 <div class="upload_grid">
                                     <!-- Display file icon or preview for images -->
                                     @if (in_array($attachment->getMimeType(), ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']))
-                                        <img src="{{ $attachment->temporaryUrl() }}" alt="File preview" class="upload_img" style="height: 50px; width: 50px;"/>
+                                        <img src="{{ $attachment->temporaryUrl() }}" class="upload_img" style="height: 50px; width: 50px;"/>
                                     @else
-                                        <img src="{{ asset('assets/app/images/placeholder.jpg') }}" alt="Default upload icon" class="upload_img" style="height: 50px; width: 50px;"/>
+                                        <img src="{{ asset('assets/custom/icons/file-type-pdf.svg') }}" class="upload_img" style="height: 50px; width: 50px;"/>
                                     @endif
                                     <div>
                                         <h4>{{ $attachment->getClientOriginalName() }}</h4>

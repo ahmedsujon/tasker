@@ -3,6 +3,7 @@
 namespace App\Livewire\Client\Jobs;
 
 use App\Models\Job;
+use App\Models\JobAttachment;
 use Livewire\Component;
 
 class JobStepThreeComponent extends Component
@@ -15,6 +16,12 @@ class JobStepThreeComponent extends Component
             $this->cost = isset($jobData['cost']) ? $jobData['cost'] : '';
         }
     }
+
+    public function selectCost($cost)
+    {
+        $this->cost = $cost;
+    }
+
     public function updated($fields)
     {
         $this->validateOnly($fields, [
@@ -38,11 +45,20 @@ class JobStepThreeComponent extends Component
         $job->title = $jobData['title'];
         $job->project_size = $jobData['project_size'];
         $job->description = $jobData['description'];
-        $job->attachments = $jobData['attachments'];
         $job->budget = $jobData['cost'];
         $job->location = $jobData['location'];
         $job->status = 'Pending';
         $job->save();
+
+        foreach ($jobData['attachments'] as $key => $attach) {
+            $attachment = new JobAttachment();
+            $attachment->job_id = $job->id;
+            $attachment->name = $attach['name'];
+            $attachment->attachment = $attach['file'];
+            $attachment->size = $attach['size'];
+            $attachment->type = $attach['type'];
+            $attachment->save();
+        }
 
         session()->forget('jobData');
         return redirect()->route('client.jobPostFive', ['job_id'=>$job->id]);
