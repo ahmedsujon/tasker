@@ -185,6 +185,6 @@
                 </div>
             </a>
         </div>
-        @livewire('client.layouts.inc.header')
+        @livewire('seller.layouts.inc.header')
     </section>
 </div>
