@@ -19,7 +19,7 @@
                 </div>
                 <div>
                     <h3>{{ user()->first_name }} {{ user()->last_name }}</h3>
-                    <h4>Tasker Client</h4>
+                    <h4>Tasker Provider</h4>
                 </div>
             </div>
             <div class="account_area">
