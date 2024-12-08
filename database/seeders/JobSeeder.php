@@ -25,6 +25,8 @@ class JobSeeder extends Seeder
                 'location' => 'Jeddah',
                 'category_names' => json_encode(["Assembly","General Furniture Assembly","IKEA Assembly"]),
                 'status' => 'Active',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'user_id' => 2,
@@ -36,6 +38,8 @@ class JobSeeder extends Seeder
                 'location' => 'Riyadh',
                 'category_names' => json_encode(["Assembly","General Furniture Assembly","IKEA Assembly"]),
                 'status' => 'Active',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'user_id' => 3,
@@ -47,6 +51,8 @@ class JobSeeder extends Seeder
                 'location' => 'Jeddah',
                 'category_names' => json_encode(["Assembly","General Furniture Assembly","IKEA Assembly"]),
                 'status' => 'In Order',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'user_id' => 4,
@@ -58,6 +64,8 @@ class JobSeeder extends Seeder
                 'location' => 'Riyadh',
                 'category_names' => json_encode(["Assembly","General Furniture Assembly","IKEA Assembly"]),
                 'status' => 'In Order',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'user_id' => 5,
@@ -69,6 +77,8 @@ class JobSeeder extends Seeder
                 'location' => 'Jeddah',
                 'category_names' => json_encode(["Assembly","General Furniture Assembly","IKEA Assembly"]),
                 'status' => 'Active',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         ]);
     }

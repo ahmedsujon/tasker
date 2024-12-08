@@ -27,11 +27,11 @@
             tabindex="0">
             <!-- Bid Section  -->
             <section class="bids_wrapper">
-                @foreach ($seller_jobs as $seller_job)
+                @foreach ($jobs as $job)
                     <div class="bids_card">
-                        <a href="{{ route('seller.sellerJobsDetails', ['id' => $seller_job->id]) }}"
+                        <a href="{{ route('seller.sellerJobsDetails', ['id' => $job->id]) }}"
                             class="bids_title text-line-clamp2">
-                            {{ $seller_job->title }}
+                            {{ $job->title }}
                         </a>
                         <div class="bid_inf_grid">
                             <div>
@@ -40,7 +40,7 @@
                                         class="bid_icon" />
                                     <h4>Budget</h4>
                                 </div>
-                                <h3>{{ $seller_job->budget }} SAR</h3>
+                                <h3>{{ $job->budget }} SAR</h3>
                             </div>
                             <div>
                                 <div class="d-flex align-items-center gap-1">
@@ -48,19 +48,20 @@
                                         class="bid_icon" />
                                     <h4>Posted</h4>
                                 </div>
-                                <h5>{{ \Carbon\Carbon::parse($seller_job->created_at)->locale('en')->diffForHumans() }}</h5>
+                                <h5>{{ \Carbon\Carbon::parse($job->created_at)->locale('en')->diffForHumans() }}</h5>
                             </div>
                             <div>
                                 <div class="d-flex align-items-cente gap-1r">
                                     <img src="{{ asset('assets/app/icons/location-03.svg') }}" alt="location icon"
                                         class="bid_icon" />
-                                    <h4>{{ $seller_job->location }}</h4>
+                                    <h4>{{ $job->location }}</h4>
                                 </div>
                             </div>
                         </div>
                         <ul class="bid_tag_list d-flex align-items-center flex-wrap">
-                            <li>Design</li>
-                            <li>Banner Design</li>
+                            @foreach (json_decode($job->category_names) as $ctName)
+                                <li>{{ $ctName }}</li>
+                            @endforeach
                         </ul>
                     </div>
                 @endforeach
@@ -70,11 +71,11 @@
             tabindex="0">
             <!-- Bid Section  -->
             <section class="bids_wrapper">
-                @foreach ($seller_jobs as $seller_job)
+                @foreach ($jobs as $job)
                     <div class="bids_card">
-                        <a href="{{ route('seller.sellerJobsDetails', ['id' => $seller_job->id]) }}"
+                        <a href="{{ route('seller.sellerJobsDetails', ['id' => $job->id]) }}"
                             class="bids_title text-line-clamp2">
-                            {{ $seller_job->title }}
+                            {{ $job->title }}
                         </a>
                         <div class="bid_inf_grid">
                             <div>
@@ -83,7 +84,7 @@
                                         class="bid_icon" />
                                     <h4>Budget</h4>
                                 </div>
-                                <h3>{{ $seller_job->budget }} SAR</h3>
+                                <h3>{{ $job->budget }} SAR</h3>
                             </div>
                             <div>
                                 <div class="d-flex align-items-center gap-1">
@@ -91,20 +92,21 @@
                                         class="bid_icon" />
                                     <h4>Posted</h4>
                                 </div>
-                                <h5>{{ \Carbon\Carbon::parse($seller_job->created_at)->locale('en')->diffForHumans() }}
+                                <h5>{{ \Carbon\Carbon::parse($job->created_at)->locale('en')->diffForHumans() }}
                                 </h5>
                             </div>
                             <div>
                                 <div class="d-flex align-items-cente gap-1r">
                                     <img src="{{ asset('assets/app/icons/location-03.svg') }}" alt="location icon"
                                         class="bid_icon" />
-                                    <h4>{{ $seller_job->location }}</h4>
+                                    <h4>{{ $job->location }}</h4>
                                 </div>
                             </div>
                         </div>
                         <ul class="bid_tag_list d-flex align-items-center flex-wrap">
-                            <li>Design</li>
-                            <li>Banner Design</li>
+                            @foreach (json_decode($job->category_names) as $ctName)
+                                <li>{{ $ctName }}</li>
+                            @endforeach
                         </ul>
                     </div>
                 @endforeach
@@ -114,11 +116,11 @@
             tabindex="0">
             <!-- Bid Section  -->
             <section class="bids_wrapper">
-                @foreach ($seller_jobs as $seller_job)
+                @foreach ($jobs as $job)
                     <div class="bids_card">
-                        <a href="{{ route('seller.sellerJobsDetails', ['id' => $seller_job->id]) }}"
+                        <a href="{{ route('seller.sellerJobsDetails', ['id' => $job->id]) }}"
                             class="bids_title text-line-clamp2">
-                            {{ $seller_job->title }}
+                            {{ $job->title }}
                         </a>
                         <div class="bid_inf_grid">
                             <div>
@@ -127,7 +129,7 @@
                                         class="bid_icon" />
                                     <h4>Budget</h4>
                                 </div>
-                                <h3>{{ $seller_job->budget }} SAR</h3>
+                                <h3>{{ $job->budget }} SAR</h3>
                             </div>
                             <div>
                                 <div class="d-flex align-items-center gap-1">
@@ -135,20 +137,21 @@
                                         class="bid_icon" />
                                     <h4>Posted</h4>
                                 </div>
-                                <h5>{{ \Carbon\Carbon::parse($seller_job->created_at)->locale('en')->diffForHumans() }}
+                                <h5>{{ \Carbon\Carbon::parse($job->created_at)->locale('en')->diffForHumans() }}
                                 </h5>
                             </div>
                             <div>
                                 <div class="d-flex align-items-cente gap-1r">
                                     <img src="{{ asset('assets/app/icons/location-03.svg') }}" alt="location icon"
                                         class="bid_icon" />
-                                    <h4>{{ $seller_job->location }}</h4>
+                                    <h4>{{ $job->location }}</h4>
                                 </div>
                             </div>
                         </div>
                         <ul class="bid_tag_list d-flex align-items-center flex-wrap">
-                            <li>Design</li>
-                            <li>Banner Design</li>
+                            @foreach (json_decode($job->category_names) as $ctName)
+                                <li>{{ $ctName }}</li>
+                            @endforeach
                         </ul>
                     </div>
                 @endforeach
