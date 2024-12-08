@@ -29,12 +29,13 @@
                             <img src="{{ asset('assets/app/icons/time-05.svg') }}" alt="time icon" class="bid_icon" />
                             <h4>Posted</h4>
                         </div>
-                        <h5>{{ \Carbon\Carbon::parse($jobDetails->created_at)->locale('en')->diffForHumans() }}</h5>
+                        <h5>{{ \Carbon\Carbon::parse($jobDetails->created_at)->diffForHumans() }}</h5>
                     </div>
                 </div>
                 <ul class="bid_tag_list d-flex align-items-center flex-wrap">
-                    <li>Design</li>
-                    <li>Banner Design</li>
+                    @foreach ($jobDetails->category_names as $ctName)
+                        <li>{{ $ctName }}</li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -45,9 +46,9 @@
                     <img src="{{ asset('assets/app/icons/heart.svg') }}" alt="heart icon" class="inactive" />
                     <img src="{{ asset('assets/app/icons/heart-white.svg') }}" alt="heart icon" class="active" />
                 </button>
-                <a href="{{ route('seller.sellerJobsApply') }}" type="button" class="login_btn login_btn_sm">
-                    Apply Bid
-                </a>
+                <button type="button" wire:click.prevent='applyBid' wire:loading.attr='disabled' class="login_btn login_btn_sm">
+                    {!! loadingStateWithText('applyBid', 'Apply Bid') !!}
+                </button>
             </div>
         </div>
     </section>

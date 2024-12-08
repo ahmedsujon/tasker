@@ -33,6 +33,8 @@ use App\Livewire\Seller\DashboardComponent as SellerDashboardComponent;
 use App\Livewire\Seller\Jobs\JobApplyComponent;
 use App\Livewire\Seller\Jobs\JobDetailsComponent as JobsJobDetailsComponent;
 use App\Livewire\Seller\Jobs\JobsComponent as JobsJobsComponent;
+use App\Livewire\Seller\Jobs\SubmitProposalComponent;
+use App\Livewire\Seller\Jobs\SubmitProposalSuccessComponent;
 use App\Livewire\Seller\Messages\MessageComponent as MessagesMessageComponent;
 use App\Livewire\Seller\Messages\SellerMessageComponent;
 use App\Livewire\Seller\Payments\AddBankInfoComponent;
@@ -112,9 +114,10 @@ Route::middleware('auth')->group(function () {
         Route::get('dashboard', SellerDashboardComponent::class)->name('dashboard');
 
         // Jobs Routes
-        Route::get('seller-jobs', JobsJobsComponent::class)->name('sellerJobs');
-        Route::get('seller-jobs/details/{id}', JobsJobDetailsComponent::class)->name('sellerJobsDetails');
-        Route::get('job-apply', JobApplyComponent::class)->name('sellerJobsApply');
+        Route::get('jobs', JobsJobsComponent::class)->name('sellerJobs');
+        Route::get('jobs/details/{id}', JobsJobDetailsComponent::class)->name('sellerJobsDetails');
+        Route::get('job-proposal-submit/{bid_id}', SubmitProposalComponent::class)->name('sellerJobsProposal');
+        Route::get('job-proposal-success', SubmitProposalSuccessComponent::class)->name('sellerJobsProposalSuccess');
 
         // Profile Routes
         Route::get('seller-profile', SellerProfileComponent::class)->name('sellerProfile');
