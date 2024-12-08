@@ -72,22 +72,23 @@
                                     <h5>SAR {{ $job->budget }}</h5>
                                 </div>
                                 <div class="time_item">
-                                    <h4>Proposal</h4>
-                                    <h5>{{ $job->proposal_count ?? 0 }}</h5>
+                                    <h4 class="text-center">Proposal</h4>
+                                    <h5 class="text-center">{{ $job->proposal_count ?? 0 }}</h5>
                                 </div>
                             </div>
                             <div class="category_area">
                                 <h6>Categories</h6>
                                 <ul class="category_list d-flex align-items-center flex-wrap gap-1">
-                                    <li>
-                                        <a href="#"> General Furniture Assembly </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> IKEA Assembly </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> Bookshelf Assembly </a>
-                                    </li>
+                                    @php
+                                        $category_names = json_decode($job->category_names, true);
+                                    @endphp
+                                    @if (is_array($category_names))
+                                        @foreach ($category_names as $category)
+                                            <li>
+                                                <a href="#">{{ $category }}</a>
+                                            </li>
+                                        @endforeach
+                                    @endif
                                 </ul>
                             </div>
                         </div>

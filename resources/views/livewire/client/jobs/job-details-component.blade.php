@@ -88,11 +88,11 @@
                     @foreach ($proposals as $proposal)
                         <div class="active_post_card">
                             <div class="post_user_grid">
-                                <img src="{{ getUserByID($proposal->user_id)->avatar }}" alt="user image"
+                                <img src="{{ getUserByID($proposal->seller_id)->avatar }}" alt="user image"
                                     class="user_image" />
                                 <div class="info">
-                                    <h4>{{ getUserByID($proposal->user_id)->first_name }}
-                                        {{ getUserByID($proposal->user_id)->last_name }}</h4>
+                                    <h4>{{ getUserByID($proposal->seller_id)->first_name }}
+                                        {{ getUserByID($proposal->seller_id)->last_name }}</h4>
                                     <div class="d-flex align-items-center flex-wrap gap-1 mt-1">
                                         <img src="{{ asset('assets/app/icons/star.svg') }}" alt="star icon"
                                             class="star_icon" />

@@ -17,8 +17,8 @@ class HomeComponent extends Component
     {
 
         $active_jobs = DB::table('jobs')
-            ->leftJoin('proposals', 'jobs.id', '=', 'proposals.job_id')
-            ->select('jobs.*', DB::raw('COUNT(proposals.id) as proposal_count'))
+            ->leftJoin('seller_proposals', 'jobs.id', '=', 'seller_proposals.job_id')
+            ->select('jobs.*', DB::raw('COUNT(seller_proposals.id) as proposal_count'))
             ->where('jobs.status', 'Active')
             ->where('jobs.user_id', user()->id)
             ->groupBy('jobs.id')

@@ -3,7 +3,7 @@
 namespace App\Livewire\Client\Jobs;
 
 use App\Models\Job;
-use App\Models\Proposal;
+use App\Models\SellerProposal;
 use Livewire\Component;
 
 class JobDetailsComponent extends Component
@@ -13,7 +13,7 @@ class JobDetailsComponent extends Component
     public function mount($id)
     {
         $this->jobDetails = Job::where('id', $id)->orderBy('id', 'DESC')->first();
-        $this->proposals = Proposal::where('id', $id)->get();
+        $this->proposals = SellerProposal::where('job_id', $id)->get();
     }
 
     public function render()
