@@ -108,7 +108,11 @@ function savedJobStatus($id)
         }
     }
 }
-
+function proposalCount($id)
+{
+    $count = SavedJob::where('job_id', $id)->count();
+    return $count;
+}
 function loadingStateSm($key, $title)
 {
     $loadingSpinner = '
