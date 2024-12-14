@@ -1,12 +1,12 @@
 <div>
     <section class="active_post_wrapper">
         <div class="back_btn_grid back_btn_white pt-12">
-            <button type="button" class="page_back_btn" onclick="history.back()">
+            <a href="{{ route('client.home') }}" type="button" class="page_back_btn">
                 <img src="{{ asset('assets/app/icons/arrow-left.svg') }}" alt="arrow left" />
-            </button>
+            </a>
             <h3>View job</h3>
         </div>
-        <ul class="tab_list nav d-flex align-items-center justify-content-between flex-wrap gap-3" id="pills-tab"
+        <ul wire:ignore.self class="tab_list nav d-flex align-items-center justify-content-between flex-wrap gap-3" id="pills-tab"
             role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
@@ -17,7 +17,7 @@
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
                     type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
-                    Proposal ({{ $proposals->count() }})
+                    Proposal ({{ $active_proposals->count() }})
                 </button>
             </li>
             <li class="nav-item" role="presentation">
@@ -39,14 +39,17 @@
                             <h3>
                                 {{ $jobDetails->title }}
                             </h3>
-                            <button type="button" class="postMoreBtn">
-                                <img src="{{ asset('assets/app/icons/more-vertical.svg') }}" alt="more vertical icon" />
+                            <button type="button" class="postMoreBtn" wire:click.prevent='selectJobMoreOption({{ $jobDetails->id }})'>
+                                <img src="{{ asset('assets/app/icons/more-vertical.svg') }}"
+                                    alt="more vertical icon" />
                             </button>
                         </div>
-                        <div class="post_time_grid post_time_draft_grid">
+                        <div class="post_time_grid">
                             <div class="time_item">
-                                <h4>Estimate</h4>
-                                <h5>{{ $jobDetails->project_size }}</h5>
+                                <a href="{{ route('client.jobDetails', ['id' => $jobDetails->id]) }}">
+                                    <h4>Estimate</h4>
+                                    <h5>{{ $jobDetails->project_size }}</h5>
+                                </a>
                             </div>
                             <div class="time_item">
                                 <h4>Cost</h4>
@@ -54,7 +57,9 @@
                             </div>
                             <div class="time_item">
                                 <h4>Proposal</h4>
-                                <h5>{{ $proposals->count() }}</h5>
+                                <h5>
+                                    {{ proposalCount($jobDetails->id) }}
+                                </h5>
                             </div>
                         </div>
                         <div class="order_description_area">
@@ -65,18 +70,15 @@
                         <div class="category_area">
                             <h6>Categories</h6>
                             <ul class="category_list d-flex align-items-center flex-wrap gap-1">
-                                <li>
-                                    <a href="#"> General Furniture Assembly </a>
-                                </li>
-                                <li>
-                                    <a href="#"> IKEA Assembly </a>
-                                </li>
-                                <li>
-                                    <a href="#"> Bookshelf Assembly </a>
-                                </li>
+                                @foreach (json_decode($jobDetails->category_names) as $catName)
+                                    <li>
+                                        <a href="javascript:void(0)"> {{ $catName }} </a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
+
                 </div>
             </section>
         </div>
@@ -85,14 +87,14 @@
             <!-- Active Post Tab Section  -->
             <section class="active_tab_wrapper active_post_view_wrapper mrn-24">
                 <div class="mr-24">
-                    @foreach ($proposals as $proposal)
+                    @foreach ($active_proposals as $proposal)
                         <div class="active_post_card">
                             <div class="post_user_grid">
-                                <img src="{{ getUserByID($proposal->user_id)->avatar }}" alt="user image"
+                                <img src="{{ asset(getUserByID($proposal->seller_id)->avatar ? getUserByID($proposal->seller_id)->avatar : 'assets/images/placeholder.jpg') }}" alt="user image"
                                     class="user_image" />
                                 <div class="info">
-                                    <h4>{{ getUserByID($proposal->user_id)->first_name }}
-                                        {{ getUserByID($proposal->user_id)->last_name }}</h4>
+                                    <h4>{{ getUserByID($proposal->seller_id)->first_name }}
+                                        {{ getUserByID($proposal->seller_id)->last_name }}</h4>
                                     <div class="d-flex align-items-center flex-wrap gap-1 mt-1">
                                         <img src="{{ asset('assets/app/icons/star.svg') }}" alt="star icon"
                                             class="star_icon" />
@@ -100,7 +102,9 @@
                                         <h6>12 reviews</h6>
                                     </div>
                                 </div>
-                                <h3 class="time">10 min ago</h3>
+                                <h3 class="time">
+                                    {{ Str::replace(['second', 'minute'], ['sec', 'min'], Carbon\Carbon::parse($proposal->created_at)->diffForHumans()) }}
+                                </h3>
                             </div>
                             <div class="performance_grid">
                                 <div class="point_area">
@@ -108,7 +112,7 @@
                                         class="dollar_key" />
                                     <div class="content">
                                         <h4>Offering Cost</h4>
-                                        <h5>SAR {{ $proposal->offering_cost }}</h5>
+                                        <h5>SAR {{ $proposal->cost }}</h5>
                                     </div>
                                 </div>
                                 <div>
@@ -131,7 +135,7 @@
                                     <div class="performance_item complete_job_item">
                                         <h3>Offering Timeline</h3>
                                         <div class="d-flex">
-                                            <h4>{{ $proposal->offering_time }}</h4>
+                                            <h4>{{ $proposal->timeline }}</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -158,14 +162,16 @@
                             <div class="file_uploaded_area mt-32">
                                 @if ($proposal->attachments)
                                     <h3>Attached files</h3>
-                                    <div class="upload_grid remove_delete_btn_grid">
-                                        <img src="{{ $proposal->attachments }}" alt="upload image"
-                                            class="upload_img" />
-                                        <div>
-                                            <h4>Attachment file 2024.jpeg</h4>
-                                            <h6>1.2 MB</h6>
+                                    @foreach ($proposal->attachments as $attachment)
+                                        <div class="upload_grid remove_delete_btn_grid">
+                                            <img src="{{ asset($attachment->attachment) }}" alt="upload image"
+                                                class="upload_img" />
+                                            <div>
+                                                <h4>{{ $attachment->name }}</h4>
+                                                <h6>{{ $attachment->size }} MB</h6>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endforeach
                                 @endif
                             </div>
                             <div class="order_action_btn_area">
@@ -187,91 +193,112 @@
             <!-- Active Post Tab Section  -->
             <section class="active_tab_wrapper active_post_view_wrapper mrn-24">
                 <div class="mr-24">
-                    <div class="active_post_card">
-                        <div class="post_user_grid">
-                            <img src="{{ asset('assets/app/images/user/client_user.png') }}" alt="user image"
-                                class="user_image" />
-                            <div class="info">
-                                <h4>Kazi Mahbub</h4>
-                                <div class="d-flex align-items-center flex-wrap gap-1 mt-1">
-                                    <img src="{{ asset('assets/app/icons/star.svg') }}" alt="star icon"
-                                        class="star_icon" />
-                                    <h5>4.6</h5>
-                                    <h6>12 reviews</h6>
+                    @foreach ($cancelled_proposals as $cProposal)
+                        <div class="active_post_card">
+                            <div class="post_user_grid">
+                                <img src="{{ asset(getUserByID($cProposal->seller_id)->avatar ? getUserByID($cProposal->seller_id)->avatar : 'assets/images/placeholder.jpg') }}" alt="user image"
+                                    class="user_image" />
+                                <div class="info">
+                                    <h4>{{ getUserByID($cProposal->seller_id)->first_name }}
+                                        {{ getUserByID($cProposal->seller_id)->last_name }}</h4>
+                                    <div class="d-flex align-items-center flex-wrap gap-1 mt-1">
+                                        <img src="{{ asset('assets/app/icons/star.svg') }}" alt="star icon"
+                                            class="star_icon" />
+                                        <h5>4.6</h5>
+                                        <h6>12 reviews</h6>
+                                    </div>
                                 </div>
+                                <h3 class="time">
+                                    {{ Str::replace(['second', 'minute'], ['sec', 'min'], Carbon\Carbon::parse($cProposal->created_at)->diffForHumans()) }}
+                                </h3>
                             </div>
-                            <h3 class="time">10 min ago</h3>
-                        </div>
-                        <div class="post_title_grid d-block">
-                            <h3>
-                                I’m fit for this project. Far now I understand. Let’s start
-                                this project.
-                            </h3>
-                        </div>
-                        <div class="performance_grid">
-                            <div class="point_area">
-                                <img src="{{ asset('assets/app/icons/dollar_key.svg') }}" alt="dollar key"
-                                    class="dollar_key" />
-                                <div class="content">
-                                    <h4>Offering Cost</h4>
-                                    <h5>SAR 250</h5>
+                            <div class="performance_grid">
+                                <div class="point_area">
+                                    <img src="{{ asset('assets/app/icons/dollar_key.svg') }}" alt="dollar key"
+                                        class="dollar_key" />
+                                    <div class="content">
+                                        <h4>Offering Cost</h4>
+                                        <h5>SAR {{ $cProposal->cost }}</h5>
+                                    </div>
                                 </div>
-                            </div>
-                            <div>
-                                <div class="performance_item">
-                                    <h3>Work performance</h3>
-                                    <div class="d-flex align-items-center gap-1">
-                                        <h4>99%</h4>
-                                        <div class="progress" role="progressbar" aria-label="Basic example"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress-bar" style="width: 99%"></div>
+                                <div>
+                                    <div class="performance_item">
+                                        <h3>Work performance</h3>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <h4>99%</h4>
+                                            <div class="progress" role="progressbar" aria-label="Basic example"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar" style="width: 99%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="performance_item complete_job_item">
+                                        <h3>Total completed Job</h3>
+                                        <div class="d-flex">
+                                            <h4>25</h4>
+                                        </div>
+                                    </div>
+                                    <div class="performance_item complete_job_item">
+                                        <h3>Offering Timeline</h3>
+                                        <div class="d-flex">
+                                            <h4>{{ $cProposal->timeline }}</h4>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="performance_item complete_job_item">
-                                    <h3>Total completed Job</h3>
-                                    <div class="d-flex">
-                                        <h4>25</h4>
-                                    </div>
-                                </div>
+                            </div>
+                            <div class="post_title_grid d-block mt-2">
+                                <p class="details_pera">
+                                    {{ $cProposal->description }}
+                                </p>
+                            </div>
+
+                            <div class="file_uploaded_area mt-32">
+                                @if ($cProposal->attachments)
+                                    <h3>Attached files</h3>
+                                    @foreach ($cProposal->attachments as $attachment)
+                                        <div class="upload_grid remove_delete_btn_grid">
+                                            <img src="{{ asset($attachment->attachment) }}" alt="upload image"
+                                                class="upload_img" />
+                                            <div>
+                                                <h4>{{ $attachment->name }}</h4>
+                                                <h6>{{ $attachment->size }} MB</h6>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
+                            </div>
+
+                            <div class="category_area">
+                                <h6>Categories</h6>
+                                <ul class="category_list d-flex align-items-center flex-wrap gap-1">
+                                    <li>
+                                        <a href="#"> General Furniture Assembly </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> IKEA Assembly </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> Bookshelf Assembly </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="file_uploaded_area">
-                            <h3>Attached files</h3>
-                            <div class="upload_grid remove_delete_btn_grid">
-                                <img src="{{ asset('assets/app/images/client/file_upload_image1.png') }}"
-                                    alt="upload image" class="upload_img" />
-                                <div>
-                                    <h4>Attachment file 2024.jpeg</h4>
-                                    <h6>1.2 MB</h6>
-                                </div>
-                            </div>
-                            <div class="upload_grid remove_delete_btn_grid">
-                                <img src="{{ asset('assets/app/images/client/file_upload_image2.png') }}"
-                                    alt="upload image" class="upload_img" />
-                                <div>
-                                    <h4>Attachment file 2024.jpeg</h4>
-                                    <h6>1.2 MB</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="category_area">
-                            <h6>Categories</h6>
-                            <ul class="category_list d-flex align-items-center flex-wrap gap-1">
-                                <li>
-                                    <a href="#"> General Furniture Assembly </a>
-                                </li>
-                                <li>
-                                    <a href="#"> IKEA Assembly </a>
-                                </li>
-                                <li>
-                                    <a href="#"> Bookshelf Assembly </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </section>
         </div>
     </div>
+
+    <!-- More Dropdown Section  -->
+    <section wire:ignore.self class="more_dropdown_area" id="moreDropdownArea">
+        <ul class="dropdown_list">
+            <li>
+                <a wire:click.prevent='viewDetails'> Edit </a>
+            </li>
+            <li>
+                <a wire:click.prevent='viewDetails' class="red"> Remove </a>
+            </li>
+        </ul>
+    </section>
+    <div wire:ignore.self class="overlay removeDropdownBtn" id="dropdownOverlay"></div>
 </div>
