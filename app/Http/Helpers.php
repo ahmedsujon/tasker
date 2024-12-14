@@ -2,6 +2,7 @@
 
 use App\Models\Admin;
 use App\Models\Category;
+use App\Models\SavedJob;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -93,6 +94,18 @@ function deleteFile($file)
 {
     if (Storage::disk('public_path')->exists($file)) {
         Storage::disk('public_path')->delete($file);
+    }
+}
+
+function savedJobStatus($id)
+{
+    if (user()) {
+        $status = SavedJob::where('user_id', user()->id)->where('job_id', $id)->first();
+        if ($status) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 

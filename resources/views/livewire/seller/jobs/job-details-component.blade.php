@@ -42,9 +42,12 @@
         <div class="w-100">
             <div class="bids_wishlist_grid mt-24">
                 <!-- Add "wishlist_active" class if already have in wishlsit  -->
-                <button type="button" class="wishlist_btn">
-                    <img src="{{ asset('assets/app/icons/heart.svg') }}" alt="heart icon" class="inactive" />
-                    <img src="{{ asset('assets/app/icons/heart-white.svg') }}" alt="heart icon" class="active" />
+                <button type="button" wire:click.prevent='saveJob' wire:loading.attr='disabled' class="wishlist_btn">
+                    @if (savedJobStatus($jobDetails->id))
+                        {!! loadingStateWithoutText('saveJob', '<img src="'.asset('assets/custom/icons/heart-red.svg').'" />') !!}
+                    @else
+                        {!! loadingStateWithoutText('saveJob', '<img src="'.asset('assets/app/icons/heart.svg').'" />') !!}
+                    @endif
                 </button>
                 <button type="button" wire:click.prevent='applyBid' wire:loading.attr='disabled' class="login_btn login_btn_sm">
                     {!! loadingStateWithText('applyBid', 'Apply Bid') !!}
