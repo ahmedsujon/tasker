@@ -9,27 +9,27 @@
         <ul wire:ignore.self class="tab_list nav d-flex align-items-center justify-content-between flex-wrap gap-3" id="pills-tab"
             role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+                <button wire:ignore.self class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
                     type="button" role="tab" aria-controls="pills-home" aria-selected="true">
                     Details
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+                <button wire:ignore.self class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
                     type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
                     Proposal ({{ $active_proposals->count() }})
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
+                <button wire:ignore.self class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
                     type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
                     Cancel
                 </button>
             </li>
         </ul>
     </section>
-    <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
+    <div wire:ignore.self class="tab-content" id="pills-tabContent">
+        <div wire:ignore.self class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
             tabindex="0">
             <!-- Active Post Tab Section  -->
             <section class="active_tab_wrapper active_post_view_wrapper mrn-24">
@@ -82,7 +82,7 @@
                 </div>
             </section>
         </div>
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
+        <div wire:ignore.self class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
             tabindex="0">
             <!-- Active Post Tab Section  -->
             <section class="active_tab_wrapper active_post_view_wrapper mrn-24">
@@ -145,20 +145,18 @@
                                     {{ $proposal->description }}
                                 </p>
                             </div>
+                            @if ($proposal->categories)
                             <div class="category_area">
                                 <h6>Categories</h6>
                                 <ul class="category_list d-flex align-items-center flex-wrap gap-1">
+                                    @foreach (json_decode($proposal->categories) as $category_name)
                                     <li>
-                                        <a href="#"> General Furniture Assembly </a>
+                                        <a href="javascript:void(0)"> {{ $category_name }} </a>
                                     </li>
-                                    <li>
-                                        <a href="#"> IKEA Assembly </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> Bookshelf Assembly </a>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
+                            @endif
                             <div class="file_uploaded_area mt-32">
                                 @if ($proposal->attachments)
                                     <h3>Attached files</h3>
@@ -175,7 +173,8 @@
                                 @endif
                             </div>
                             <div class="order_action_btn_area">
-                                <a href="#" class="cancel_job_btn rounded_btn" onclick="history.back()">Cancel
+                                <a href="#" class="cancel_job_btn rounded_btn" wire:click.prevent='rejectProposalConfirmation({{ $proposal->id }})'>
+                                    {!! loadingStateWithText("rejectProposalConfirmation($proposal->id)", 'Reject') !!}
                                 </a>
                                 <a href="{{ route('client.billingPayment') }}" class="complete_job_btn rounded_btn">
                                     <span>Accept & Continue</span>
@@ -268,20 +267,18 @@
                                 @endif
                             </div>
 
+                            @if ($cProposal->categories)
                             <div class="category_area">
                                 <h6>Categories</h6>
                                 <ul class="category_list d-flex align-items-center flex-wrap gap-1">
+                                    @foreach (json_decode($cProposal->categories) as $category_name)
                                     <li>
-                                        <a href="#"> General Furniture Assembly </a>
+                                        <a href="javascript:void(0)"> {{ $category_name }} </a>
                                     </li>
-                                    <li>
-                                        <a href="#"> IKEA Assembly </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> Bookshelf Assembly </a>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
+                            @endif
                         </div>
                     @endforeach
                 </div>
@@ -301,4 +298,51 @@
         </ul>
     </section>
     <div wire:ignore.self class="overlay removeDropdownBtn" id="dropdownOverlay"></div>
+
+    <!-- Reject Modal -->
+    <div wire:ignore.self class="modal fade" id="rejectModal" tabindex="-1" role="dialog"
+        aria-labelledby="modelTitleId">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-zoom modal-md" role="document">
+            <div class="modal-content p-5 bg-transparent border-0">
+                <div class="modal-body pt-4 pb-4 bg-white" style="border-radius: 10px;">
+                    <div class="row justify-content-center mb-2">
+                        <div class="col-md-11 text-center">
+                            <div class="swal2-icon swal2-warning swal2-icon-show" style="display: flex;">
+                                <div class="swal2-icon-content">!</div>
+                            </div>
+                            <h2>Are you sure?</h2>
+                            <p class="mb-4">You want to reject this proposal?</p>
+
+                            <button type="button" class="btn btn-sm btn-primary waves-effect waves-light"
+                                wire:click.prevent='rejectProposal' wire:loading.attr='disabled'>
+                                {!! loadingStateWithText('rejectProposal', 'Reject') !!}
+                            </button>
+                            <button type="button" class="btn btn-sm btn-secondary waves-effect waves-light"
+                                data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+@push('scripts')
+    <script>
+        window.addEventListener('showRejectProposalModal', event => {
+            $('#rejectModal').modal('show');
+        });
+        window.addEventListener('closeModal', event => {
+            $('#rejectModal').modal('hide');
+        });
+
+        window.addEventListener('user_deleted', event => {
+            $('#deleteDataModal').modal('hide');
+            Swal.fire(
+                "Deleted!",
+                "The user has been deleted.",
+                "success"
+            );
+        });
+    </script>
+@endpush
