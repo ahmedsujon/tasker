@@ -97,54 +97,56 @@
             tabindex="0">
             <section class="active_tab_wrapper mrn-24">
                 <div class="mr-24">
-                    @foreach ($inorder_jobs as $job)
+                    @foreach ($in_order_jobs as $iJob)
+                        @php
+                            $order = App\Models\Order::select('id', 'seller_id', 'amount')->where('job_id', $iJob->id)->first();
+                        @endphp
                         <div class="active_post_card">
                             <div class="post_title_grid">
                                 <h3>
-                                    {{ $job->title }}
+                                    {{ $iJob->title }}
                                 </h3>
-                                <button type="button" class="postMoreBtn">
-                                    <img src="{{ asset('assets/app/icons/more-vertical.svg') }}"
+                                <button type="button" wire:click.prevent='startChat({{ $order->id }})' class="">
+                                    <img src="{{ asset('assets/app/icons/message.svg') }}"
                                         alt="more vertical icon" />
                                 </button>
                             </div>
+
                             <div class="post_time_grid">
                                 <div class="time_item">
-                                    <a href="{{ route('client.jobDetails', ['id' => $job->id]) }}">
+                                    <a href="{{ route('client.jobDetails', ['id' => $iJob->id]) }}">
                                         <h4>Estimate</h4>
-                                        <h5>{{ $job->project_size }}</h5>
+                                        <h5>{{ $iJob->project_size }}</h5>
                                     </a>
                                 </div>
                                 <div class="time_item">
                                     <h4>Cost</h4>
-                                    <h5>SAR {{ $job->budget }}</h5>
+                                    <h5>SAR {{ $order->amount }}</h5>
                                 </div>
                                 <div class="time_item">
                                     <h4>Proposal</h4>
                                     <div class="client_area d-flex align-items-center gap-1">
                                         <img src="{{ asset('assets/app/images/user/client_user.png') }}"
                                             alt="user image" class="user_img" />
-                                        <h5>Ali Hasan</h5>
+                                        <h5>
+                                            {{ getUserByID($order->seller_id)->first_name }} {{ getUserByID($order->seller_id)->last_name }}
+                                        </h5>
                                     </div>
                                 </div>
                             </div>
                             <div class="order_description_area">
                                 <p class="descriptionPara">
-                                    {{ $job->description }}
+                                    {{ $iJob->description }}
                                 </p>
                             </div>
                             <div class="category_area">
                                 <h6>Categories</h6>
                                 <ul class="category_list d-flex align-items-center flex-wrap gap-1">
-                                    <li>
-                                        <a href="#"> General Furniture Assembly </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> IKEA Assembly </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> Bookshelf Assembly </a>
-                                    </li>
+                                    @foreach (json_decode($iJob->category_names) as $catName)
+                                        <li>
+                                            <a href="javascript:void(0)"> {{ $catName }} </a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <div class="order_action_btn_area">

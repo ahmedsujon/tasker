@@ -23,12 +23,17 @@ class HomeComponent extends Component
         return redirect()->route('client.jobDetails', ['id' => $this->selectedJobID]);
     }
 
+    public function startChat($order_id)
+    {
+
+    }
+
     public function render()
     {
 
         $active_jobs = DB::table('jobs')->where('user_id', user()->id)->where('status', 'Active')->paginate($this->sortingValue);
+        $in_order_jobs = DB::table('jobs')->where('user_id', user()->id)->where('status', 'In Order')->paginate($this->sortingValue);
 
-        $inorder_jobs = Job::where('status', 'Active')->where('jobs.user_id', user()->id)->orderBy('id', 'DESC')->paginate($this->sortingValue);
         $draft_jobs = Job::where('status', 'Active')->where('jobs.user_id', user()->id)->orderBy('id', 'DESC')->paginate($this->sortingValue);
         $finished_jobs = Job::where('status', 'Active')->where('jobs.user_id', user()->id)->orderBy('id', 'DESC')->paginate($this->sortingValue);
         $this->dispatch('reload_scripts');
@@ -36,7 +41,7 @@ class HomeComponent extends Component
             'livewire.client.home-component',
             [
                 'active_jobs' => $active_jobs,
-                'inorder_jobs' => $inorder_jobs,
+                'in_order_jobs' => $in_order_jobs,
                 'draft_jobs' => $draft_jobs,
                 'finished_jobs' => $finished_jobs,
             ]
