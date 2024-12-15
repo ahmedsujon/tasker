@@ -15,6 +15,7 @@ use App\Livewire\Client\Jobs\JobStepOneComponent;
 use App\Livewire\Client\Jobs\JobStepThreeComponent;
 use App\Livewire\Client\Jobs\JobStepTwoComponent;
 use App\Livewire\Client\Jobs\Payments\PaymentComponent;
+use App\Livewire\Client\Jobs\Payments\PaymentSuccessComponent;
 use App\Livewire\Client\Messages\MessageComponent;
 use App\Livewire\Client\Notifications\NotificationComponent;
 use App\Livewire\Client\Notifications\NotificationDetailsComponent;
@@ -99,6 +100,7 @@ Route::middleware('auth')->group(function () {
         Route::get('job-post-step-five/{job_id}', JobStepFourComponent::class)->name('jobPostFive');
         Route::get('job-details/{id}', JobDetailsComponent::class)->name('jobDetails');
         Route::get('job-details/{id}/payment', PaymentComponent::class)->name('jobPayment');
+        Route::get('order-payment-success/{order_id}', PaymentSuccessComponent::class)->name('jobPaymentSuccess');
 
         // Chat Routes
         Route::get('chats', MessageComponent::class)->name('chats');
