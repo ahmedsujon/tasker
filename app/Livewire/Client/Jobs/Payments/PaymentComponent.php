@@ -2,13 +2,14 @@
 
 namespace App\Livewire\Client\Jobs\Payments;
 
+use Carbon\Carbon;
+use Stripe\Stripe;
 use App\Models\Job;
 use App\Models\Order;
+use Livewire\Component;
+use Illuminate\Support\Str;
 use App\Models\PaymentMethod;
 use App\Models\SellerProposal;
-use Carbon\Carbon;
-use Livewire\Component;
-use Stripe\Stripe;
 
 class PaymentComponent extends Component
 {
@@ -44,6 +45,7 @@ class PaymentComponent extends Component
         $job->save();
 
         $order = new Order();
+        $order->code = 'TSK' . $job->id . Str::upper(Str::random(5));
         $order->client_id = user()->id;
         $order->seller_id = $proposal->seller_id;
         $order->job_id = $this->job_id;

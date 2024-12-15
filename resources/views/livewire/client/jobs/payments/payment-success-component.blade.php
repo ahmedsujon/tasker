@@ -21,7 +21,8 @@
                 </p>
             </div>
             <div class="w-100 mt-24">
-                <a href="{{ route('client.home') }}" style="color: white !important;" type="button" class="login_btn">Download the pdf invoice</a>
+                <a href="{{ route('client.jobPaymentInvoice', ['order_id' => $order_id]) }}"
+                    style="color: white !important;" type="button" class="login_btn">Download the pdf invoice</a>
             </div>
         </div>
     </section>
