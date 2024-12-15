@@ -3,9 +3,9 @@
         <div class="h-full-screen space-between horizontal-m-w pt-12">
             <div class="w-100">
                 <div class="back_btn_grid">
-                    <button type="button" class="page_back_btn">
+                    <a href="{{ route('client.home') }}" type="button" class="page_back_btn">
                         <img src="{{ asset('assets/app/icons/arrow-left.svg') }}" alt="arrow left" />
-                    </button>
+                    </a>
                     <h3>Invoice Download</h3>
                 </div>
                 <div class="payment_invoice_area mt-24"
