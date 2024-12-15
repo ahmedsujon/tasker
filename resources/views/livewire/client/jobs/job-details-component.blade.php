@@ -6,31 +6,34 @@
             </a>
             <h3>View job</h3>
         </div>
-        <ul wire:ignore.self class="tab_list nav d-flex align-items-center justify-content-between flex-wrap gap-3" id="pills-tab"
-            role="tablist">
+        <ul wire:ignore.self class="tab_list nav d-flex align-items-center justify-content-between flex-wrap gap-3"
+            id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button wire:ignore.self class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
-                    type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                <button wire:ignore.self class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                    aria-selected="true">
                     Details
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button wire:ignore.self class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
-                    type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+                <button wire:ignore.self class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                    aria-selected="false">
                     Proposal ({{ $active_proposals->count() }})
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button wire:ignore.self class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
-                    type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
+                <button wire:ignore.self class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                    aria-selected="false">
                     Cancel
                 </button>
             </li>
         </ul>
     </section>
     <div wire:ignore.self class="tab-content" id="pills-tabContent">
-        <div wire:ignore.self class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
-            tabindex="0">
+        <div wire:ignore.self class="tab-pane fade show active" id="pills-home" role="tabpanel"
+            aria-labelledby="pills-home-tab" tabindex="0">
             <!-- Active Post Tab Section  -->
             <section class="active_tab_wrapper active_post_view_wrapper mrn-24">
                 <div class="mr-24">
@@ -39,9 +42,9 @@
                             <h3>
                                 {{ $jobDetails->title }}
                             </h3>
-                            <button type="button" class="postMoreBtn" wire:click.prevent='selectJobMoreOption({{ $jobDetails->id }})'>
-                                <img src="{{ asset('assets/app/icons/more-vertical.svg') }}"
-                                    alt="more vertical icon" />
+                            <button type="button" class="postMoreBtn"
+                                wire:click.prevent='selectJobMoreOption({{ $jobDetails->id }})'>
+                                <img src="{{ asset('assets/app/icons/more-vertical.svg') }}" alt="more vertical icon" />
                             </button>
                         </div>
                         <div class="post_time_grid">
@@ -82,16 +85,16 @@
                 </div>
             </section>
         </div>
-        <div wire:ignore.self class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
-            tabindex="0">
+        <div wire:ignore.self class="tab-pane fade" id="pills-profile" role="tabpanel"
+            aria-labelledby="pills-profile-tab" tabindex="0">
             <!-- Active Post Tab Section  -->
             <section class="active_tab_wrapper active_post_view_wrapper mrn-24">
                 <div class="mr-24">
                     @foreach ($active_proposals as $proposal)
                         <div class="active_post_card">
                             <div class="post_user_grid">
-                                <img src="{{ asset(getUserByID($proposal->seller_id)->avatar ? getUserByID($proposal->seller_id)->avatar : 'assets/images/placeholder.jpg') }}" alt="user image"
-                                    class="user_image" />
+                                <img src="{{ asset(getUserByID($proposal->seller_id)->avatar ? getUserByID($proposal->seller_id)->avatar : 'assets/images/placeholder.jpg') }}"
+                                    alt="user image" class="user_image" />
                                 <div class="info">
                                     <h4>{{ getUserByID($proposal->seller_id)->first_name }}
                                         {{ getUserByID($proposal->seller_id)->last_name }}</h4>
@@ -146,16 +149,16 @@
                                 </p>
                             </div>
                             @if ($proposal->categories)
-                            <div class="category_area">
-                                <h6>Categories</h6>
-                                <ul class="category_list d-flex align-items-center flex-wrap gap-1">
-                                    @foreach (json_decode($proposal->categories) as $category_name)
-                                    <li>
-                                        <a href="javascript:void(0)"> {{ $category_name }} </a>
-                                    </li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                                <div class="category_area">
+                                    <h6>Categories</h6>
+                                    <ul class="category_list d-flex align-items-center flex-wrap gap-1">
+                                        @foreach (json_decode($proposal->categories) as $category_name)
+                                            <li>
+                                                <a href="javascript:void(0)"> {{ $category_name }} </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
                             @endif
                             <div class="file_uploaded_area mt-32">
                                 @if ($proposal->attachments)
@@ -173,10 +176,11 @@
                                 @endif
                             </div>
                             <div class="order_action_btn_area">
-                                <a href="#" class="cancel_job_btn rounded_btn" wire:click.prevent='rejectProposalConfirmation({{ $proposal->id }})'>
+                                <a href="#" class="cancel_job_btn rounded_btn"
+                                    wire:click.prevent='rejectProposalConfirmation({{ $proposal->id }})'>
                                     {!! loadingStateWithText("rejectProposalConfirmation($proposal->id)", 'Reject') !!}
                                 </a>
-                                <a href="{{ route('client.billingPayment') }}" class="complete_job_btn rounded_btn">
+                                <a href="{{ route('client.jobPayment', ['id'=>$proposal->job_id]) }}?proposal_id={{ $proposal->id }}" class="complete_job_btn rounded_btn">
                                     <span>Accept & Continue</span>
                                     <img src="{{ asset('assets/app/icons/arrow-right-purple.svg') }}"
                                         alt="arrow right" />
@@ -195,8 +199,8 @@
                     @foreach ($cancelled_proposals as $cProposal)
                         <div class="active_post_card">
                             <div class="post_user_grid">
-                                <img src="{{ asset(getUserByID($cProposal->seller_id)->avatar ? getUserByID($cProposal->seller_id)->avatar : 'assets/images/placeholder.jpg') }}" alt="user image"
-                                    class="user_image" />
+                                <img src="{{ asset(getUserByID($cProposal->seller_id)->avatar ? getUserByID($cProposal->seller_id)->avatar : 'assets/images/placeholder.jpg') }}"
+                                    alt="user image" class="user_image" />
                                 <div class="info">
                                     <h4>{{ getUserByID($cProposal->seller_id)->first_name }}
                                         {{ getUserByID($cProposal->seller_id)->last_name }}</h4>
@@ -268,16 +272,16 @@
                             </div>
 
                             @if ($cProposal->categories)
-                            <div class="category_area">
-                                <h6>Categories</h6>
-                                <ul class="category_list d-flex align-items-center flex-wrap gap-1">
-                                    @foreach (json_decode($cProposal->categories) as $category_name)
-                                    <li>
-                                        <a href="javascript:void(0)"> {{ $category_name }} </a>
-                                    </li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                                <div class="category_area">
+                                    <h6>Categories</h6>
+                                    <ul class="category_list d-flex align-items-center flex-wrap gap-1">
+                                        @foreach (json_decode($cProposal->categories) as $category_name)
+                                            <li>
+                                                <a href="javascript:void(0)"> {{ $category_name }} </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
                             @endif
                         </div>
                     @endforeach
@@ -334,15 +338,6 @@
         });
         window.addEventListener('closeModal', event => {
             $('#rejectModal').modal('hide');
-        });
-
-        window.addEventListener('user_deleted', event => {
-            $('#deleteDataModal').modal('hide');
-            Swal.fire(
-                "Deleted!",
-                "The user has been deleted.",
-                "success"
-            );
         });
     </script>
 @endpush

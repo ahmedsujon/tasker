@@ -56,7 +56,6 @@
         text-align: center !important;
         padding: 3px 20px !important;
         padding-right: 7px !important;
-        margin-bottom: 70px !important;
         width: auto !important;
         border-radius: 20px !important;
     }

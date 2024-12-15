@@ -149,6 +149,15 @@ function loadingStateWithText($key, $title)
     return $loadingSpinner;
 }
 
+function loadingStateWithTextPayment($key, $title)
+{
+    $loadingSpinner = '
+        <span wire:loading wire:target="' . $key . '" wire:key="' . $key . '"><span class="spinner-border spinner-border-xs align-middle" role="status" aria-hidden="true"></span> processing payment</span> <span wire:loading.remove wire:target="' . $key . '" wire:key="' . $key . '">' . $title . '</span>
+    ';
+
+    return $loadingSpinner;
+}
+
 function loadingStateWithoutText($key, $title)
 {
     $loadingSpinner = '
