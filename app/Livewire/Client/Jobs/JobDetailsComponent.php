@@ -4,6 +4,8 @@ namespace App\Livewire\Client\Jobs;
 
 use App\Models\SellerProposal;
 use Illuminate\Support\Facades\DB;
+use App\Models\Job;
+use App\Models\SellerProposal;
 use Livewire\Component;
 
 class JobDetailsComponent extends Component
@@ -13,6 +15,8 @@ class JobDetailsComponent extends Component
     public function mount($id)
     {
         $this->job_id = $id;
+        $this->jobDetails = Job::where('id', $id)->orderBy('id', 'DESC')->first();
+        $this->proposals = SellerProposal::where('job_id', $id)->get();
     }
 
     public function selectJobMoreOption($id)

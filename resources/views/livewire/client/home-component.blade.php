@@ -76,6 +76,8 @@
                                     <h5>
                                         {{ proposalCount($activeJob->id) }}
                                     </h5>
+                                    <h4 class="text-center">Proposal</h4>
+                                    <h5 class="text-center">{{ $job->proposal_count ?? 0 }}</h5>
                                 </div>
                             </div>
                             <div class="category_area">
@@ -86,6 +88,16 @@
                                             <a href="javascript:void(0)"> {{ $catName }} </a>
                                         </li>
                                     @endforeach
+                                    @php
+                                        $category_names = json_decode($job->category_names, true);
+                                    @endphp
+                                    @if (is_array($category_names))
+                                        @foreach ($category_names as $category)
+                                            <li>
+                                                <a href="#">{{ $category }}</a>
+                                            </li>
+                                        @endforeach
+                                    @endif
                                 </ul>
                             </div>
                         </div>

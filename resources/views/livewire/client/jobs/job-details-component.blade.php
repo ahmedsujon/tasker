@@ -95,6 +95,8 @@
                             <div class="post_user_grid">
                                 <img src="{{ asset(getUserByID($proposal->seller_id)->avatar ? getUserByID($proposal->seller_id)->avatar : 'assets/images/placeholder.jpg') }}"
                                     alt="user image" class="user_image" />
+                                <img src="{{ getUserByID($proposal->seller_id)->avatar }}" alt="user image"
+                                    class="user_image" />
                                 <div class="info">
                                     <h4>{{ getUserByID($proposal->seller_id)->first_name }}
                                         {{ getUserByID($proposal->seller_id)->last_name }}</h4>
