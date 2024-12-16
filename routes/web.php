@@ -17,6 +17,7 @@ use App\Livewire\Client\Jobs\JobStepTwoComponent;
 use App\Livewire\Client\Jobs\Payments\DownloadInvoiceComponent;
 use App\Livewire\Client\Jobs\Payments\PaymentComponent;
 use App\Livewire\Client\Jobs\Payments\PaymentSuccessComponent;
+use App\Livewire\Client\Messages\ChatComponent;
 use App\Livewire\Client\Messages\MessageComponent;
 use App\Livewire\Client\Notifications\NotificationComponent;
 use App\Livewire\Client\Notifications\NotificationDetailsComponent;
@@ -105,7 +106,8 @@ Route::middleware('auth')->group(function () {
         Route::get('payment-invoice/{order_id}', DownloadInvoiceComponent::class)->name('jobPaymentInvoice');
 
         // Chat Routes
-        Route::get('chats', MessageComponent::class)->name('chats');
+        Route::get('chats', ChatComponent::class)->name('chats');
+        Route::get('chats/messages/{chat_id}', MessageComponent::class)->name('chatMessages');
 
         // Notifications Routes
         Route::get('notifications', NotificationComponent::class)->name('notifications');

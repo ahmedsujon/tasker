@@ -3,6 +3,7 @@
 namespace App\Livewire\Client;
 
 use App\Models\Job;
+use App\Models\Chat;
 use Livewire\Component;
 use App\Models\Proposal;
 use Livewire\WithPagination;
@@ -25,6 +26,30 @@ class HomeComponent extends Component
 
     public function startChat($order_id)
     {
+        $order = DB::table('orders')->where('id', $order_id)->first();
+
+        $sender = user()->id;
+        $receiver = $order->seller_id;
+
+        $getChat = Chat::where(function ($qa) use ($sender, $receiver) {
+            $qa->where('sender', $sender)
+                ->where('receiver', $receiver);
+        })->orWhere(function ($qb) use ($sender, $receiver) {
+            $qb->where('sender', $receiver)
+                ->where('receiver', $sender);
+        })->first();
+
+        if ($getChat) {
+            return redirect()->route('client.chatMessages', ['chat_id' => $getChat->id]);
+        } else {
+            $chat = new Chat();
+            $chat->sender = $sender;
+            $chat->receiver = $receiver;
+            $chat->status = 1;
+            $chat->save();
+
+            return redirect()->route('client.chatMessages', ['chat_id' => $chat->id]);
+        }
 
     }
 
