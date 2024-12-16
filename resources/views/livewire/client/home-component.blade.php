@@ -49,45 +49,43 @@
             <!-- Active Post Tab Section  -->
             <section class="active_tab_wrapper mrn-24">
                 <div class="mr-24">
-                    @foreach ($active_jobs as $job)
+                    @foreach ($active_jobs as $activeJob)
                         <div class="active_post_card">
                             <div class="post_title_grid">
                                 <h3>
-                                    {{ $job->title }}
+                                    {{ $activeJob->title }}
                                 </h3>
-                                <button type="button" class="postMoreBtn">
+                                <button type="button" class="postMoreBtn" wire:click.prevent='selectJobMoreOption({{ $activeJob->id }})'>
                                     <img src="{{ asset('assets/app/icons/more-vertical.svg') }}"
                                         alt="more vertical icon" />
                                 </button>
                             </div>
                             <div class="post_time_grid">
                                 <div class="time_item">
-                                    <a href="{{ route('client.jobDetails', ['id' => $job->id]) }}">
+                                    <a href="{{ route('client.jobDetails', ['id' => $activeJob->id]) }}">
                                         <h4>Estimate</h4>
-                                        <h5>{{ $job->project_size }}</h5>
+                                        <h5>{{ $activeJob->project_size }}</h5>
                                     </a>
                                 </div>
                                 <div class="time_item">
                                     <h4>Cost</h4>
-                                    <h5>SAR {{ $job->budget }}</h5>
+                                    <h5>SAR {{ $activeJob->budget }}</h5>
                                 </div>
                                 <div class="time_item">
                                     <h4>Proposal</h4>
-                                    <h5>{{ $job->proposal_count ?? 0 }}</h5>
+                                    <h5>
+                                        {{ proposalCount($activeJob->id) }}
+                                    </h5>
                                 </div>
                             </div>
                             <div class="category_area">
                                 <h6>Categories</h6>
                                 <ul class="category_list d-flex align-items-center flex-wrap gap-1">
-                                    <li>
-                                        <a href="#"> General Furniture Assembly </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> IKEA Assembly </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> Bookshelf Assembly </a>
-                                    </li>
+                                    @foreach (json_decode($activeJob->category_names) as $catName)
+                                        <li>
+                                            <a href="javascript:void(0)"> {{ $catName }} </a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -99,54 +97,56 @@
             tabindex="0">
             <section class="active_tab_wrapper mrn-24">
                 <div class="mr-24">
-                    @foreach ($inorder_jobs as $job)
+                    @foreach ($in_order_jobs as $iJob)
+                        @php
+                            $order = App\Models\Order::select('id', 'seller_id', 'amount')->where('job_id', $iJob->id)->first();
+                        @endphp
                         <div class="active_post_card">
                             <div class="post_title_grid">
                                 <h3>
-                                    {{ $job->title }}
+                                    {{ $iJob->title }}
                                 </h3>
-                                <button type="button" class="postMoreBtn">
-                                    <img src="{{ asset('assets/app/icons/more-vertical.svg') }}"
+                                <button type="button" wire:click.prevent='startChat({{ $order->id }})' class="">
+                                    <img src="{{ asset('assets/app/icons/message.svg') }}"
                                         alt="more vertical icon" />
                                 </button>
                             </div>
+
                             <div class="post_time_grid">
                                 <div class="time_item">
-                                    <a href="{{ route('client.jobDetails', ['id' => $job->id]) }}">
+                                    <a href="{{ route('client.jobDetails', ['id' => $iJob->id]) }}">
                                         <h4>Estimate</h4>
-                                        <h5>{{ $job->project_size }}</h5>
+                                        <h5>{{ $iJob->project_size }}</h5>
                                     </a>
                                 </div>
                                 <div class="time_item">
                                     <h4>Cost</h4>
-                                    <h5>SAR {{ $job->budget }}</h5>
+                                    <h5>SAR {{ $order->amount }}</h5>
                                 </div>
                                 <div class="time_item">
                                     <h4>Proposal</h4>
                                     <div class="client_area d-flex align-items-center gap-1">
                                         <img src="{{ asset('assets/app/images/user/client_user.png') }}"
                                             alt="user image" class="user_img" />
-                                        <h5>Ali Hasan</h5>
+                                        <h5>
+                                            {{ getUserByID($order->seller_id)->first_name }} {{ getUserByID($order->seller_id)->last_name }}
+                                        </h5>
                                     </div>
                                 </div>
                             </div>
                             <div class="order_description_area">
                                 <p class="descriptionPara">
-                                    {{ $job->description }}
+                                    {{ $iJob->description }}
                                 </p>
                             </div>
                             <div class="category_area">
                                 <h6>Categories</h6>
                                 <ul class="category_list d-flex align-items-center flex-wrap gap-1">
-                                    <li>
-                                        <a href="#"> General Furniture Assembly </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> IKEA Assembly </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> Bookshelf Assembly </a>
-                                    </li>
+                                    @foreach (json_decode($iJob->category_names) as $catName)
+                                        <li>
+                                            <a href="javascript:void(0)"> {{ $catName }} </a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <div class="order_action_btn_area">
@@ -277,16 +277,16 @@
     @livewire('client.layouts.inc.header')
 
     <!-- More Dropdown Section  -->
-    <section class="more_dropdown_area" id="moreDropdownArea">
+    <section wire:ignore.self class="more_dropdown_area" id="moreDropdownArea">
         <ul class="dropdown_list">
             <li>
-                <a href="#"> View details </a>
+                <a wire:click.prevent='viewDetails'> View details </a>
             </li>
             <li>
-                <a href="#"> Edit </a>
+                <a wire:click.prevent='viewDetails'> Edit </a>
             </li>
             <li>
-                <a href="#" class="red"> Remove </a>
+                <a wire:click.prevent='viewDetails' class="red"> Remove </a>
             </li>
         </ul>
     </section>
@@ -311,7 +311,7 @@
             <button type="submit" class="login_btn">Publish</button>
         </form>
     </div>
-    <div class="overlay removeDropdownBtn" id="dropdownOverlay"></div>
+    <div wire:ignore.self class="overlay removeDropdownBtn" id="dropdownOverlay"></div>
 </div>
 
 @push('scripts')

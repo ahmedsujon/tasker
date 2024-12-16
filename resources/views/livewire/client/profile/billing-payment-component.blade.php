@@ -11,9 +11,7 @@
                 <div class="billing_area pt-12">
                     <h3>Balance</h3>
                     <div class="card_area"
-                        style="
-                  background-image: url({{ asset('assets/app/images/client/billing_card_bg.png') }});
-                ">
+                        style="background-image: url({{ asset('assets/app/images/client/billing_card_bg.png') }});">
                         <h4>Balance available</h4>
                         <h5>500.00 SAR</h5>
                         <button type="button" class="pay_now_btn">Pay Now</button>
