@@ -5,7 +5,6 @@ namespace App\Livewire\Client\Jobs;
 use App\Models\SellerProposal;
 use Illuminate\Support\Facades\DB;
 use App\Models\Job;
-use App\Models\SellerProposal;
 use Livewire\Component;
 
 class JobDetailsComponent extends Component
