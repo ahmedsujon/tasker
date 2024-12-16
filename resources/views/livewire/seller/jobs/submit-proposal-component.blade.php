@@ -69,37 +69,37 @@
                         </div>
                         <div class="input_row">
                             <label for="" class="form_label">Estimate timeline task done?</label>
-                            <input type="text" placeholder="Type timeline" wire:model.blur='timeline' class="input_field" value="1-2 Days" />
+                            <input type="text" placeholder="Type timeline" wire:model.blur='timeline' class="input_field" />
                             @error('timeline')
                                 <div class="form_status error">{{ $message }}</div>
                             @enderror
                             <ul class="timeline_list_area d-flex align-items-center flex-wrap" id="timelineListArea">
                                 <li>
-                                    <button type="button" wire:click.prevent='addTimeline("1-2 hr")'>1-2 hr</button>
+                                    <button type="button" wire:click.prevent='addTimeline("1-2 hr")' class="{{ $timeline == '1-2 hr' ? 'active' : '' }}">1-2 hr</button>
                                 </li>
                                 <li>
-                                    <button type="button" wire:click.prevent='addTimeline("3-5 hr")'>3-5 hr</button>
+                                    <button type="button" wire:click.prevent='addTimeline("3-5 hr")' class="{{ $timeline == '3-5 hr' ? 'active' : '' }}">3-5 hr</button>
                                 </li>
                                 <li>
-                                    <button type="button" wire:click.prevent='addTimeline("6-10 hr")'>6-10 hr</button>
+                                    <button type="button" wire:click.prevent='addTimeline("6-10 hr")' class="{{ $timeline == '6-10 hr' ? 'active' : '' }}">6-10 hr</button>
                                 </li>
                                 <li>
-                                    <button type="button" wire:click.prevent='addTimeline("1-2 Days")' class="active">1-2 Days</button>
+                                    <button type="button" wire:click.prevent='addTimeline("1-2 Days")' class="{{ $timeline == '1-2 Days' ? 'active' : '' }}">1-2 Days</button>
                                 </li>
                                 <li>
-                                    <button type="button" wire:click.prevent='addTimeline("3-5 Days")'>3-5 Days</button>
+                                    <button type="button" wire:click.prevent='addTimeline("3-5 Days")' class="{{ $timeline == '3-5 Days' ? 'active' : '' }}">3-5 Days</button>
                                 </li>
                                 <li>
-                                    <button type="button" wire:click.prevent='addTimeline("1-2 Weeks")'>1-2 Weeks</button>
+                                    <button type="button" wire:click.prevent='addTimeline("1-2 Weeks")' class="{{ $timeline == '1-2 Weeks' ? 'active' : '' }}">1-2 Weeks</button>
                                 </li>
                                 <li>
-                                    <button type="button" wire:click.prevent='addTimeline("1 Month")'>1 Month</button>
+                                    <button type="button" wire:click.prevent='addTimeline("1 Month")' class="{{ $timeline == '1 Month' ? 'active' : '' }}">1 Month</button>
                                 </li>
                                 <li>
-                                    <button type="button" wire:click.prevent='addTimeline("2 Months")'>2 Months</button>
+                                    <button type="button" wire:click.prevent='addTimeline("2 Months")' class="{{ $timeline == '2 Months' ? 'active' : '' }}">2 Months</button>
                                 </li>
                                 <li>
-                                    <button type="button" wire:click.prevent='addTimeline("3 Months")'>3 Months</button>
+                                    <button type="button" wire:click.prevent='addTimeline("3 Months")' class="{{ $timeline == '3 Months' ? 'active' : '' }}">3 Months</button>
                                 </li>
                             </ul>
                         </div>

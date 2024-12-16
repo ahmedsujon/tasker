@@ -2,6 +2,7 @@
 
 use App\Models\Admin;
 use App\Models\Category;
+use App\Models\SavedJob;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -96,6 +97,22 @@ function deleteFile($file)
     }
 }
 
+function savedJobStatus($id)
+{
+    if (user()) {
+        $status = SavedJob::where('user_id', user()->id)->where('job_id', $id)->first();
+        if ($status) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+function proposalCount($id)
+{
+    $count = SavedJob::where('job_id', $id)->count();
+    return $count;
+}
 function loadingStateSm($key, $title)
 {
     $loadingSpinner = '
@@ -127,6 +144,15 @@ function loadingStateWithText($key, $title)
 {
     $loadingSpinner = '
         <div wire:loading wire:target="' . $key . '" wire:key="' . $key . '"><span class="spinner-border spinner-border-sm align-middle" role="status" aria-hidden="true"></span> </div> ' . $title . '
+    ';
+
+    return $loadingSpinner;
+}
+
+function loadingStateWithTextPayment($key, $title)
+{
+    $loadingSpinner = '
+        <span wire:loading wire:target="' . $key . '" wire:key="' . $key . '"><span class="spinner-border spinner-border-xs align-middle" role="status" aria-hidden="true"></span> processing payment</span> <span wire:loading.remove wire:target="' . $key . '" wire:key="' . $key . '">' . $title . '</span>
     ';
 
     return $loadingSpinner;
