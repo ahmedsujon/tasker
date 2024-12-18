@@ -16,7 +16,7 @@ class JobSeeder extends Seeder
     {
         DB::table('jobs')->insert([
             [
-                'user_id' => 1,
+                'user_id' => 2,
                 'categories' => json_encode([1]),
                 'title' => 'Website Development',
                 'project_size' => 'Large',
@@ -42,7 +42,7 @@ class JobSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'user_id' => 3,
+                'user_id' => 2,
                 'categories' => json_encode([1]),
                 'title' => 'SEO Optimization',
                 'project_size' => 'Medium',
@@ -50,12 +50,12 @@ class JobSeeder extends Seeder
                 'budget' => '1200',
                 'location' => 'Jeddah',
                 'category_names' => json_encode(["Assembly","General Furniture Assembly","IKEA Assembly"]),
-                'status' => 'In Order',
+                'status' => 'Active',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'user_id' => 4,
+                'user_id' => 2,
                 'categories' => json_encode([4]),
                 'title' => 'Content Writing',
                 'project_size' => 'Medium',
@@ -63,12 +63,12 @@ class JobSeeder extends Seeder
                 'budget' => '800',
                 'location' => 'Riyadh',
                 'category_names' => json_encode(["Assembly","General Furniture Assembly","IKEA Assembly"]),
-                'status' => 'In Order',
+                'status' => 'Active',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'user_id' => 5,
+                'user_id' => 2,
                 'categories' => json_encode([2]),
                 'title' => 'Social Media Marketing',
                 'project_size' => 'Large',
