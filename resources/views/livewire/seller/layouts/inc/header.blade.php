@@ -27,7 +27,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('seller.sellerMessages') }}" class="menu_list_item">
+                <a href="{{ route('seller.sellerChats') }}" class="menu_list_item">
                     @if (request()->is('seller/seller/messages'))
                         <img src="{{ asset('assets/app/icons/header/message-active.svg') }}" alt="message active icon"
                             class="" />

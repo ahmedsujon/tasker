@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Livewire\Client\Messages;
+namespace App\Livewire\Seller\Messages;
 
 use App\Models\Chat;
-use App\Models\User;
 use Livewire\Component;
 use App\Models\ChatMessage;
 use Livewire\WithPagination;
@@ -99,7 +98,6 @@ class MessageComponent extends Component
 
     public function render()
     {
-        $chats = Chat::get();
-        return view('livewire.client.messages.message-component', ['chats' => $chats])->layout('livewire.client.layouts.base');
+        return view('livewire.seller.messages.message-component')->layout('livewire.seller.layouts.base');
     }
 }

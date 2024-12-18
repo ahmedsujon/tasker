@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('sender')->nullable();
             $table->unsignedBigInteger('receiver')->nullable();
+            $table->unsignedBigInteger('last_msg_sender')->nullable();
             $table->text('last_msg')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
