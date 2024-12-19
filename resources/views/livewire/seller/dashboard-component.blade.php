@@ -1,5 +1,4 @@
 <div>
-    <!-- Freelancer Header  Section  -->
     <section class="freelancer_header_wrapper">
         <div class="header_grid">
             <a href="#" class="logo">

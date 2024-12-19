@@ -41,7 +41,11 @@ class RegistrationComponent extends Component
         $user->save();
         Auth::guard('web')->attempt(['email' => $this->email, 'password' => $this->password]);
         session()->flash('success', 'Registration successful');
-        return redirect()->route('seller.dashboard');
+        if (user()->type == 'seller') {
+            return redirect()->route('seller.dashboard');
+        } else {
+            return redirect()->route('client.home');
+        }
     }
 
     public function render()

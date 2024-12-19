@@ -32,26 +32,21 @@ use App\Livewire\Client\Profile\Settings\ChangePasswordComponent;
 use App\Livewire\Client\Profile\Settings\NotificationsComponent;
 use App\Livewire\Client\Profile\Settings\SettingsComponent;
 use App\Livewire\Client\Profile\Settings\SupportComponent;
-use App\Livewire\Client\User\DashboardComponent;
-use App\Livewire\Seller\DashboardComponent as SellerDashboardComponent;
-use App\Livewire\Seller\Jobs\JobApplyComponent;
+use App\Livewire\Seller\DashboardComponent;
 use App\Livewire\Seller\Jobs\JobDetailsComponent as JobsJobDetailsComponent;
 use App\Livewire\Seller\Jobs\JobsComponent as JobsJobsComponent;
 use App\Livewire\Seller\Jobs\SubmitProposalComponent;
 use App\Livewire\Seller\Jobs\SubmitProposalSuccessComponent;
-use App\Livewire\Seller\Messages\MessageComponent as MessagesMessageComponent;
 use App\Livewire\Seller\Messages\SellerMessageComponent;
 use App\Livewire\Seller\Payments\AddBankInfoComponent;
 use App\Livewire\Seller\Payments\BankInfoComponent;
 use App\Livewire\Seller\Payments\EditBankInfoComponent;
 use App\Livewire\Seller\Payments\ViewBankInfoComponent;
 use App\Livewire\Seller\Profile\JobManagementComponent;
-use App\Livewire\Seller\Profile\ProfileComponent as ProfileProfileComponent;
 use App\Livewire\Seller\Profile\SellerAccountComponent;
 use App\Livewire\Seller\Profile\SellerBillingComponent;
 use App\Livewire\Seller\Profile\SellerProfileComponent;
 use App\Livewire\Seller\Profile\Settings\SellerChangePasswordComponent;
-use App\Livewire\Seller\Profile\Settings\SellerChangeSupportComponent;
 use App\Livewire\Seller\Profile\Settings\SellerNotificationComponent;
 use App\Livewire\Seller\Profile\Settings\SellerSettingsComponent;
 use App\Livewire\Seller\Profile\Settings\SellerSupportComponent;
@@ -119,7 +114,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('seller/')->name('seller.')->middleware('role:seller')->group(function () {
         // all seller routes here
-        Route::get('dashboard', SellerDashboardComponent::class)->name('dashboard');
+        Route::get('dashboard', DashboardComponent::class)->name('dashboard');
 
         // Jobs Routes
         Route::get('jobs', JobsJobsComponent::class)->name('sellerJobs');
