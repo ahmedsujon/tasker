@@ -15,37 +15,41 @@
             </div>
         </div>
 
-        <ul wire:ignore.self class="tab_list nav d-flex align-items-center justify-content-between flex-wrap gap-3" id="pills-tab"
-            role="tablist">
+        <ul wire:ignore.self class="tab_list nav d-flex align-items-center justify-content-between flex-wrap gap-3"
+            id="pills-tab" role="tablist">
             <li wire:ignore.self class="nav-item" role="presentation">
-                <button wire:ignore.self class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
-                    type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                <button wire:ignore.self class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                    aria-selected="true">
                     Active
                 </button>
             </li>
             <li wire:ignore.self class="nav-item" role="presentation">
-                <button wire:ignore.self class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
-                    type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+                <button wire:ignore.self class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                    aria-selected="false">
                     In Order
                 </button>
             </li>
             <li wire:ignore.self class="nav-item" role="presentation">
-                <button wire:ignore.self class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
-                    type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
+                <button wire:ignore.self class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                    aria-selected="false">
                     Draft
                 </button>
             </li>
             <li wire:ignore.self class="nav-item" role="presentation">
-                <button wire:ignore.self class="nav-link" id="pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#pills-disabled"
-                    type="button" role="tab" aria-controls="pills-disabled" aria-selected="false">
+                <button wire:ignore.self class="nav-link" id="pills-disabled-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled"
+                    aria-selected="false">
                     Finished
                 </button>
             </li>
         </ul>
     </section>
     <div wire:ignore.self class="tab-content" id="pills-tabContent">
-        <div wire:ignore.self class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
-            tabindex="0">
+        <div wire:ignore.self class="tab-pane fade show active" id="pills-home" role="tabpanel"
+            aria-labelledby="pills-home-tab" tabindex="0">
             <!-- Active Post Tab Section  -->
             <section class="active_tab_wrapper mrn-24">
                 <div class="mr-24">
@@ -55,7 +59,8 @@
                                 <h3>
                                     {{ $activeJob->title }}
                                 </h3>
-                                <button type="button" class="postMoreBtn" wire:click.prevent='selectJobMoreOption({{ $activeJob->id }})'>
+                                <button type="button" class="postMoreBtn"
+                                    wire:click.prevent='selectJobMoreOption({{ $activeJob->id }})'>
                                     <img src="{{ asset('assets/app/icons/more-vertical.svg') }}"
                                         alt="more vertical icon" />
                                 </button>
@@ -72,12 +77,12 @@
                                     <h5>SAR {{ $activeJob->budget }}</h5>
                                 </div>
                                 <div class="time_item">
-                                    <h4>Proposal</h4>
+                                    {{-- <h4>Proposal</h4>
                                     <h5>
                                         {{ proposalCount($activeJob->id) }}
-                                    </h5>
+                                    </h5> --}}
                                     <h4 class="text-center">Proposal</h4>
-                                    <h5 class="text-center">{{ $job->proposal_count ?? 0 }}</h5>
+                                    <h5 class="text-center">{{ $activeJob->proposal_count ?? 0 }}</h5>
                                 </div>
                             </div>
                             <div class="category_area">
@@ -89,7 +94,7 @@
                                         </li>
                                     @endforeach
                                     @php
-                                        $category_names = json_decode($job->category_names, true);
+                                        $category_names = json_decode($activeJob->category_names, true);
                                     @endphp
                                     @if (is_array($category_names))
                                         @foreach ($category_names as $category)
@@ -105,22 +110,24 @@
                 </div>
             </section>
         </div>
-        <div wire:ignore.self class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
-            tabindex="0">
+        <div wire:ignore.self class="tab-pane fade" id="pills-profile" role="tabpanel"
+            aria-labelledby="pills-profile-tab" tabindex="0">
             <section class="active_tab_wrapper mrn-24">
                 <div class="mr-24">
                     @foreach ($in_order_jobs as $iJob)
                         @php
-                            $order = App\Models\Order::select('id', 'seller_id', 'amount')->where('job_id', $iJob->id)->first();
+                            $order = App\Models\Order::select('id', 'seller_id', 'amount')
+                                ->where('job_id', $iJob->id)
+                                ->first();
                         @endphp
                         <div class="active_post_card">
                             <div class="post_title_grid">
                                 <h3>
                                     {{ $iJob->title }}
                                 </h3>
-                                <button type="button" wire:click.prevent='startChat({{ $order->id }})' class="">
-                                    <img src="{{ asset('assets/app/icons/message.svg') }}"
-                                        alt="more vertical icon" />
+                                <button type="button" wire:click.prevent='startChat({{ $order->id }})'
+                                    class="">
+                                    <img src="{{ asset('assets/app/icons/message.svg') }}" alt="more vertical icon" />
                                 </button>
                             </div>
 
@@ -141,7 +148,8 @@
                                         <img src="{{ asset('assets/app/images/user/client_user.png') }}"
                                             alt="user image" class="user_img" />
                                         <h5>
-                                            {{ getUserByID($order->seller_id)->first_name }} {{ getUserByID($order->seller_id)->last_name }}
+                                            {{ getUserByID($order->seller_id)->first_name }}
+                                            {{ getUserByID($order->seller_id)->last_name }}
                                         </h5>
                                     </div>
                                 </div>
@@ -174,8 +182,8 @@
                 </div>
             </section>
         </div>
-        <div wire:ignore.self class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
-            tabindex="0">
+        <div wire:ignore.self class="tab-pane fade" id="pills-contact" role="tabpanel"
+            aria-labelledby="pills-contact-tab" tabindex="0">
             <section class="active_tab_wrapper mrn-24">
                 <div class="mr-24">
                     @foreach ($draft_jobs as $job)
@@ -225,8 +233,8 @@
                 </div>
             </section>
         </div>
-        <div wire:ignore.self class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab"
-            tabindex="0">
+        <div wire:ignore.self class="tab-pane fade" id="pills-disabled" role="tabpanel"
+            aria-labelledby="pills-disabled-tab" tabindex="0">
             <section class="active_tab_wrapper mrn-24">
                 <div class="mr-24">
                     @foreach ($finished_jobs as $job)

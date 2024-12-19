@@ -2,6 +2,7 @@
 
 use App\Models\Admin;
 use App\Models\Category;
+use App\Models\Job;
 use App\Models\SavedJob;
 use App\Models\User;
 use Carbon\Carbon;
@@ -33,6 +34,16 @@ function user()
 function getUserByID($id)
 {
     return User::find($id);
+}
+
+function getSavedJobByID($id)
+{
+    return Job::find($id);
+}
+
+function getActiveJobByID($id)
+{
+    return Job::find($id);
 }
 
 //Admin Panel Helper Functions

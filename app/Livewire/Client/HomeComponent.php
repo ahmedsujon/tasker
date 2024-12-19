@@ -50,7 +50,6 @@ class HomeComponent extends Component
 
             return redirect()->route('client.chatMessages', ['chat_id' => $chat->id]);
         }
-
     }
 
     public function render()
@@ -58,6 +57,7 @@ class HomeComponent extends Component
 
         $active_jobs = DB::table('jobs')->where('user_id', user()->id)->where('status', 'Active')->paginate($this->sortingValue);
         $in_order_jobs = DB::table('jobs')->where('user_id', user()->id)->where('status', 'In Order')->paginate($this->sortingValue);
+
         $active_jobs = DB::table('jobs')
             ->leftJoin('seller_proposals', 'jobs.id', '=', 'seller_proposals.job_id')
             ->select('jobs.*', DB::raw('COUNT(seller_proposals.id) as proposal_count'))
@@ -66,6 +66,7 @@ class HomeComponent extends Component
             ->groupBy('jobs.id')
             ->orderBy('jobs.id', 'DESC')
             ->paginate($this->sortingValue);
+
         $draft_jobs = Job::where('status', 'Active')->where('jobs.user_id', user()->id)->orderBy('id', 'DESC')->paginate($this->sortingValue);
         $finished_jobs = Job::where('status', 'Active')->where('jobs.user_id', user()->id)->orderBy('id', 'DESC')->paginate($this->sortingValue);
         $this->dispatch('reload_scripts');

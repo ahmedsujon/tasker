@@ -2,10 +2,11 @@
     <main class="main_content_area">
         <!-- Proposal Submit Section  -->
         <section class="proposal_submit_wrapper">
-            <form action="" wire:submit.prevent='submitProposal' class="form_area job_post_form_area h-full-screen space-between horizontal-m-w">
+            <form action="" wire:submit.prevent='submitProposal'
+                class="form_area job_post_form_area h-full-screen space-between horizontal-m-w">
                 <div class="w-100">
                     <div class="back_btn_grid mt-12">
-                        <button type="button" class="page_back_btn">
+                        <button type="button" class="page_back_btn" onclick="history.back()">
                             <img src="{{ asset('assets/app/icons/arrow-left.svg') }}" alt="arrow left" />
                         </button>
                         <h3>Submit a Proposal</h3>
@@ -13,7 +14,8 @@
                     <div class="mt-32">
                         <div class="input_row">
                             <label for="" class="form_label">Description</label>
-                            <textarea rows="5" name="" id="" wire:model.blur='description' placeholder="Write a description" class="input_field"></textarea>
+                            <textarea rows="5" name="" id="" wire:model.blur='description' placeholder="Write a description"
+                                class="input_field"></textarea>
                             @error('description')
                                 <div class="form_status error">{{ $message }}</div>
                             @enderror
@@ -39,67 +41,80 @@
                                 <div class="file_uploaded_area">
                                     <h3>Attached Files</h3>
                                     @foreach ($attachments as $index => $attachment)
-                                    <div class="upload_grid">
-                                        <!-- Display file icon or preview for images -->
-                                        @if (in_array($attachment->getMimeType(), ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']))
-                                            <img src="{{ $attachment->temporaryUrl() }}" class="upload_img" style="height: 50px; width: 50px;"/>
-                                        @else
-                                            <img src="{{ asset('assets/custom/icons/file-type-pdf.svg') }}" class="upload_img" style="height: 50px; width: 50px;"/>
-                                        @endif
-                                        <div>
-                                            <h4>{{ $attachment->getClientOriginalName() }}</h4>
-                                            <h6>
-                                                @if ($attachment->getSize() >= 1024 * 1024)
-                                                    {{ round($attachment->getSize() / (1024 * 1024), 2) }} MB
-                                                @else
-                                                    {{ round($attachment->getSize() / 1024, 2) }} KB
-                                                @endif
-                                            </h6>
+                                        <div class="upload_grid">
+                                            <!-- Display file icon or preview for images -->
+                                            @if (in_array($attachment->getMimeType(), ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']))
+                                                <img src="{{ $attachment->temporaryUrl() }}" class="upload_img"
+                                                    style="height: 50px; width: 50px;" />
+                                            @else
+                                                <img src="{{ asset('assets/custom/icons/file-type-pdf.svg') }}"
+                                                    class="upload_img" style="height: 50px; width: 50px;" />
+                                            @endif
+                                            <div>
+                                                <h4>{{ $attachment->getClientOriginalName() }}</h4>
+                                                <h6>
+                                                    @if ($attachment->getSize() >= 1024 * 1024)
+                                                        {{ round($attachment->getSize() / (1024 * 1024), 2) }} MB
+                                                    @else
+                                                        {{ round($attachment->getSize() / 1024, 2) }} KB
+                                                    @endif
+                                                </h6>
+                                            </div>
+                                            <div class="text-end">
+                                                <button type="button" class="file_delete_btn"
+                                                    wire:click="removeAttachment({{ $index }})">
+                                                    Delete
+                                                </button>
+                                            </div>
                                         </div>
-                                        <div class="text-end">
-                                            <button type="button" class="file_delete_btn" wire:click="removeAttachment({{ $index }})">
-                                                Delete
-                                            </button>
-                                        </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
                                 </div>
                             @endif
 
                         </div>
                         <div class="input_row">
                             <label for="" class="form_label">Estimate timeline task done?</label>
-                            <input type="text" placeholder="Type timeline" wire:model.blur='timeline' class="input_field" />
+                            <input type="text" placeholder="Type timeline" wire:model.blur='timeline'
+                                class="input_field" />
                             @error('timeline')
                                 <div class="form_status error">{{ $message }}</div>
                             @enderror
                             <ul class="timeline_list_area d-flex align-items-center flex-wrap" id="timelineListArea">
                                 <li>
-                                    <button type="button" wire:click.prevent='addTimeline("1-2 hr")' class="{{ $timeline == '1-2 hr' ? 'active' : '' }}">1-2 hr</button>
+                                    <button type="button" wire:click.prevent='addTimeline("1-2 hr")'
+                                        class="{{ $timeline == '1-2 hr' ? 'active' : '' }}">1-2 hr</button>
                                 </li>
                                 <li>
-                                    <button type="button" wire:click.prevent='addTimeline("3-5 hr")' class="{{ $timeline == '3-5 hr' ? 'active' : '' }}">3-5 hr</button>
+                                    <button type="button" wire:click.prevent='addTimeline("3-5 hr")'
+                                        class="{{ $timeline == '3-5 hr' ? 'active' : '' }}">3-5 hr</button>
                                 </li>
                                 <li>
-                                    <button type="button" wire:click.prevent='addTimeline("6-10 hr")' class="{{ $timeline == '6-10 hr' ? 'active' : '' }}">6-10 hr</button>
+                                    <button type="button" wire:click.prevent='addTimeline("6-10 hr")'
+                                        class="{{ $timeline == '6-10 hr' ? 'active' : '' }}">6-10 hr</button>
                                 </li>
                                 <li>
-                                    <button type="button" wire:click.prevent='addTimeline("1-2 Days")' class="{{ $timeline == '1-2 Days' ? 'active' : '' }}">1-2 Days</button>
+                                    <button type="button" wire:click.prevent='addTimeline("1-2 Days")'
+                                        class="{{ $timeline == '1-2 Days' ? 'active' : '' }}">1-2 Days</button>
                                 </li>
                                 <li>
-                                    <button type="button" wire:click.prevent='addTimeline("3-5 Days")' class="{{ $timeline == '3-5 Days' ? 'active' : '' }}">3-5 Days</button>
+                                    <button type="button" wire:click.prevent='addTimeline("3-5 Days")'
+                                        class="{{ $timeline == '3-5 Days' ? 'active' : '' }}">3-5 Days</button>
                                 </li>
                                 <li>
-                                    <button type="button" wire:click.prevent='addTimeline("1-2 Weeks")' class="{{ $timeline == '1-2 Weeks' ? 'active' : '' }}">1-2 Weeks</button>
+                                    <button type="button" wire:click.prevent='addTimeline("1-2 Weeks")'
+                                        class="{{ $timeline == '1-2 Weeks' ? 'active' : '' }}">1-2 Weeks</button>
                                 </li>
                                 <li>
-                                    <button type="button" wire:click.prevent='addTimeline("1 Month")' class="{{ $timeline == '1 Month' ? 'active' : '' }}">1 Month</button>
+                                    <button type="button" wire:click.prevent='addTimeline("1 Month")'
+                                        class="{{ $timeline == '1 Month' ? 'active' : '' }}">1 Month</button>
                                 </li>
                                 <li>
-                                    <button type="button" wire:click.prevent='addTimeline("2 Months")' class="{{ $timeline == '2 Months' ? 'active' : '' }}">2 Months</button>
+                                    <button type="button" wire:click.prevent='addTimeline("2 Months")'
+                                        class="{{ $timeline == '2 Months' ? 'active' : '' }}">2 Months</button>
                                 </li>
                                 <li>
-                                    <button type="button" wire:click.prevent='addTimeline("3 Months")' class="{{ $timeline == '3 Months' ? 'active' : '' }}">3 Months</button>
+                                    <button type="button" wire:click.prevent='addTimeline("3 Months")'
+                                        class="{{ $timeline == '3 Months' ? 'active' : '' }}">3 Months</button>
                                 </li>
                             </ul>
                         </div>

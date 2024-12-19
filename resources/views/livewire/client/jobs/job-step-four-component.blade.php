@@ -90,25 +90,25 @@
     <!-- More Dropdown Section  -->
     <section wire:ignore.self class="more_dropdown_area" id="moreDropdownArea">
         <ul class="dropdown_list">
-            <li>
+            {{-- <li>
                 <a href="javascript:void(0)">
                     <span class="short_title">A Short Title is Best</span>
                     <span class="message">A message should be a short, complete sentence.</span>
                 </a>
-            </li>
-            <li>
+            </li> --}}
+            {{-- <li>
                 <a href="{{ route('client.home') }}"> Edit Job Post </a>
-            </li>
+            </li> --}}
             <li>
                 <button type="button" wire:click.prevent='jobPostFinalize("draft")' wire:loading.attr='disabled'>
                     {!! loadingStateWithText("jobPostFinalize('draft')", 'Save as a draft') !!}
                 </button>
             </li>
-            <li>
+            {{-- <li>
                 <button type="button" class="red" wire:click.prevent='deleteConfirmation' wire:loading.attr='disabled'>
                     {!! loadingStateWithText("deleteConfirmation", 'Delete the Job Post') !!}
                 </button>
-            </li>
+            </li> --}}
         </ul>
         <button type="button" class="dropdown_cancel_btn removeDropdownBtn">
             Cancel
